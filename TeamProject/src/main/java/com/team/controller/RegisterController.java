@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegisterController {
     @Autowired
     RegisterService registerService;
+
+    @GetMapping("/main")
+    public String main() {
+        return "main";
+    }
     @GetMapping("/register")
     public String getRegister() {
         return "register";
