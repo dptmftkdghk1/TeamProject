@@ -10,12 +10,15 @@
     <div class="object-manage">
         <h2>비품관리</h2>
         <section class="object-manage-section">
-            <input type="text">
-            <button class="object-manage-section-button-search">검색</button>
+            <div class="object-manage-section-content"></div>
+            <!-- <input type="text"> -->
+            <div class="object-manage-section-button-search">황예슬</div>
+            <!-- <button class="object-manage-section-button-search">검색</button> -->
 
             <div class="object-manage-button-style">
-                <button class="object-manage-button-register">수정</button>
                 <button class="object-manage-button-register">취소</button>
+                <button class="object-manage-button-register">수정</button>
+                
                 <button class="object-manage-button-delete">삭제</button>
             </div>
         </section> 
@@ -73,8 +76,9 @@ section {
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-input[type=text]{
+.object-manage-section-content{
     margin-right: 1rem;
+    height: 15px;
     width: 45vw;
     padding: 0.7rem;
     background-color: #EEEDED;
@@ -106,8 +110,13 @@ button{
     margin-left:10px;
 }
 .object-manage-section-button-search{
+    display:flex;
+    align-items: center;
     margin-right: 10px;
-    background-color:#dad9d9; 
+    /* background-color:#dad9d9;  */
+    border-radius: 20px;
+    padding: 0 20px;
+    border: 2px solid rgba(0, 0, 0, 0.12);
 }
 </style>
   
