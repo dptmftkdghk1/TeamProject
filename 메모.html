@@ -15,11 +15,15 @@
         <section class="rental-table-list-search">
             <input type="text">
             <button>검색</button>
+            <div class="table-list-button-style">
+                <button>등록</button>
+                <button class="table-list-button-delete">삭제</button>
+            </div>
         </section> 
 
         <section class="rental-table-list-design">
             <div class="memo-history">
-                <div>1</div>
+                <div><input type="checkbox" style="margin-right:10px;">1</div>
                 <div>2</div>
                 <div>3</div>
                 <div>1</div>
@@ -79,7 +83,6 @@
     font-family: "Do Hyeon"
 }
 
-
 h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -93,7 +96,17 @@ td:nth-child(6){
     white-space: nowrap;
     /* background-color: blue; */
 }
+.table-list-button-style{
+    flex: 1;
+    display:flex;
+    justify-content: end;
+    /* margin-right: 15px; */
+}
 
+.table-list-button-delete{
+    margin-left: 10px;
+    background-color: #FFC0C0;
+}
 .rental-table-list-search{
     display:flex;
     padding: 10px;
@@ -141,10 +154,10 @@ section {
 }
 
 .memo-text{
-    /* margin-left: 10px; */
-    border-radius: 20px;
+    margin-left: 10px;
+    /* border-radius: 20px; */
     width: calc(50vw - 20px);
-    height: calc(63vh - 20px);
+    height: calc(63vh - 25px);
     border: 1px solid rgba(0, 0, 0, 0.12);
     background-color: rgb(251, 255, 184);
     resize:none;
@@ -158,7 +171,7 @@ section {
     /* overflow-x: hidden; */
 }
 
-.memo-history::-webkit-scrollbar {
+/* .memo-history::-webkit-scrollbar {
     width: 10px;
 }
 .memo-history::-webkit-scrollbar-thumb {
@@ -170,14 +183,15 @@ section {
 .memo-history::-webkit-scrollbar-track {
     background-color:  #ffffff;
     border-radius: 10px;
-}
+} */
 table{
     width: 94vw;
 }
 
 input[type=text]{
     margin-right: 1rem;
-    width: calc(45vw - 90px);
+    width: 20vw;
+    /* width: calc(45vw - 90px); */
     padding: 0.7rem;
     background-color: #EEEDED;
     border: 1px solid rgba(0, 0, 0, 0.12);
