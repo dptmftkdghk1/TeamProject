@@ -14,7 +14,7 @@
         <h2>회원가입</h2>
         <form>
             <div class="join-form-box">
-                <label>
+                <label id="id">
                     <span>아이디</span>
                     <input type="text"/>
                 </label>
@@ -24,34 +24,34 @@
             </div>
 
             <div class="join-form-box">
-                <label>
+                <label id="password">
                     <span>비밀번호</span>
                     <input type="password">
                 </label>
             </div>
 
             <div class="join-form-box">
-                <label class="join-input-design">
+                <label class="join-input-design" id="passwordConfirm">
                     <input type="password">
                 </label>
             </div>
             
             <div class="join-form-box">
-                <label>
+                <label id="name">
                     <span>이름</span>
                     <input type="text">
                 </label>
             </div>
 
             <div class="join-form-box">
-                <label>
+                <label id="birth">
                     <span>생년월일</span>
                     <input type="date">
                 </label>
             </div>
             
             <div class="join-form-box">
-                <label>
+                <label id="phone">
                     <span>휴대폰 번호</span>
                     <div class="join-button-box">
                         <select name="" id="">
@@ -77,7 +77,7 @@
             </div>
             
             <div class="join-form-box">
-                <label class="join-input-design">
+                <label class="join-input-design" id="phoneAuthentication">
                     <input type="text">
                 </label>
                 
@@ -85,12 +85,12 @@
             </div>
                 
             <div class="join-form-box">
-                <label>
+                <label id="email">
                     <span>이메일</span>
                     <div class="join-form-email">
-                        <input type="email" class="join-form-email-first-input">
+                        <input type="text" class="join-form-email-first-input">
                         <span>@</span>
-                        <input type="email" class="join-form-email-input">
+                        <input type="text" class="join-form-email-input">
                         <select class="join-form-email-select" name="" id="">
                             <option value="">네이버</option>
                         </select>
@@ -100,7 +100,7 @@
             </div>
             
             <div class="join-form-box">
-                <label>
+                <label id="addr">
                     <span>주소</span>
                     <input type="text">
                 </label>
@@ -109,14 +109,14 @@
             </div>
             
             <div class="join-form-box">
-                <label>
+                <label id="addrDetail">
                     <span>상세주소</span>
                     <input type="text">
                 </label>
             </div>
 
             <div class="join-form-box">
-                <div class="join-form-box-gender">
+                <div class="join-form-box-gender" id="gender">
                     <span>성별</span>
                     <div class="join-gender-button">
                         <input type="button" class="join-back-design" value="여자">
@@ -126,14 +126,14 @@
             </div>
             
             <div class="join-form-box">
-                <label class="join-profile-line">
+                <label class="join-profile-line" id="profileImg">
                     <span>프로필 사진</span>
                     <div class="join-profile"></div>
                     <div class="join-photo-register"><span>등록</span></div>
                 </label>
             </div>
             
-            <button type="submit">확인</button>
+            <button type="submit" id="submit">확인</button>
         </form>
         <div class="join-back-login">
             <a href="">로그인 화면으로</a>
@@ -481,4 +481,41 @@ button:hover{
 }
 
 </style>
-  
+
+<script>
+    const submitBtn = document.getElementById("submit");
+    submitBtn.onclick = () => {
+        const id = document.getElementById("id").querySelector('input').value;
+        const password = document.getElementById("password").querySelector('input').value;
+        const passwordConfirm = document.getElementById("passwordConfirm").querySelector('input').value;
+        const name = document.getElementById("name").querySelector('input').value;
+        const birth = document.getElementById("birth").querySelector('input').value;
+        const [emailHead, emailBody] = document.getElementById("email").querySelectorAll('input');
+        const addr = document.getElementById("addr").querySelector('input').value;
+        const addrDetail = document.getElementById("addrDetail").querySelector('input').value;
+        if (id.trim() === '') {
+            alert('아이디를 입력해주세요');
+        }
+        if (password.trim() === '') {
+            alert('비밀번호를 입력해주세요');
+        }
+        if (name.trim() === '') {
+            alert('이름을 입력해주세요');
+        }
+        if (birth.trim() === '') {
+            alert('생년월일을 입력해주세요');
+        }
+        if (emailHead.value.trim() === '' || emailBody.value.trim() === ''){
+            alert('이메일을 입력해주세요');
+        }
+        if (addr.trim() === '') {
+            alert('주소를 입력해주세요');
+        }
+        if (addrDetail.trim() === '') {
+            alert('상세주소를 입력해주세요');
+        }
+        if (password !== passwordConfirm) {
+            alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+        }
+    }
+</script>

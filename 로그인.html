@@ -163,4 +163,18 @@ button:hover{
     border-left: 2px solid #333;
 }
   </style>
-  
+
+<script>
+    const submit = document.querySelector('button');
+
+    submit.onclick = () =>{
+        const username = document.querySelector('input[type="text"]').value;
+        const password = document.querySelector('input[type="password"]').value;
+        if (username.trim() === '') {
+            alert('아이디를 입력해주세요.');
+        }
+        if (password.trim() === '') {
+            alert('비밀번호를 입력해주세요.');
+        }
+    }
+</script>
