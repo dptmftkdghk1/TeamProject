@@ -31,7 +31,8 @@
             </div>
 
             <div class="join-form-box">
-                <label class="join-input-design" id="passwordConfirm">
+                <label id="passwordConfirm">
+                    <span>비밀번호 확인</span>
                     <input type="password">
                 </label>
             </div>
@@ -482,40 +483,67 @@ button:hover{
 
 </style>
 
+<!--<script>-->
+<!--    const submitBtn = document.getElementById("submit");-->
+<!--    submitBtn.onclick = () => {-->
+<!--        const id = document.getElementById("id").querySelector('input').value;-->
+<!--        const name = document.getElementById("name").querySelector('input').value;-->
+<!--        const birth = document.getElementById("birth").querySelector('input').value;-->
+<!--        const [emailHead, emailBody] = document.getElementById("email").querySelectorAll('input');-->
+<!--        const addr = document.getElementById("addr").querySelector('input').value;-->
+<!--        const addrDetail = document.getElementById("addrDetail").querySelector('input').value;-->
+<!--        if (id.trim() === '') {-->
+<!--            alert('아이디를 입력해주세요');-->
+<!--        }-->
+<!--        if (password.trim() === '') {-->
+<!--            alert('비밀번호를 입력해주세요');-->
+<!--        }-->
+<!--        if (name.trim() === '') {-->
+<!--            alert('이름을 입력해주세요');-->
+<!--        }-->
+<!--        if (birth.trim() === '') {-->
+<!--            alert('생년월일을 입력해주세요');-->
+<!--        }-->
+<!--        if (emailHead.value.trim() === '' || emailBody.value.trim() === ''){-->
+<!--            alert('이메일을 입력해주세요');-->
+<!--        }-->
+<!--        if (addr.trim() === '') {-->
+<!--            alert('주소를 입력해주세요');-->
+<!--        }-->
+<!--        if (addrDetail.trim() === '') {-->
+<!--            alert('상세주소를 입력해주세요');-->
+<!--        }-->
+
+<!--    }-->
+<!--</script>-->
 <script>
-    const submitBtn = document.getElementById("submit");
-    submitBtn.onclick = () => {
-        const id = document.getElementById("id").querySelector('input').value;
+    document.getElementById('submit').addEventListener('click', function(event) {
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('input');
         const password = document.getElementById("password").querySelector('input').value;
         const passwordConfirm = document.getElementById("passwordConfirm").querySelector('input').value;
-        const name = document.getElementById("name").querySelector('input').value;
-        const birth = document.getElementById("birth").querySelector('input').value;
-        const [emailHead, emailBody] = document.getElementById("email").querySelectorAll('input');
-        const addr = document.getElementById("addr").querySelector('input').value;
-        const addrDetail = document.getElementById("addrDetail").querySelector('input').value;
-        if (id.trim() === '') {
-            alert('아이디를 입력해주세요');
-        }
-        if (password.trim() === '') {
-            alert('비밀번호를 입력해주세요');
-        }
-        if (name.trim() === '') {
-            alert('이름을 입력해주세요');
-        }
-        if (birth.trim() === '') {
-            alert('생년월일을 입력해주세요');
-        }
-        if (emailHead.value.trim() === '' || emailBody.value.trim() === ''){
-            alert('이메일을 입력해주세요');
-        }
-        if (addr.trim() === '') {
-            alert('주소를 입력해주세요');
-        }
-        if (addrDetail.trim() === '') {
-            alert('상세주소를 입력해주세요');
-        }
+
         if (password !== passwordConfirm) {
             alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+            event.preventDefault(); // 폼 제출을 막습니다.
         }
-    }
+
+        for (let input of inputs) {
+            if (input.type !== 'file' && input.value.trim() === '') {
+                let label = input.closest('label') || input.closest('.join-form-box');
+                let labelText = label.querySelector('span') ? label.querySelector('span').textContent : '';
+
+                // 추가: span이 없는 경우에 대한 처리
+                if (label.id === 'phoneAuthentication') {
+                    alert('휴대전화 인증을 확인하세요.');
+                } else if (labelText.trim() !== '') {
+                    alert(labelText + '을(를) 입력하세요.');
+                }
+
+                input.focus();
+                event.preventDefault();  // 폼 제출을 막습니다.
+                return;
+            }
+        }
+    });
 </script>
