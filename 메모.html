@@ -11,57 +11,46 @@
 <body>
     
     <div class="rental-table-list">
-        <h2>대여신청 목록</h2>
+        <h2>메모</h2>
         <section class="rental-table-list-search">
             <input type="text">
             <button>검색</button>
         </section> 
 
         <section class="rental-table-list-design">
-            <table border="1">
-                <thead class="rental-table-list-head">
-                    <tr>
-                        <td>카테고리</td>
-                        <td>비품명</td>
-                        <td>신청자</td>
-                        <td>신청일</td>
-                        <td>반납일</td>
-                        <td>사용목적</td>
-                        <td style="width:200px"></td>
-                    </tr>
-                </thead>
-
-                <tr>
-                    <td>노트북노트북노트북</td>
-                    <td>삼성 노트북삼성 노트북삼성 노트북</td>
-                    <td>황예슬황예슬황예슬황예슬황예슬</td>
-                    <td>2024-06-01</td>
-                    <td>2024-06-11</td>
-                    <td><span>외근 시 사용...외근 시 사용...외근 시 사용...</span></td>
-                    <td><button>승인</button><button>거부</button></td>
-                </tr>
-
-                <tr>
-                    <td>노트북</td>
-                    <td>삼성 노트북</td>
-                    <td>황예슬</td>
-                    <td>2024-06-01</td>
-                    <td>2024-06-11</td>
-                    <td>회의....</td>
-                    <td><button>승인</button><button>거부</button></td>
-                </tr>
-                
-
-            </table>
+            <div class="memo-history">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>1</div>
+                <div>2</div>
+            </div>
+            <textarea name="" id="" class="memo-text"></textarea>
+            <!-- <div ></div> -->
         </section>
 
-        <section class="rental-table-list-footer">
+        <!-- <section class="rental-table-list-footer">
             <li>1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>
             <li>5</li>
-        </section>
+        </section> -->
     </div>
       
       
@@ -89,37 +78,7 @@
 *{
     font-family: "Do Hyeon"
 }
-thead{
-    background-color : #D9D9D9;
-    position: sticky;
-    top: 0px;
-}
 
-.rental-table-list-head > tr > td{
-    padding: 20px 15px;
-}
-
-tr > td{
-    padding: 15px;
-}
-
-table, tr, td{
-    border: 0;
-    border-bottom : 1px solid #E0E0E0;
-    border-collapse : collapse;
-}
-
-td:nth-child(7){
-    text-align: center;
-}
-
-select{
-    margin-left: 10px;
-}
-
-button{
-    margin: 0 10px;
-}
 
 h1 {
     font-size: 2.5rem;
@@ -155,27 +114,60 @@ body{
 }
 
 section {
-    width: 95vw;
+    display:flex;
+    width: 70vw;
     background-color: white;
 }
-
-.rental-table-list-design{
+.memo-history{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(10vw, auto);
+    /* margin-right: 10px; */
+    width: 50vw;
     height: 63vh;
-    padding: 0 10px 10px 10px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* background-color: whitesmoke; */
+    overflow-y:scroll;
+    overflow-x:hidden;
+    border-radius: 20px;
 }
 
-.rental-table-list-design::-webkit-scrollbar {
+.memo-history > div{
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+    margin : 5px;
+    cursor: pointer;
+    
+}
+
+.memo-text{
+    /* margin-left: 10px; */
+    border-radius: 20px;
+    width: calc(50vw - 20px);
+    height: calc(63vh - 20px);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-color: rgb(251, 255, 184);
+    resize:none;
+    outline:none;
+    padding: 10px;
+}
+.rental-table-list-design{
+    /* height: 63vh; */
+    padding: 0 10px 10px 10px;
+    /* overflow-y: scroll; */
+    /* overflow-x: hidden; */
+}
+
+.memo-history::-webkit-scrollbar {
     width: 10px;
 }
-.rental-table-list-design::-webkit-scrollbar-thumb {
+.memo-history::-webkit-scrollbar-thumb {
     background-color:rgb(186, 186, 186);
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
 }
-.rental-table-list-design::-webkit-scrollbar-track {
+.memo-history::-webkit-scrollbar-track {
     background-color:  #ffffff;
     border-radius: 10px;
 }
@@ -185,7 +177,7 @@ table{
 
 input[type=text]{
     margin-right: 1rem;
-    width: 45vw;
+    width: calc(45vw - 90px);
     padding: 0.7rem;
     background-color: #EEEDED;
     border: 1px solid rgba(0, 0, 0, 0.12);
