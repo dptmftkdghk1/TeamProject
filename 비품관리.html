@@ -15,6 +15,11 @@
         <section class=" table-list-search">
             <input type="text">
             <button>검색</button>
+            <select name="" id="">
+                <option value="">대여중</option>
+                <option value="">대여가능</option>
+                <option value="">대여불가능</option>
+            </select>
 
             <div class="table-list-button-style">
                 <button>등록</button>
@@ -35,6 +40,7 @@
                         <td>구매처</td>
                         <td>가격</td>
                         <td>부서</td>
+                        <td>대여상태</td>
                     </tr>
                 </thead>
 
@@ -48,6 +54,7 @@
                     <td>쿠팡</td>
                     <td>4000</td>
                     <td>부서ID</td>
+                    <td><button>대여중</button></td>
                 </tr>
 
                 <tr>
@@ -60,6 +67,7 @@
                     <td>쿠팡</td>
                     <td>4000</td>
                     <td>부서ID</td>
+                    <td><button>대여가능</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox"></td>
@@ -71,6 +79,7 @@
                     <td>쿠팡</td>
                     <td>4000</td>
                     <td>부서ID</td>
+                    <td><button style="background-color: rgb(255, 172, 172);">대여불가능</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox"></td>
@@ -195,6 +204,14 @@ table, tr, td{
     border: 0;
     border-bottom : 1px solid #E0E0E0;
     border-collapse : collapse;
+}
+
+td:nth-child(10){
+    text-align: center;
+}
+
+select{
+    margin-left: 10px;
 }
 
 h1 {
