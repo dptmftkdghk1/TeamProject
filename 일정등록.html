@@ -63,7 +63,7 @@
           
         </form>
         <div>
-            <button type="submit">확인</button>
+            <button type="submit" id="submit">확인</button>
             <button type="button">취소</button>
           </div>
       </div>
@@ -256,4 +256,32 @@ label > div:nth-child(3) > span{
     margin-left: 20px;
 }
 </style>
-  
+<script>
+    // 'submit' 버튼에 클릭 이벤트 리스너를 추가합니다.
+    document.getElementById('submit').addEventListener('click', function(event) {
+        // 폼 요소를 선택합니다.
+        const form = document.querySelector('form');
+        // 폼 내의 모든 입력 필드를 선택합니다.
+        const inputs = form.querySelectorAll('input');
+
+        // 모든 입력 필드를 순회합니다.
+        for (let input of inputs) {
+            // 입력 필드가 파일 타입이 아니고 값이 비어 있는 경우를 확인합니다.
+            if (input.type !== 'file' && input.value.trim() === '') {
+                // 입력 필드와 가장 가까운 라벨을 찾습니다.
+                let label = input.closest('label') || input.closest('.join-form-box');
+                // 라벨 내에 있는 span 요소의 텍스트를 가져옵니다.
+                let labelText = label.querySelector('span') ? label.querySelector('span').textContent : '';
+
+                // 경고 메시지를 표시합니다.
+                alert(labelText + '을(를) 입력하세요.');
+
+                // 해당 입력 필드로 포커스를 이동시킵니다.
+                input.focus();
+                // 폼 제출을 막습니다.
+                event.preventDefault();
+                return;
+            }
+        }
+    });
+</script>
