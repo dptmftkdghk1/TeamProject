@@ -16,22 +16,22 @@
             <input type="text">
             <button>검색</button>
             <div class="table-list-button-style">
-                <button>등록</button>
+                <button id="register">등록</button>
                 <button class="table-list-button-delete">삭제</button>
             </div>
         </section> 
 
         <section class="rental-table-list-design">
             <div class="memo-history">
-                <div><input type="checkbox" style="margin-right:10px;">1</div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
+                <div><input type="checkbox" style="margin-right:10px;"><span>1</span></div>
+                <div><span>1</span></div>
+                <div><span>2</span></div>
+                <div><span>3</span></div>
+                <div><span>4</span></div>
+                <div><span>5</span></div>
                 <div><input type="button" value="+"></div>
             </div>
-            <textarea name="" id="" class="memo-text"></textarea>
+            <textarea readonly name="" id="" class="memo-text"></textarea>
             <!-- <div ></div> -->
         </section>
 
@@ -210,4 +210,39 @@ li{
     margin: 5px;
 }
   </style>
+
+<script>
+   const plus = document.querySelector("input[type=button]");
+   const content = document.querySelector("textarea");
+   const text = document.querySelectorAll("span");
+   const registerbtn = document.getElementById("register");
+
+   registerbtn.onClick = () => {
+    
+   }
+
+   plus.onclick = () => {
+     content.readOnly = false;
+     content.focus();
+   }
+
+   text.forEach(element => {
+        element.parentElement.onclick = () => {
+            content.blur();
+            content.readOnly = true;
+        }; 
+    });
+
+//    content.blur();
+//    content.readOnly = true;
+
+//    content.focusout = () => {
+//     content.readOnly = true;
+//    }
+
+    
+
+
+
+</script>
   
