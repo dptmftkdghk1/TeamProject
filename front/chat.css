@@ -154,11 +154,15 @@ main{
     
     /* background-color: white; */
 }
-.chat-head span{
+.chat-head-content{
     border-radius: 20px;
     padding: 10px;
-    background-color: white;
-    
+    background-color: white;   
+}
+.chat-head-date {
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 15px;
 }
 .chat-body{
     text-align:right;
