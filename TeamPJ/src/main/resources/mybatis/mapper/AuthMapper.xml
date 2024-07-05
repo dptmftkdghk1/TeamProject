@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.mapper.AuthMapper">
+
+    <insert id="insertEmployee">
+    insert into employee (employee_no,employee_ci, employee_name, employee_id, employee_password, employee_birthdate, employee_phone_number, employee_address, employee_detailed_address, employee_gender, employee_email, employee_dept, employee_profile_img)
+    values (null, #{employeeCi}, #{employeeName}, #{employeeId}, #{employeePassword}, #{employeeBirthDate}, #{employeePhoneNumber}, #{employeeAddress}, #{employeeDetailedAddress}, #{employeeGender}, #{employeeEmail}, #{employeeDept}, #{employeeProfileImage})
+</insert>
+</mapper>

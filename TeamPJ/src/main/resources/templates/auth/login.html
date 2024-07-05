@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/auth/login.css" th:href="@{/css/auth/login.css}">
+
+</head>
+<body>
+<div class="login">
+    <h1>New Company</h1>
+    <h2>로그인</h2>
+    <form>
+        <div class="login-margin-design">
+            <label>
+                <span>아이디</span>
+                <input type="text"/>
+            </label>
+        </div>
+
+        <div class="login-margin-design">
+            <label>
+                <span>비밀번호</span>
+                <input type="password"/>
+            </label>
+        </div>
+    </form>
+    <button type="submit">확인</button>
+    <div class="links">
+        <div><a href="#">아이디 찾기</a></div>
+        <div><a href="#">비밀번호 찾기</a></div>
+        <div><a href="#">회원가입</a></div>
+    </div>
+</div>
+</body>
+</html>
+
