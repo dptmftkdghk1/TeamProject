@@ -42,6 +42,13 @@ function validateForm() {
             break;
         }
     }
+    const password = document.getElementById('employeePassword').value;
+        const confirmPassword = document.getElementById('employeePassword2').value;
+        if (password !== confirmPassword) {
+            alert('비밀번호가 일치하지 않습니다.');
+            isValid = false;
+        }
+
     return isValid;
 }
 */
@@ -62,11 +69,94 @@ employeeBirthDateInput.addEventListener('keyup', function() {
 });
 
 // hidden phone 처리
+const registerBtn = document.getElementById('registerBtn');
+const phone = document.getElementById('phone').querySelector('input');
+const phoneHead = document.getElementsByName('prefix')[0];
+const phoneBody = document.getElementsByName('infix')[0];
+const phoneTail = document.getElementsByName('postfix')[0];
 
+const email = document.getElementsByName('employeeEmail')[0];
+const emailHead = document.getElementsByName('emailFirst')[0];
+const emailTail = document.getElementsByName('emailSecond')[0];
+registerBtn.onclick = () => {
+    // phone
+    phone.value = `${phoneHead.value}-${phoneBody.value}-${phoneTail.value}`;
+
+    // email
+    email.value = `${emailHead.value}@${emailTail.value}`;
+    // 완성되면 폼 이벤트 트루면 돌아가도록 하기
+    document.forms.item(0).submit();
+
+    // href
+
+}
+
+
+// 폼 열렸을 때 이벤트 처리
+// 이메일 선택하기
+//
+document.addEventListener("DOMContentLoaded", () => {
+    const emailDomainSelect = document.querySelector('select[name="emailDomain"]');
+    const emailSecondInput = document.querySelector('input[name="emailSecond"]');
+    emailDomainSelect.addEventListener("change", () => {
+        emailSecondInput.value = emailDomainSelect.value;
+    });
+
+    const infixInput = document.querySelector('input[name="infix"]');
+    infixInput.addEventListener("input", () => {
+        infixInput.value = infixInput.value.replace(/\D/g, '').substring(0, 4);
+    });
+
+    const postfixInput = document.querySelector('input[name="postfix"]');
+    postfixInput.addEventListener("input", () => {
+        postfixInput.value = postfixInput.value.replace(/\D/g, '').substring(0, 4);
+    });
+
+
+    // 아이디 중복 검사
+    const checkDuplicateBtn = document.getElementById('checkDuplicateBtn');
+    const employeeIdInput = document.getElementById('employeeId');
+    const idAvailabilitySpan = document.getElementById('idAvailability');
+
+    checkDuplicateBtn.addEventListener('click', () => {
+        const employeeId = employeeIdInput.value.trim();
+        if (employeeId === '') {
+            alert('아이디를 입력하세요.');
+            return;
+        }
+
+        fetch(`/auth/register/${employeeId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('네트워크 상태가 좋지 않습니다.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data === true) {
+                    console.log("중복");
+                    idAvailabilitySpan.textContent = '이미 사용 중인 아이디입니다.';
+                } else {
+                    console.log("중복아님");
+                    idAvailabilitySpan.textContent = '사용 가능한 아이디입니다.';
+                }
+            })
+            .catch(error => {
+                console.error('에러 발생:', error);
+                idAvailabilitySpan.textContent = '아이디 중복 확인 중 오류가 발생했습니다.';
+            });
+    });
+
+
+
+
+
+
+
+});
 
 
 // 휴대폰 인증
-
 IMP.init("imp24111301");
 const certificationBtn = document.getElementById('join-admin-button');
 const impUid = document.getElementById('imp-uid');
@@ -88,8 +178,8 @@ certificationBtn.onclick = () => {
                 certificationBtn.disabled = true;
 
 
-                const phone = rsp.phone;
-                console.log(phone);
+                const name = rsp.name;
+                console.log(name);
             } else {
                 // 인증 실패 시 로직
                 alert("본인 인증 완료 못함");
@@ -98,3 +188,14 @@ certificationBtn.onclick = () => {
     );
 }
 
+// 우편번호 찾기
+findAddressBtn = document.getElementById('findAddress');
+employeeAddressInput = document.getElementsByName('employeeAddress')[0];
+findAddressBtn.onclick = () => {
+    new daum.Postcode({
+        oncomplete: function (data) {
+            employeeAddressInput.value = data.address;
+
+        }
+    }).open();
+}

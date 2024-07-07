@@ -1,7 +1,7 @@
 package com.team.service;
 
 import com.team.domain.EmployeeDTO;
-import com.team.mapper.AuthMapper;
+import com.team.mapper.Mapper;
 import lombok.extern.log4j.Log4j2;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.Map;
 @Service
 public class AuthService {
     @Autowired
-    private AuthMapper authMapper;
+    private Mapper mapper;
     @Autowired
     PasswordEncoder passwordEncoder;
     @Autowired
@@ -32,6 +32,12 @@ public class AuthService {
     private String PORT_ONE_IMP_SECRET = "wmY8o1kqjh8DeC0I6256QhB0w3O1Ap3zwTLm0k6LKT8QlzL0kQi4Xt2DioS4T3LhYifI4TrusLo4INg1";
     private final String PORT_ONE_ACCESS_TOKEN_URL = "https://api.iamport.kr/users/getToken";
     private final String PORT_ONE_USER_CERT_INFO_URL = "https://api.iamport.kr/certifications/{impUid}";
+
+
+    public boolean isEmployeeIdAvailable(String employeeId) {
+        return mapper.selectEmployeeIdIsAvailable(employeeId);
+    }
+
 
     private String get_portone_access_token() {
         RequestEntity<String> getAccessTokenRequest = RequestEntity
@@ -70,7 +76,7 @@ public class AuthService {
             Boolean certified = (Boolean) response.get("certified");
             if (certified) {
                 log.info("인증성공");
-                String uniqueKey = (String) response.get("unique_key");
+                String uniqueKey = response.get("unique_key").toString();
                 return uniqueKey;
             }
             log.warn("인증실패");
@@ -103,9 +109,10 @@ public class AuthService {
         // 유저를 회원가입 시킬 때, 패스워드를 인코딩해서 넣는다
         employee.setEmployeePassword(passwordEncoder.encode(employee.getEmployeePassword()));
         // 유저를 insert한다
-        authMapper.insertEmployee(employee);
+        mapper.insertEmployee(employee);
         return true;
     }
+
 
 
 }

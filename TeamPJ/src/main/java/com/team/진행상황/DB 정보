@@ -1,5 +1,11 @@
 schema : team
 
+
+수정 사항
+24.07.08 product 추가
+
+
+
 CREATE TABLE `employee` (
   `employee_no` int NOT NULL AUTO_INCREMENT,
   `employee_ci` varchar(255) DEFAULT NULL,
@@ -25,4 +31,19 @@ CREATE TABLE `employee_image_file` (
   `save_name` varchar(45) NOT NULL,
   `data` longblob NOT NULL,
   PRIMARY KEY (`image_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `product` (
+  `product_no` int NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(45) DEFAULT NULL,
+  `product_category` varchar(45) DEFAULT NULL,
+  `product_amount` varchar(45) DEFAULT NULL,
+  `product_purchase_date` datetime DEFAULT NULL,
+  `product_supplier` varchar(45) DEFAULT NULL,
+  `product_price` int DEFAULT NULL,
+  `product_image` varchar(45) DEFAULT NULL,
+  `product_description` longtext,
+  PRIMARY KEY (`product_no`),
+  UNIQUE KEY `product_name_UNIQUE` (`product_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

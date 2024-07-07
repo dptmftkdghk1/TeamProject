@@ -18,11 +18,11 @@
     <div class="object">
         <h1>New Company</h1>
         <h2>비품 등록</h2>
-        <form>
+        <form method="POST" enctype="multipart/form-data">
             <div class="object-margin-design">
                 <label>
                     <span>비품명</span>
-                    <input type="text"/>
+                    <input type="text" name="productName"/>
                 </label>
             </div>
             
@@ -80,12 +80,13 @@
                     <div><span>등록</span></div>
                 </label>
             </div>
+            <div style="margin-left:10px">
+                <button type="submit">확인</button>
+                <button type="button">취소</button>
+            </div>
         </form>
 
-        <div style="margin-left:10px">
-            <button type="submit">확인</button>
-            <button type="button">취소</button>
-          </div>
+
       </div>
       
       
