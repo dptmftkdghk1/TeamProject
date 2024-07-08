@@ -21,5 +21,4 @@
         insert into product (product_no,product_name,product_category,product_amount,product_purchase_date,product_supplier,product_price,product_image,product_description)
         values (null, #{productName}, #{productCategory}, #{productAmount}, #{productPurchaseDate}, #{productSupplier}, #{productPrice}, #{productImage}, #{productDescription});
     </insert>
-
 </mapper>

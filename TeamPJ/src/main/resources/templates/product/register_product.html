@@ -18,7 +18,7 @@
     <div class="object">
         <h1>New Company</h1>
         <h2>비품 등록</h2>
-        <form method="POST" enctype="multipart/form-data">
+        <form th:action="@{/product/register_product}" method="POST"  enctype="multipart/form-data">
             <div class="object-margin-design">
                 <label>
                     <span>비품명</span>

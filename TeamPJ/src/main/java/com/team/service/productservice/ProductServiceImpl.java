@@ -1,4 +1,4 @@
-package com.team.service;
+package com.team.service.productservice;
 
 import com.team.domain.ProductDTO;
 import com.team.mapper.Mapper;

@@ -1,7 +1,7 @@
 package com.team.controller;
 
 import com.team.domain.ProductDTO;
-import com.team.service.ProductService;
+import com.team.service.productservice.ProductService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
