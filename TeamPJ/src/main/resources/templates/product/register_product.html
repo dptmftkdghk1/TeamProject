@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/product/register_product.css" th:href="@{/css/product/register_product.css}">
+</head>
+<body>
+    <div class="object">
+        <h1>New Company</h1>
+        <h2>비품 등록</h2>
+        <form th:action="@{/product/register_product}" method="POST"  enctype="multipart/form-data">
+            <div class="object-margin-design">
+                <label>
+                    <span>비품명</span>
+                    <input type="text" name="productName"/>
+                </label>
+            </div>
+            
+            <div class="object-margin-design">
+                <label>
+                    <span>카테고리</span>
+                    <input type="text">
+                </label>
+            </div>
+            
+            <div class="object-margin-design">
+                <label>
+                    <span>갯수</span>
+                    <input type="text">
+                </label>
+            </div>
+            
+            <div class="object-margin-design">
+                <label>
+                    <span>구매일</span>
+                    <div class="object-purchase-point">
+                        <select name="" id="">
+                            <option value="">2024</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">06</option>
+                            <option value="">06</option>
+                            <option value="">06</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">16</option>
+                        </select>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="object-margin-design">
+                <label>
+                    <span>구매처</span>
+                    <input type="text">
+                </label>
+            </div>
+            
+            <div class="object-margin-design">
+                <label>
+                    <span>구매가격</span>
+                    <input type="text">
+                </label>
+            </div>
+            
+            <div>
+                <label class="object-photo">
+                    <span>비품사진</span>
+                    <div class="object-photo-line"></div>
+                    <div><span>등록</span></div>
+                </label>
+            </div>
+            <div style="margin-left:10px">
+                <button type="submit">확인</button>
+                <button type="button">취소</button>
+            </div>
+        </form>
+
+
+      </div>
+      
+      
+</body>
+</html>
+
+  
