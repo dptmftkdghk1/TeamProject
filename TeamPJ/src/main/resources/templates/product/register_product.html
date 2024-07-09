@@ -13,6 +13,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/product/register_product.css" th:href="@{/css/product/register_product.css}">
+    <script src="../../static/js/product/register_product.js" th:src="@{/js/product/register_product.js}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossOrigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+            crossOrigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+          integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+          crossOrigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
     <div class="object">
@@ -29,47 +39,35 @@
             <div class="object-margin-design">
                 <label>
                     <span>카테고리</span>
-                    <input type="text">
+                    <input type="text" name="productCategory">
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>갯수</span>
-                    <input type="text">
+                    <input type="number" name="productAmount">
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매일</span>
-                    <div class="object-purchase-point">
-                        <select name="" id="">
-                            <option value="">2024</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">06</option>
-                            <option value="">06</option>
-                            <option value="">06</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">16</option>
-                        </select>
-                    </div>
+                    <input class="datepicker">
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매처</span>
-                    <input type="text">
+                    <input type="text" name="productSupplier">
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매가격</span>
-                    <input type="text">
+                    <input type="number" name="productPrice">
                 </label>
             </div>
             
