@@ -23,7 +23,7 @@
     </insert>
 
     <!-- @@@@@@@@@@@@비품 확인@@@@@@@@@@@@@@@-->
-    <select id="selectProduct">
-        SELECT * FROM product
+    <select id="selectProducts">
+        SELECT * FROM product ORDER BY product_no DESC
     </select>
 </mapper>

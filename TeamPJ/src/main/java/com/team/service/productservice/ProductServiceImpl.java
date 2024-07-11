@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Log4j2
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -14,5 +16,9 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void insertProduct(ProductDTO product) {
         mapper.insertProduct(product);
+    }
+    @Override
+    public List<ProductDTO> selectProduct() {
+        return mapper.selectProducts();
     }
 }

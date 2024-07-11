@@ -4,6 +4,8 @@ import com.team.domain.EmployeeDTO;
 import com.team.domain.ProductDTO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @org.apache.ibatis.annotations.Mapper
 public interface Mapper {
     void insertEmployee(EmployeeDTO employeeDTO);
@@ -11,5 +13,5 @@ public interface Mapper {
 
     void insertProduct(ProductDTO productDTO);
 
-    void selectProduct(ProductDTO productDTO);
+    List<ProductDTO> selectProducts();
 }
