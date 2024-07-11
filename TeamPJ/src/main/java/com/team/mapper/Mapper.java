@@ -10,4 +10,6 @@ public interface Mapper {
     Boolean selectEmployeeIdIsAvailable(@Param("employeeId") String employeeId);
 
     void insertProduct(ProductDTO productDTO);
+
+    void selectProduct(ProductDTO productDTO);
 }
