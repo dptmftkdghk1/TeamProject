@@ -23,7 +23,10 @@
     </insert>
 
     <!-- @@@@@@@@@@@@비품 확인@@@@@@@@@@@@@@@-->
-    <select id="selectProducts">
+    <select id="selectProducts" resultType="com.team.domain.ProductDTO">
         SELECT * FROM product ORDER BY product_no DESC
+    </select>
+    <select id="selectProductByNo" resultType="com.team.domain.ProductDTO">
+        SELECT * FROM product WHERE product_no = #{productNo}
     </select>
 </mapper>

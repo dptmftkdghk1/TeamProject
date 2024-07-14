@@ -2,6 +2,7 @@
 document.querySelector('form').addEventListener('submit', function (event) {
     const form = event.target;
     const inputs = form.querySelectorAll('input, select');
+
     let valid = true;
 
     // 비어있는 input 검사

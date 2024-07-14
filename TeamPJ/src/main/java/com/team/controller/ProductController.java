@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/product")
@@ -19,20 +22,36 @@ public class ProductController {
 
 
     @GetMapping("/manage_product")
-    public void get_manage_product(
+    public String get_manage_product(
             Model model
     ) {
-        productService.se
+        List<ProductDTO> products = productService.select_products();
+        model.addAttribute("products", products);
+        System.out.println(products);
+        return "/product/manage_product";
     }
+
     @GetMapping("/register_product")
     public void get_register_product() {
     }
 
     @PostMapping("/register_product")
-    public void post_register_product(ProductDTO product){
-        productService.insertProduct(product);
+    public String post_register_product(ProductDTO product){
+        productService.insert_product(product);
         log.info(product);
+        return "redirect:/product/manage_product";
     }
+
+    @GetMapping("/{productNo}")
+    public String get_product(
+            @PathVariable("productNo") Integer productNo,
+            Model model
+    ){
+        ProductDTO product = productService.select_product_by_no(productNo);
+        model.addAttribute("product", product);
+        return "product/read_product";
+    }
+
 
 //    주소에 /1 , /2 와 같이 여러 개 있을 경우 사용
 //    @GetMapping("/{product_no}")

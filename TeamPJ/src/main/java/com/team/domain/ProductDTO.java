@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j2;
 @Builder
 @Log4j2
 public class ProductDTO {
-    private String productNo;
+    private Integer productNo;
     private String productName;
     private String productCategory;
     private Integer productAmount;

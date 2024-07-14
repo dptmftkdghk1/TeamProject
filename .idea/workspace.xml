@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3c28a3-ad15-4760-ac2b-0cd91611bd71" name="변경" comment="" />
+    <list default="true" id="6f3c28a3-ad15-4760-ac2b-0cd91611bd71" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/productservice/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/productservice/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/productservice/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/productservice/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/mybatis/mapper/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/mybatis/mapper/Mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/product/register_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/product/register_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/product/manage_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/product/manage_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/product/register_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/product/register_product.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lsh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lsh에 #3개&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -54,21 +64,6 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="TeamProject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="TeamProject" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,6 +93,8 @@
       <workItem from="1720019157085" duration="2511000" />
       <workItem from="1720022236854" duration="355000" />
       <workItem from="1720225541782" duration="18000" />
+      <workItem from="1720774087703" duration="13000" />
+      <workItem from="1720960593484" duration="27000" />
     </task>
     <servers />
   </component>

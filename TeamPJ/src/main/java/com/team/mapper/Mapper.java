@@ -14,4 +14,5 @@ public interface Mapper {
     void insertProduct(ProductDTO productDTO);
 
     List<ProductDTO> selectProducts();
+    ProductDTO selectProductByNo(Integer productNo);
 }

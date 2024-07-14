@@ -13,61 +13,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/product/register_product.css" th:href="@{/css/product/register_product.css}">
-    <script src="../../static/js/product/register_product.js" th:src="@{/js/product/register_product.js}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossOrigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-            integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-            crossOrigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-          integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
-          crossOrigin="anonymous" referrerpolicy="no-referrer"/>
+<!--    <script src="../../static/js/product/register_product.js" th:src="@{/js/product/register_product.js}" defer></script>-->
 </head>
 <body>
     <div class="object">
         <h1>New Company</h1>
-        <h2>비품 등록</h2>
-        <form th:action="@{/product/register_product}" method="POST"  enctype="multipart/form-data">
+        <h2>비품 확인</h2>
+        <form>
             <div class="object-margin-design">
                 <label>
                     <span>비품명</span>
-                    <input type="text" name="productName"/>
+                    <input th:placeholder="${product.productName}" type="text" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>카테고리</span>
-                    <input type="text" name="productCategory">
+                    <input th:placeholder="${product.productCategory}" type="text" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>갯수</span>
-                    <input type="number" name="productAmount">
+                    <input th:placeholder="${product.productAmount}" type="number" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매일</span>
-                    <input class="datepicker" name="productPurchaseDate">
+                    <input th:placeholder="${product.productPurchaseDate}" type="text" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매처</span>
-                    <input type="text" name="productSupplier">
+                    <input th:placeholder="${product.productSupplier}" type="text" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매가격</span>
-                    <input type="number" name="productPrice">
+                    <input th:placeholder="${product.productPrice}" type="number" readonly>
                 </label>
             </div>
             
@@ -79,7 +70,7 @@
                 </label>
             </div>
             <div style="margin-left:10px">
-                <button type="submit">확인</button>
+                <button type="button">수정</button>
                 <button type="button">취소</button>
             </div>
         </form>

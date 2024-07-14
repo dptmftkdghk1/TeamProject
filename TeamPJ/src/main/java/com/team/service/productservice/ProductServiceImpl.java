@@ -14,11 +14,17 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private Mapper mapper;
     @Override
-    public void insertProduct(ProductDTO product) {
+    public void insert_product(ProductDTO product) {
         mapper.insertProduct(product);
     }
+
     @Override
-    public List<ProductDTO> selectProduct() {
+    public List<ProductDTO> select_products() {
         return mapper.selectProducts();
+    }
+
+    @Override
+    public ProductDTO select_product_by_no(Integer productNo) {
+        return mapper.selectProductByNo(productNo);
     }
 }

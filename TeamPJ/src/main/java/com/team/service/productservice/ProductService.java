@@ -6,6 +6,7 @@ import java.util.List;
 
 
 public interface ProductService {
-    void insertProduct(ProductDTO product);
-    List<ProductDTO> selectProduct();
+    void insert_product(ProductDTO product);
+    List<ProductDTO> select_products();
+    ProductDTO select_product_by_no(Integer productNo);
 }
