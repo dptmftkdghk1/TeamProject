@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="table-list">
+        <h2>회사조직도</h2>
+        <section class="table-list-design">
+            <div class="organize-box">
+                <div class="organize-round-first"></div>
+                <div class="organize-line">
+                    <span>dfdfdfdf</span>
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class="organize-ceo-letter"><span>대표이사</span></div>
+
+            <div class="organize-lines-box">
+                <div class="organize-lines"></div>
+            </div>
+
+            <div class="organize-rounds">
+                <div class="organize-round"><span>경영관리 부서</span></div>
+                <div class="organize-round-line-box">
+                    <div class="organize-round-line"></div>
+                </div>
+                <div class="organize-round"><span>경영관리 부서</span></div>
+                <div class="organize-round-line-box">
+                    <div class="organize-round-line"></div>
+                </div>
+                <div class="organize-round"><span>경영관리 부서</span></div>
+            </div>
+
+            <div class="organize-button-line">
+                <div class="organize-square-button">
+                    <button>+</button>
+                    <button>-</button>
+                </div>
+                <div class="organize-square-line-box">
+                </div>
+                <div class="organize-square-button">
+                    <button>+</button>
+                    <button>-</button>
+                </div>
+                <div class="organize-square-line-box">
+                </div>
+                <div class="organize-square-button">
+                    <button>+</button>
+                    <button>-</button>
+                </div>
+                    <!-- <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                
+                <div class="organize-round-line-box">
+                </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                <div class="organize-round-line-box">
+                </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div> -->
+            </div>
+
+            <div class="organize-rounds">
+                <div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                </div>
+                
+                <div class="organize-round-line-box">
+                </div>
+                <div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                </div>
+                <div class="organize-round-line-box">
+                </div>
+                <div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                    <div class="organize-square">
+                        <span>경영관리 부서</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="organize-rounds">
+                <div class="organize-round"><span>경영관리 부서</span></div>
+                <div class="organize-round-line-box">
+                    <div class="organize-round-line"></div>
+                </div>
+                <div class="organize-round"><span>경영관리 부서</span></div>
+                <div class="organize-round-line-box">
+                    <div class="organize-round-line"></div>
+                </div>
+                <div class="organize-round"><span>경영관리 부서</span></div>
+            </div> -->
+            <div class="organize-check">
+                <button>확인</button>
+                <button>취소</button>
+            </div>
+            
+        </section>
+
+    
+    </div>
+      
+      
+</body>
+</html>
+
+<style>
+    .organize-check{
+        display:flex;
+        justify-content: center;
+    }
+    .organize-check > button {
+        padding: 5px;
+    }
+
+.organize-round-line-box{
+    width: 150px;
+    height: 150px;
+    flex-direction: column;
+    /* background-color: #EEEDED; */
+    margin: 30px 10px;
+    display:flex;
+    justify-content: center;
+    
+}
+.organize-square-line-box{
+    width: 150px;
+    /* height: 150px; */
+    flex-direction: column;
+    /* background-color: #EEEDED; */
+    margin: 30px 10px;
+    display:flex;
+    justify-content: center;
+}
+.organize-round-line{
+    width: 150px;
+    height: 5px;
+    border-radius: 30px;
+    background-color: #EEEDED;
+}
+.organize-rounds{
+    display:flex;
+    justify-content: center;
+    /* display:inline-flex; */
+    /* text-align: center; */
+    /* background-color: pink; */
+    /* width: 100%; */
+}
+.organize-button-line{
+    display:flex;
+    height: 30px;
+    justify-content: center;
+    /* display:inline-flex; */
+    /* text-align: center; */
+    /* background-color: pink; */
+    /* width: 100%; */
+}
+.organize-ceo-letter{
+    display:flex;
+    justify-content: center;
+    margin: 10px;
+}
+.organize-lines-box{
+    display:flex;
+    justify-content: center;
+}
+
+.organize-lines{
+    height: 80px;
+    width: 5px;
+    background-color: #EEEDED;
+    border-radius: 20px;
+}
+
+.organize-box{
+    display:flex;
+    justify-content: center;
+    /* display:inline-flex; */
+    /* background-color: blue; */
+    /* display:flex; */
+    /* justify-content: center; */
+}
+
+.organize-round{
+    width: 150px;
+    height: 150px;
+    background-color: #EEEDED;
+    margin-top: 30px;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 30px; */
+}
+
+.organize-round-first{
+    width: 100px;
+    height: 100px;
+    background-color: #EEEDED;
+    margin-top: 30px;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 280px;
+    margin-right: 30px;
+    /* margin-right: 30px; */
+}
+
+.organize-square{
+    width: 150px;
+    height: 50px;
+    background-color: #EEEDED;
+    margin-top: 10px;
+    /* border-radius: 50%; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 30px; */
+}
+
+.organize-square-button{
+    width: 150px;
+    height: 30px;
+    background-color: #EEEDED;
+    /* margin-top: 10px; */
+    /* border-radius: 50%; */
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    /* margin-right: 30px; */
+}
+
+button{
+    margin: 0px 5px;
+}
+
+.organize-line{
+    /* position: absolute; */
+    width: 250px;
+    height: 100px;
+    background-color: #EEEDED;
+    margin-top: 30px;
+    padding: 3px;
+    /* display:flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* right: 40px; */
+    /* text-align: right; */
+    /* float:right; */
+}
+
+.table-list-design > div{
+    /* display:flex; */
+    /* justify-content: center; */
+
+}
+
+
+.nanum-myeongjo-regular{
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nanum-gothic-coding-regular{
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+.do-hyeon-regular{
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+    font-family: "Do Hyeon"
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #EEEEEE;
+}
+
+.table-list {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    position: relative;
+    width: 95vw;
+    background-color: white;
+}
+
+.table-list-design{
+    height: 80vh;
+    padding: 0 10px 10px 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.table-list-design::-webkit-scrollbar {
+    width: 10px;
+}
+.table-list-design::-webkit-scrollbar-thumb {
+    background-color:rgb(186, 186, 186);
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+.table-list-design::-webkit-scrollbar-track {
+    background-color:  #ffffff;
+    border-radius: 10px;
+}
+
+
+</style>
+  
