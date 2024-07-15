@@ -10,9 +10,4 @@ import java.util.List;
 public interface Mapper {
     void insertEmployee(EmployeeDTO employeeDTO);
     Boolean selectEmployeeIdIsAvailable(@Param("employeeId") String employeeId);
-
-    void insertProduct(ProductDTO productDTO);
-
-    List<ProductDTO> selectProducts();
-    ProductDTO selectProductByNo(Integer productNo);
 }

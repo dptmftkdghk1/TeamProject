@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.team.mapper.Mapper">
 
 
@@ -29,4 +29,22 @@
     <select id="selectProductByNo" resultType="com.team.domain.ProductDTO">
         SELECT * FROM product WHERE product_no = #{productNo}
     </select>
+    <!-- @@@@@@@@@@@@@@비품 수정@@@@@@@@@@@@@@@-->
+    <update id="updateProduct">
+        UPDATE product
+        SET
+        `product_name` = #{productName},
+        `product_category` = #{productCategory},
+        `product_amount` = #{productAmount},
+        `product_purchase_date` = #{productPurchaseDate},
+        `product_supplier` = #{productSupplier},
+        `product_price` = #{productPrice},
+        `product_image` = #{productImage},
+        `product_description` = #{productDescription}
+        WHERE `product_no` = #{productNo};
+    </update>
+
+    <delete id="deleteProduct">
+        DELETE FROM product WHERE product_no = #{productNo}
+    </delete>
 </mapper>
