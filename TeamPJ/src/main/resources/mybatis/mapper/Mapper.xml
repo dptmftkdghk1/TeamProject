@@ -43,3 +43,29 @@
     </insert>
 
 </mapper>
+    <!-- @@@@@@@@@@@@비품 확인@@@@@@@@@@@@@@@-->
+    <select id="selectProducts" resultType="com.team.domain.ProductDTO">
+        SELECT * FROM product ORDER BY product_no DESC
+    </select>
+    <select id="selectProductByNo" resultType="com.team.domain.ProductDTO">
+        SELECT * FROM product WHERE product_no = #{productNo}
+    </select>
+    <!-- @@@@@@@@@@@@@@비품 수정@@@@@@@@@@@@@@@-->
+    <update id="updateProduct">
+        UPDATE product
+        SET
+        `product_name` = #{productName},
+        `product_category` = #{productCategory},
+        `product_amount` = #{productAmount},
+        `product_purchase_date` = #{productPurchaseDate},
+        `product_supplier` = #{productSupplier},
+        `product_price` = #{productPrice},
+        `product_image` = #{productImage},
+        `product_description` = #{productDescription}
+        WHERE `product_no` = #{productNo};
+    </update>
+
+    <delete id="deleteProduct">
+        DELETE FROM product WHERE product_no = #{productNo}
+    </delete>
+</mapper>

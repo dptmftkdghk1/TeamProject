@@ -6,6 +6,8 @@ import com.team.domain.ProductDTO;
 import com.team.domain.ReservationDTO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @org.apache.ibatis.annotations.Mapper
 public interface Mapper {
 //    로그인 관련

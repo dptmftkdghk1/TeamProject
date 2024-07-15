@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j2;
 @Builder
 @Log4j2
 public class ProductDTO {
-    private String productNo;
+    private Integer productNo;
     private String productName;
     private String productCategory;
     private Integer productAmount;
@@ -21,4 +21,5 @@ public class ProductDTO {
     private Boolean productState; // true : 대여가능, false : 대여가 없음
     private String productImage;
     private String productDescription;
+    private Boolean productStatus;
 }
