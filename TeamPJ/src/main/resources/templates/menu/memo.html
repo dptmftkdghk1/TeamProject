@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
+
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/menu/memo.css" th:href="@{/css/menu/memo.css}">
+</head>
+<body>
+<header th:replace="~{fragment/header :: header}"></header>
+<main layout:fragment="main">
+    <form action="/menu/memo" method="post" enctype="multipart/form-data">
+    <div class="rental-table-list">
+        <h2>메모</h2>
+        <section class="rental-table-list-search">
+            <input type="text">
+            <button>검색</button>
+            <input type="text" id="memo_name" name="memoName">
+            <div class="table-list-button-style">
+                <button id="register" type="submit">등록</button>
+                <button class="table-list-button-delete">삭제</button>
+            </div>
+
+        </section> 
+
+        <section class="rental-table-list-design">
+            <div class="memo-history">
+                <div class="memo-detail">
+                    <input type="checkbox"><span>1</span>
+                    <span>제목</span>
+                    <span>내용</span>
+                </div>
+
+
+                <div><span>1</span></div>
+                <div><span>2</span></div>
+                <div><span>3</span></div>
+                <div><span>4</span></div>
+                <div><span>5</span></div>
+                <div><input type="button" value="+"></div>
+            </div>
+            <textarea name="memoContent" id="memo_content" class="memo-text"></textarea>
+            <!-- <div ></div> -->
+        </section>
+    </div>
+    </form>
+</main>
+<footer th:replace="~{fragment/footer :: footer}"></footer>
+
+</body>
+</html>
