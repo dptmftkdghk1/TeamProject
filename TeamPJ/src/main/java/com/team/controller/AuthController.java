@@ -18,6 +18,9 @@ public class AuthController {
 
     @GetMapping("/login")
     public void get_login(){
+    }
+    @GetMapping("/find_password")
+    public void get_find_password(){
 
     }
     @GetMapping("/register")
@@ -42,4 +45,6 @@ public class AuthController {
         redirectAttributes.addFlashAttribute("certErrorMessage","본인인증안됨");
         return "redirect:/auth/register";
     }
+
+
 }

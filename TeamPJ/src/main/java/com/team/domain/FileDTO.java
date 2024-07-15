@@ -6,7 +6,7 @@ import lombok.extern.log4j.Log4j2;
 @Getter
 @Setter
 @Builder
-@ToString(exclude = "data")
+@ToString(exclude = {"data","url"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class FileDTO {

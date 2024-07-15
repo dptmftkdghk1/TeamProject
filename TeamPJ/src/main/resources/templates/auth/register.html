@@ -130,8 +130,9 @@
             <div class="join-form-box-gender">
                 <span>성별</span>
                 <div class="join-gender-button">
-                    <input type="button" class="join-back-design" value="여자" onclick="setGender('여자')">
-                    <input type="button" class="join-back-design" value="남자" onclick="setGender('남자')">
+                    <input type="hidden" name="employeeGender">
+                    <input type="button" class="join-back-design" id=female value="여자">
+                    <input type="button" class="join-back-design" id=male value="남자">
                 </div>
             </div>
         </div>
@@ -139,10 +140,10 @@
         <div class="join-form-box">
             <label>
                 <span>부서</span>
-                <select name="" id="">
-                    <option value="">인사</option>
-                    <option value="">개발</option>
-                    <option value="">기획</option>
+                <select name="employeeDept">
+                    <option value="인사">인사</option>
+                    <option value="개발">개발</option>
+                    <option value="기획">기획</option>
                 </select>
             </label>
         </div>
@@ -150,15 +151,16 @@
         <div class="join-form-box">
             <label class="join-profile-line">
                 <span>프로필 사진</span>
-                <div class="join-profile"></div>
-                <div class="join-photo-register"><span>등록</span></div>
+<!--                이미지 처리해야함-->
+                <span class="join-profile"><input type="text" id="file" name="employeeProfileImage" accept="image/jpeg, image/png"></span>
             </label>
+            <div id="image-preview" class="image-preview"></div>
         </div>
 
         <button type="submit" id="registerBtn">확인</button>
     </form>
     <div class="join-back-login">
-        <a href="">로그인 화면으로</a>
+        <a th:href="@{/auth/login}">로그인 화면으로</a>
     </div>
 </div>
 

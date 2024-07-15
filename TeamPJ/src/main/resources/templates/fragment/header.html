@@ -7,8 +7,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/fragment/header.css" th:href="@{/css/fragment/header.css}">
 </head>
 <body>
+<header th:fragment="header">
+    <nav class="navbar">
+        <div class="logo"><a href="#" class="main-icon">New Company</a></div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#" class="dropdown">공유드라이브</a>
+                <div class="dropdown-content">
+                    <a href="#">test1</a>
+                    <a href="#">test2</a>
+                    <a href="#">test3</a>
+                </div>
+            </li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">회사관리</a></li>
+            <li><a href="#">Chat</a></li>
+            <li><a href="#">로그아웃</a></li>
+        </ul>
+    </nav>
+</header>
 
 </body>
 </html>
