@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductService {
     void insert_product(ProductDTO product);
-    List<ProductDTO> get_products(String query);
+    List<ProductDTO> get_products(String query, String rental);
     ProductDTO select_product_by_no(Integer productNo);
     void update_product(ProductDTO product);
     void delete_product(Integer productNo);

@@ -22,9 +22,10 @@ public class ProductController {
     @GetMapping("/manage_product")
     public String get_manage_product(
             @RequestParam(required = false) String query,
+            @RequestParam(required = false) String rental,
             Model model
     ) {
-        List<ProductDTO> products = productService.get_products(query);
+        List<ProductDTO> products = productService.get_products(query, rental);
         model.addAttribute("products", products);
         return "/product/manage_product";
     }

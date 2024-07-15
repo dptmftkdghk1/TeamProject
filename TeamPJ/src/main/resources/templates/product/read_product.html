@@ -29,6 +29,7 @@
         <h1>New Company</h1>
         <h2>비품 확인</h2>
         <form th:action="@{|/product/update/${product.productNo}|}" method="POST"  enctype="multipart/form-data" name="update-form">
+            <input type="hidden" id="productNo" th:value="${product.productNo}">
             <div class="object-margin-design">
                 <label>
                     <span>비품명</span>
@@ -80,7 +81,7 @@
             </div>
             <div style="margin-left:10px">
                 <button type="button" id="update">수정</button>
-                <button type="button">취소</button>
+                <button type="button" id="cancel">취소</button>
             </div>
         </form>
 

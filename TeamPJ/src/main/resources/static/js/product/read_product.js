@@ -1,22 +1,45 @@
 const  form = document.forms.namedItem('update-form');
-const updateBtn = document.getElementById("update");
+const updateBtn = document.getElementById('update');
+const cancelBtn = document.getElementById('cancel');
+const productNo = document.getElementById('productNo').value;
+
 
 updateBtn.onclick = () => {
     if(updateBtn.innerText === '확인'){
-        confirm('수정완료 하시겠습니까?');
-        form.submit();
+        const confirmed = confirm('수정완료 하시겠습니까?');
+        if(confirmed){
+            form.submit();
+        }
     }
     else{
         const h2Tag = document.querySelector('h2');
         const inputTags = document.querySelectorAll('input');
-        confirm('수정화면으로 이동하시겠습니까?');
-        updateBtn.innerText = '확인';
-        h2Tag.innerText = '비품 수정';
-        inputTags.forEach(input => {
-           input.removeAttribute('readonly');
-        });
+        const confirmed = confirm('수정화면으로 이동하시겠습니까?');
+        if (confirmed){
+            updateBtn.innerText = '확인';
+            h2Tag.innerText = '비품 수정';
+            inputTags.forEach(input => {
+               input.removeAttribute('readonly');
+            });
+            $(function () {
+                $('.datepicker').datepicker();
+            });
+        }
     }
 }
+
+cancelBtn.onclick = () => {
+    if(updateBtn.innerText === '확인'){
+        const confirmed = confirm('취소하시겠습니까?');
+        if (confirmed){
+            location.href='/product/' + productNo;
+        }
+    }
+    else{
+        location.href='/product/manage_product';
+    }
+}
+
 
 // 구매일 날짜 jquery
 $.datepicker.setDefaults({
@@ -33,5 +56,6 @@ $.datepicker.setDefaults({
 });
 
 $(function () {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker("disabled", true);
 });
+

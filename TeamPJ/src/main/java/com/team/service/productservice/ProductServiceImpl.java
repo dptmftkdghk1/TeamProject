@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductDTO> get_products(String query) {
-        return productMapper.selectProducts(query);
+    public List<ProductDTO> get_products(String query, String rental) {
+        return productMapper.selectProducts(query, rental);
     }
 
     @Override

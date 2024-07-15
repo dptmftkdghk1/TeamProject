@@ -20,5 +20,5 @@ public class ProductDTO {
     private Integer productPrice;
     private String productImage;
     private String productDescription;
-    private Boolean productState;
+    private Boolean productStatus;
 }

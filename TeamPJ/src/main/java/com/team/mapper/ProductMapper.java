@@ -11,7 +11,8 @@ public interface ProductMapper {
     void insertProduct(ProductDTO productDTO);
 
     List<ProductDTO> selectProducts(
-            @Param("query") String query
+            @Param("query") String query,
+            @Param("rental") String rental
     );
     ProductDTO selectProductByNo(Integer productNo);
 

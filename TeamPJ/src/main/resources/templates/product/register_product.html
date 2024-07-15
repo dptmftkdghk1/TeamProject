@@ -53,7 +53,7 @@
             <div class="object-margin-design">
                 <label>
                     <span>구매일</span>
-                    <input class="datepicker" name="productPurchaseDate">
+                    <input class="datepicker" name="productPurchaseDate" readonly>
                 </label>
             </div>
             
@@ -73,7 +73,7 @@
             <div class="object-margin-design">
                 <label>
                     <span>대여여부</span>
-                    <select name="productState" id="">
+                    <select name="productStatus" id="">
                         <option value="1">대여가능</option>
                         <option value="0">대여불가능</option>
                     </select>
@@ -89,8 +89,8 @@
                 </label>
             </div>
             <div style="margin-left:10px">
-                <button type="submit">확인</button>
-                <button type="button">취소</button>
+                <button id="submitBtn" type="submit">확인</button>
+                <button id="cancelBtn" type="button">취소</button>
             </div>
         </form>
 

@@ -20,9 +20,10 @@
     <form class="table-list">
         <h2>비품 관리</h2>
         <section class=" table-list-search">
-            <input name="query" type="text">
+            <input name="query" placeholder="비품명으로 검색" type="text">
             <button type="submit">검색</button>
             <select name="rental" id="">
+                <option value="">전체</option>
                 <option value="renting">대여중</option>
                 <option value="rental-possible">대여가능</option>
                 <option value="rental-not-possible">대여불가능</option>
@@ -61,7 +62,8 @@
                     <td class="supplier" th:text="${product.productSupplier}">쿠팡</td>
                     <td class="price" th:text="${product.productPrice}">4000</td>
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
-                    <td><button>대여중</button></td>
+                    <td th:if="${product.productStatus == true}"><button>대여가능</button></td>
+                    <td th:unless="${product.productStatus == true}">대여불가</td>
                 </tr>
 
 <!--                <tr>-->
