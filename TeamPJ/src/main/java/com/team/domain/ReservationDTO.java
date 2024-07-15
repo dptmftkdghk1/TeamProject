@@ -12,11 +12,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ReservationDTO {
     private Integer reservationNo;
-    private String reservationName;
-    private String reservationCategory;
-    private EmployeeDTO reservationEmployee;
+    private ProductDTO reservationProduct;
+    private String reservationEmployee;
     private LocalDateTime reservationDate;
     private LocalDateTime returnDate;
-    private String reservationStatus;
+    private Boolean reservationStatus;
     private String reservationContent;
 }

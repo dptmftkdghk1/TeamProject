@@ -34,4 +34,12 @@
         insert into memo (memo_no,memo_writer,memo_name,memo_content,memo_date)
         values (null, #{memoWriter},#{memoName},#{memoContent},#{memoDate});
     </insert>
+
+    <!-- @@@@@@@@@@@@@@@@대여 등록@@@@@@@@@@@@@@@@-->
+    <insert id="insertReservation">
+        insert into reservation (reservation_no, reservation_name, reservation_category, reservation_employee, reservation_date, return_date, reservation_status, reservation_content)
+        values (null, "dfdf","카테고리", #{reserveEmployee},null, null, 2, #{reserveContent});
+--         values (null, #{reserveName},#{reserveCategory},#{reserveEmployee},null, null, #{reserveStatus}, #{reserveContent});
+    </insert>
+
 </mapper>

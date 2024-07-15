@@ -52,7 +52,7 @@
 
                 <tr>
                     <td><input type="checkbox"></td>
-                    <td>2020001</td>
+                    <td name="productNo">2020001</td>
                     <td>쿠크다스</td>
                     <td>과자</td>
                     <td>2개</td>
@@ -60,7 +60,7 @@
                     <td>쿠팡</td>
                     <td>4000</td>
                     <td>부서ID</td>
-                    <td><button>대여중</button></td>
+                    <td><button type="button" th:onclick="|location.href='/reservation/reservation?productNo=${productNo}'|">대여중</button></td>
                 </tr>
 
                 <tr>
