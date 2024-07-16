@@ -1,4 +1,4 @@
-const  form = document.forms.namedItem('update-form');
+const form = document.forms.namedItem('update-form');
 const updateBtn = document.getElementById('update');
 const cancelBtn = document.getElementById('cancel');
 const productNo = document.getElementById('productNo').value;
