@@ -54,15 +54,19 @@
 
                 <tr class="product" th:each="product: ${products}">
                     <td><input type="checkbox"></td>
-                    <td class="product-no" name="productNo" th:text="${product.productNo}">2020001</td>
-                    <td name="productName"><a class="name" th:href="|/product/${product.productNo}|" th:text="${product.productName}">쿠크다스</a></td>
-                    <td class="category" name="productCategory" th:text="${product.productCategory}">과자</td>
+
+                    <td class="product-no" th:text="${product.productNo}">2020001</td>
+                    <td><a class="name" th:href="|/product/${product.productNo}|" th:text="${product.productName}">쿠크다스</a></td>
+                    <td class="category" th:text="${product.productCategory}">과자</td>
                     <td class="amount" th:text="${product.productAmount}">2개</td>
                     <td class="purchase-date" th:text="${product.productPurchaseDate}">2024/06/11</td>
                     <td class="supplier" th:text="${product.productSupplier}">쿠팡</td>
                     <td class="price" th:text="${product.productPrice}">4000</td>
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
-                    <td th:if="${product.productStatus == true}"><button type="button" th:onclick="|location.href='/reservation/reservation?productNo=${productNo}?productName=${productName}?productCategory=${productCategory}'|">대여가능</button></td>
+
+                    <td th:if="${product.productStatus == true}">
+                        <a th:href="@{/reservation/reservation(productNo=${product.productNo},productName=${product.productName},productCategory=${product.productCategory})}">대여가능</a>
+                    </td>
                     <td th:unless="${product.productStatus == true}">대여불가</td>
                 </tr>
 

@@ -19,7 +19,6 @@
         SELECT COUNT(*) > 0 FROM employee WHERE employee_id = #{employeeId}
     </select>
 
-<<<<<<< HEAD
     <!-- @@@@@@@@@@@@@@@@새 비밀번호 등록@@@@@@@@@@@@@@@@@-->
 
 
@@ -69,6 +68,4 @@
 <!--    <delete id="deleteProduct">-->
 <!--        DELETE FROM product WHERE product_no = #{productNo}-->
 <!--    </delete>-->
-=======
->>>>>>> origin/lsh
 </mapper>
