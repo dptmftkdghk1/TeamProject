@@ -5,5 +5,17 @@
 <mapper namespace="com.team.mapper.ScheduleMapper">
 
 
-
+    <insert id="insertSchedule">
+        INSERT INTO schedule
+        VALUES
+            (NULL, #{scheduleTitle}, #{scheduleStartDate}, #{scheduleEndDate}, #{schedulePlace}, #{scheduleGuests}, #{scheduleRemarks})
+    </insert>
+    <select id="selectSchedules" resultType="com.team.domain.ScheduleDTO">
+        SELECT * FROM schedule ORDER BY schedule_start_date
+    </select>
+    <insert id="insertCalendar">
+        INSERT INTO asdf
+        VALUES
+            (NULL, #{title}, #{start}, #{end})
+    </insert>
 </mapper>
