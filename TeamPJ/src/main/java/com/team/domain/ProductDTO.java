@@ -18,7 +18,7 @@ public class ProductDTO {
     private String productPurchaseDate;
     private String productSupplier;
     private Integer productPrice;
-    private Boolean productState; // true : 대여가능, false : 대여가 없음
+//    private Boolean productState; // true : 대여가능, false : 대여가 없음
     private String productImage;
     private String productDescription;
     private Boolean productStatus;
