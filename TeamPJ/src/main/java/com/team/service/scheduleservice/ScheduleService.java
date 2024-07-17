@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface ScheduleService {
-    void insert_schedule(ScheduleDTO scheduleDTO);
-    List<ScheduleDTO> select_schedule();
+    List<ScheduleDTO> select_schedules();
     void insert_calendar(ScheduleDTO scheduleDTO);
+    ScheduleDTO select_scheduleByNo(Integer no);
 }

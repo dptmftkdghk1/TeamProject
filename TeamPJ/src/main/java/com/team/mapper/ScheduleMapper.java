@@ -9,7 +9,10 @@ import java.util.List;
 
 @Mapper
 public interface ScheduleMapper {
-    void insertSchedule(ScheduleDTO scheduleDTO);
+    // 모든 일정 불러오기
     List<ScheduleDTO> selectSchedules();
+    // 일정 추가
     void insertCalendar(ScheduleDTO scheduleDTO);
+    // no로 일정 찾기
+    ScheduleDTO selectScheduleByNo(Integer no);
 }
