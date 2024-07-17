@@ -6,8 +6,21 @@
 
     <!-- @@@@@@@@@@@@@@@@대여 등록@@@@@@@@@@@@@@@@-->
     <insert id="insertReservation" parameterType="com.team.domain.ReservationDTO">
-        insert into reservation (reservation_no, reservation_name, reservation_category, reservation_employee, reservation_date, return_date, reservation_status, reservation_content, product_no)
-        values (null, #{reservationProduct.productName}, #{reservationProduct.productCategory}, #{reservationEmployee}, #{reservationDate}, #{returnDate}, 1, #{reservationContent}, #{reservationProduct.productNo});
+        insert into reservation (reservation_no, reservation_employee, reservation_date, return_date, reservation_status, reservation_content, product_no)
+        values (null, #{reservationEmployee}, #{reservationDate}, #{returnDate}, 1, #{reservationContent}, #{reservationProduct.productNo});
     </insert>
+
+    <select id="selectReservations" resultType="com.team.domain.ReservationDTO" resultMap="selectReservationsWithProduct">
+        SELECT * FROM reservation R
+            INNER JOIN `product` P
+            ON `R`.`product_no` = `P`.`product_no`;
+    </select>
+
+    <resultMap id="selectReservationsWithProduct" type="com.team.domain.ReservationDTO" autoMapping="true">
+        <id property="reservationNo" column="reservation_no"/>
+        <association property="reservationProduct" javaType="com.team.domain.ProductDTO" autoMapping="true">
+            <id property="productNo" column="product_no"/>
+        </association>
+    </resultMap>
 
 </mapper>

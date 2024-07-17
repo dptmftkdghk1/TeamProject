@@ -20,8 +20,6 @@
     <h2>대여 신청</h2>
     <form id="rentalForm" th:action="@{/reservation/reservation}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="reservationProduct.productNo" th:value="${param.productNo}">
-        <input type="hidden" name="reservationProduct.productName" th:value="${param.productName}">
-        <input type="hidden" name="reservationProduct.productCategory" th:value="${param.productCategory}">
         <div class="rental-margin-design">
             <label>
                 <span>신청자</span>

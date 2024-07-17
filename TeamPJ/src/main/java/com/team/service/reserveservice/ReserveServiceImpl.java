@@ -8,6 +8,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Log4j2
 @Service
 public class ReserveServiceImpl implements ReserveService{
@@ -17,6 +19,11 @@ public class ReserveServiceImpl implements ReserveService{
     @Override
     public void insertReservation(ReservationDTO reservationDTO) {
         reserveMapper.insertReservation(reservationDTO);
+    }
+
+    @Override
+    public List<ReservationDTO> selectReservations() {
+        return reserveMapper.selectReservations();
     }
 
 }
