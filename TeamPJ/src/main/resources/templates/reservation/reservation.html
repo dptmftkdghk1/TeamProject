@@ -17,14 +17,14 @@
 <body>
     <div class="rental">
         <h2>대여 신청</h2>
-        <form action="/reservation/reservation" method="post" enctype="multipart/form-data">
+        <form th:action="@{/reservation/reservation}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="reservationProduct.productNo" th:value="${param.productNo}">
             <input type="hidden" name="reservationProduct.productName" th:value="${param.productName}">
             <input type="hidden" name="reservationProduct.productCategory" th:value="${param.productCategory}">
             <div class="rental-margin-design">
                 <label>
                     <span>신청자</span>
-                    <input type="text" name="reserveEmployee"/>
+                    <input type="text" name="reservationEmployee"/>
                 </label>
             </div>
             
@@ -32,7 +32,7 @@
                 <label>
                     <span>대여기간</span>
                     <div class="rental-date-line">
-                        <input type="date" name="reserveDate">
+                        <input type="date" name="reservationDate">
                         <input type="date" name="returnDate">
                     </div>
                 </label>
@@ -51,7 +51,7 @@
             <div>
                 <label class="rental-purpose">
                     <span>사용목적</span>
-                    <textarea class="rental-purpose-line" name="reserveContent"></textarea>
+                    <textarea class="rental-purpose-line" name="reservationContent"></textarea>
                 </label>
             </div>
 

@@ -22,7 +22,6 @@ public interface Mapper {
 //    메모 관련
     void insertMemo(MemoDTO memoDTO);
 
-//  대여 관련
-    void insertReservation(ReservationDTO reservationDTO);
+
 
 }

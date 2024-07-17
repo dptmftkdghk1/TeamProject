@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.mapper.ReserveMapper">
+
+    <!-- @@@@@@@@@@@@@@@@대여 등록@@@@@@@@@@@@@@@@-->
+    <insert id="insertReservation" parameterType="com.team.domain.ReservationDTO">
+        insert into reservation (reservation_no, reservation_name, reservation_category, reservation_employee, reservation_date, return_date, reservation_status, reservation_content, product_no)
+        values (null, #{reservationProduct.productName}, #{reservationProduct.productCategory}, #{reservationEmployee}, null, null, 2, #{reservationContent}, #{reservationProduct.productNo});
+    </insert>
+
+</mapper>

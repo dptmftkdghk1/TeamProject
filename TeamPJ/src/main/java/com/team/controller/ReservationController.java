@@ -16,7 +16,6 @@ public class ReservationController {
     @Autowired
     ReserveService reserveService;
 
-
     @GetMapping("/reservation")
     public String get_reservation(
             @RequestParam("productNo") Integer productNo,
@@ -27,9 +26,11 @@ public class ReservationController {
     }
 
     @PostMapping("/reservation")
-    public String post_reservation(ReservationDTO reservationDTO) {
+    public String post_reservation(
+            ReservationDTO reservationDTO
+    ) {
         reserveService.insertReservation(reservationDTO);
         log.info(reservationDTO);
-        return "product/manage_product";
+        return "redirect:/product/manage_product";
     }
 }
