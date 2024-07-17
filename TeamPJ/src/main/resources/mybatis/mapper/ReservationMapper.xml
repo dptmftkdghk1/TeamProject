@@ -7,7 +7,7 @@
     <!-- @@@@@@@@@@@@@@@@대여 등록@@@@@@@@@@@@@@@@-->
     <insert id="insertReservation" parameterType="com.team.domain.ReservationDTO">
         insert into reservation (reservation_no, reservation_name, reservation_category, reservation_employee, reservation_date, return_date, reservation_status, reservation_content, product_no)
-        values (null, #{reservationProduct.productName}, #{reservationProduct.productCategory}, #{reservationEmployee}, null, null, 2, #{reservationContent}, #{reservationProduct.productNo});
+        values (null, #{reservationProduct.productName}, #{reservationProduct.productCategory}, #{reservationEmployee}, #{reservationDate}, #{returnDate}, 1, #{reservationContent}, #{reservationProduct.productNo});
     </insert>
 
 </mapper>

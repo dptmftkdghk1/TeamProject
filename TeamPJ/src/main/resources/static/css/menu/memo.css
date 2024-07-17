@@ -33,7 +33,7 @@ td:nth-child(6){
     /* background-color: blue; */
 }
 .table-list-button-style{
-    padding: 10px;
+    padding: 10px 0px;
     flex: 1;
     display:flex;
     justify-content: end;
@@ -110,9 +110,15 @@ justify-content:center;}
     /* overflow-x: hidden; */
 }
 
-main{
+.rental-memo-box{
     display:flex;
-    justify-content: center;
+    justify-content:  center;
+    margin:30px;
+}
+main{
+    /*margin: 100px;*/
+    /*display:flex;*/
+    /*justify-content: center;*/
 }
 
 /* .memo-history::-webkit-scrollbar {

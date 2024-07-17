@@ -5,6 +5,7 @@ import com.team.domain.ReservationDTO;
 import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ public class ReservationController {
 
     @PostMapping("/reservation")
     public String post_reservation(
+            @ModelAttribute @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
             ReservationDTO reservationDTO
     ) {
         reserveService.insertReservation(reservationDTO);
