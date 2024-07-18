@@ -23,8 +23,6 @@ public class ReservationController {
     @GetMapping("/reservation")
     public String get_reservation(
             @RequestParam("productNo") Integer productNo
-//            @RequestParam("productName") String productName,
-//            @RequestParam("productCategory") String productCategory
     ) {
         return "reservation/reservation";
     }
@@ -49,7 +47,7 @@ public class ReservationController {
         return "/reservation/reservation_list";
     }
 
-    @GetMapping("check/{reservationNo}")
+    @GetMapping("/check/{reservationNo}")
     public String get_check(
             @PathVariable("reservationNo") Integer reservationNo,
             Model model
