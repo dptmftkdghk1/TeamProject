@@ -3,7 +3,7 @@ package com.team.mapper;
 import com.team.domain.ProductDTO;
 import com.team.domain.ReservationDTO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -11,6 +11,6 @@ import java.util.List;
 public interface ReserveMapper {
     //  대여 관련
     void insertReservation(ReservationDTO reservationDTO);
-    List<ReservationDTO> selectReservations();
+    List<ReservationDTO> selectReservations(@Param("query") String query);
     ReservationDTO selectReservationByNo(Integer reservationNo);
 }

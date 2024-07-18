@@ -1,7 +1,5 @@
 package com.team.controller;
 
-
-import com.team.domain.ProductDTO;
 import com.team.domain.ReservationDTO;
 import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
@@ -38,8 +36,8 @@ public class ReservationController {
     }
 
     @GetMapping("/list")
-    public String get_list(Model model){
-        List<ReservationDTO> reservationList = reserveService.selectReservations();
+    public String get_list(Model model, String query){
+        List<ReservationDTO> reservationList = reserveService.selectReservations(query);
 
         System.out.println(reservationList);
 

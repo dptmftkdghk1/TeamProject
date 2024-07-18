@@ -7,7 +7,7 @@ import java.util.List;
 public interface ReserveService {
     void insertReservation(ReservationDTO reservationDTO);
 
-    List<ReservationDTO> selectReservations();
+    List<ReservationDTO> selectReservations(String query);
 
     ReservationDTO select_reservation_by_no(Integer reservationNo);
 }

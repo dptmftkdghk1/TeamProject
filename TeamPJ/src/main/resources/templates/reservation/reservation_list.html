@@ -19,10 +19,13 @@
     
     <div class="rental-table-list">
         <h2>대여신청 목록</h2>
-        <section class="rental-table-list-search">
-            <input type="text">
-            <button>검색</button>
-        </section> 
+        <form th:action="@{/reservation/list}" name="test" method="get">
+            <section class="rental-table-list-search">
+                <input type="text" name="query">
+                <button>검색</button>
+            </section>
+        </form>
+
 
         <section class="rental-table-list-design">
             <table border="1">
@@ -38,7 +41,6 @@
                         <td style="width:200px"></td>
                     </tr>
                 </thead>
-
                 <tr th:each="reservation, stat: ${reservationList}">
                     <td th:text="${stat.count}"><input type="hidden" th:text="reservation.reservationNo"></td>
                     <td th:text="${reservation.reservationProduct.productCategory}"></td>
@@ -47,7 +49,7 @@
                     <td th:text="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd HH:mm')}"></td>
                     <td th:text="${#temporals.format(reservation.returnDate, 'yyyy-MM-dd HH:mm')}"></td>
                     <td th:text="${reservation.reservationContent}"></td>
-                    <td><button>승인</button><button>거부</button></td>
+                    <td><button th:if="${reservation.reservationStatus == null or reservation.reservationStatus == true}">승인</button><button th:if="${reservation.reservationStatus == null}">거부</button></td>
                 </tr>
 
 <!--                <tr>-->

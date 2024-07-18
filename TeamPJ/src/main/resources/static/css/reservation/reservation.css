@@ -21,6 +21,9 @@
     font-family: "Do Hyeon"
 }
 
+.error {
+    border: 2px solid red;
+}
 
 .rental-date-line{
     width: 224px;

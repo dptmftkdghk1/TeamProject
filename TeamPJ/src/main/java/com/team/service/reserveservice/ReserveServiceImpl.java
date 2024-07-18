@@ -22,8 +22,8 @@ public class ReserveServiceImpl implements ReserveService{
     }
 
     @Override
-    public List<ReservationDTO> selectReservations() {
-        return reserveMapper.selectReservations();
+    public List<ReservationDTO> selectReservations(String query) {
+        return reserveMapper.selectReservations(query);
     }
 
     @Override
