@@ -8,4 +8,6 @@ public interface ReserveService {
     void insertReservation(ReservationDTO reservationDTO);
 
     List<ReservationDTO> selectReservations();
+
+    ReservationDTO select_reservation_by_no(Integer reservationNo);
 }

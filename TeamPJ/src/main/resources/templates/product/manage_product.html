@@ -65,7 +65,7 @@
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
 
                     <td th:if="${product.productStatus == true}">
-                        <a th:href="@{/reservation/reservation(productNo=${product.productNo},productName=${product.productName},productCategory=${product.productCategory})}">대여가능</a>
+                        <a th:href="@{/reservation/reservation(productNo=${product.productNo})}">대여가능</a>
                     </td>
                     <td th:unless="${product.productStatus == true}">대여불가</td>
                 </tr>

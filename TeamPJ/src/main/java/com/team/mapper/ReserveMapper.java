@@ -12,4 +12,5 @@ public interface ReserveMapper {
     //  대여 관련
     void insertReservation(ReservationDTO reservationDTO);
     List<ReservationDTO> selectReservations();
+    ReservationDTO selectReservationByNo(Integer reservationNo);
 }

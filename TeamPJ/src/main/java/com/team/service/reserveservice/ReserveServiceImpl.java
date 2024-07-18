@@ -26,4 +26,9 @@ public class ReserveServiceImpl implements ReserveService{
         return reserveMapper.selectReservations();
     }
 
+    @Override
+    public ReservationDTO select_reservation_by_no(Integer reservationNo) {
+        return reserveMapper.selectReservationByNo(reservationNo);
+    }
+
 }

@@ -28,7 +28,7 @@
             <table border="1">
                 <thead class="rental-table-list-head">
                     <tr>
-<!--                        <td>순번</td>-->
+                        <td>순번</td>
                         <td>카테고리</td>
                         <td>비품명</td>
                         <td>신청자</td>
@@ -39,13 +39,13 @@
                     </tr>
                 </thead>
 
-<!--                <div th:text="${reservationList}"></div>-->
-                <tr th:each="reservation: ${reservationList}">
+                <tr th:each="reservation, stat: ${reservationList}">
+                    <td th:text="${stat.count}"><input type="hidden" th:text="reservation.reservationNo"></td>
                     <td th:text="${reservation.reservationProduct.productCategory}"></td>
-                    <td th:text="${reservation.reservationProduct.productName}"></td>
+                    <td><a th:href="|/reservation/check/${reservation.reservationNo}|" th:text="${reservation.reservationProduct.productName}"></a></td>
                     <td th:text="${reservation.reservationEmployee}"></td>
-                    <td th:text="${reservation.reservationDate}"></td>
-                    <td th:text="${reservation.returnDate}"></td>
+                    <td th:text="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd HH:mm')}"></td>
+                    <td th:text="${#temporals.format(reservation.returnDate, 'yyyy-MM-dd HH:mm')}"></td>
                     <td th:text="${reservation.reservationContent}"></td>
                     <td><button>승인</button><button>거부</button></td>
                 </tr>

@@ -23,4 +23,12 @@
         </association>
     </resultMap>
 
+    <select id="selectReservationByNo" resultType="com.team.domain.ReservationDTO" resultMap="selectReservationsWithProduct">
+        SELECT *
+          FROM reservation R
+         INNER JOIN `product` P
+            ON `R`.`product_no` = `P`.`product_no`
+            where reservation_no = #{reservationNo};
+    </select>
+
 </mapper>

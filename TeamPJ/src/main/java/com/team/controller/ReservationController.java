@@ -1,6 +1,7 @@
 package com.team.controller;
 
 
+import com.team.domain.ProductDTO;
 import com.team.domain.ReservationDTO;
 import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
@@ -47,4 +48,17 @@ public class ReservationController {
         model.addAttribute("reservationList", reservationList);
         return "/reservation/reservation_list";
     }
+
+    @GetMapping("check/{reservationNo}")
+    public String get_check(
+            @PathVariable("reservationNo") Integer reservationNo,
+            Model model
+    ) {
+
+        ReservationDTO reservation = reserveService.select_reservation_by_no(reservationNo);
+        model.addAttribute("reservation", reservation);
+
+        return "/reservation/reservation_check";
+    }
+
 }
