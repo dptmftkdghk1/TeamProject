@@ -70,20 +70,19 @@ function validateForm() {
     TotalStartDate.value = startDate.value + 'T' + startTime.value;
     TotalEndDate.value = endDate.value + 'T' + endTime.value;
 
-    console.log(TotalStartDate.value);
-    console.log(TotalEndDate.value);
-
-    if (isValid) {
-
-
-        alert('확인되었습니다.');
+    if(isValid === false){
+        return false;
+    }else{
+        alert('확인되었습니다');
+        return true;
     }
 }
 
 function confirmCancel() {
     if (confirm('정말 취소하시겠습니까?')) {
-        document.getElementById('rentalForm').reset();
-        resetFormColors();
+        location.href='/product/manage_product';
+        // document.getElementById('rentalForm').reset();
+        // resetFormColors();
         // location.href="/product/manage_product";
     }
 }

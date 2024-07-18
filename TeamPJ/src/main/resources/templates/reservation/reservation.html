@@ -18,7 +18,7 @@
 <body>
 <div class="rental">
     <h2>대여 신청</h2>
-    <form id="rentalForm" th:action="@{/reservation/reservation}" method="POST" enctype="multipart/form-data">
+    <form id="rentalForm" th:action="@{/reservation/reservation}" onsubmit="return validateForm()" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="reservationProduct.productNo" th:value="${param.productNo}">
         <div class="rental-margin-design">
             <label>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="rental-button-box">
-            <button type="submit" onclick="validateForm()">확인</button>
+            <button type="submit">확인</button>
             <button type="button" onclick="confirmCancel()">취소</button>
         </div>
     </form>
