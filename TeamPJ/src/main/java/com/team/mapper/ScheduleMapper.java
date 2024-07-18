@@ -15,4 +15,8 @@ public interface ScheduleMapper {
     void insertCalendar(ScheduleDTO scheduleDTO);
     // no로 일정 찾기
     ScheduleDTO selectScheduleByNo(Integer no);
+
+    void updateSchedule(ScheduleDTO scheduleDTO);
+
+    void deleteSchedule(Integer no);
 }

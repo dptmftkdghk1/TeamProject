@@ -25,4 +25,14 @@ public class ScheduleServiceImpl implements ScheduleService {
     public ScheduleDTO select_scheduleByNo(Integer no) {
         return scheduleMapper.selectScheduleByNo(no);
     }
+
+    @Override
+    public void update_schedule(ScheduleDTO schedule) {
+        scheduleMapper.updateSchedule(schedule);
+    }
+
+    @Override
+    public void delete_schedule(Integer no) {
+        scheduleMapper.deleteSchedule(no);
+    }
 }

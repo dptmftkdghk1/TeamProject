@@ -22,7 +22,7 @@ public class ScheduleController {
     @Autowired
     ScheduleService scheduleService;
 
-    @GetMapping("/calender")
+    @GetMapping("/calendar")
     public void get_calender(){}
 
     @ResponseBody
@@ -32,19 +32,37 @@ public class ScheduleController {
         return schedules;
     }
 
-    @PostMapping("/calender")
-    public ResponseEntity<String> post_insert_schedule(
+    @PostMapping("/calendar")
+    public ResponseEntity<ScheduleDTO> post_insert_schedule(
             @RequestBody ScheduleDTO schedule){
         scheduleService.insert_calendar(schedule);
         log.info(schedule.toString());
-        return ResponseEntity.ok("성공");
+        return ResponseEntity.ok(schedule);
     }
 
-    @GetMapping("/get_schedule")
-    public ResponseEntity<ScheduleDTO> get_schedule(@RequestParam Integer no){
+    @GetMapping("/get_schedule/{no}")
+    public ResponseEntity<ScheduleDTO> get_schedule(@PathVariable("no") Integer no){
         ScheduleDTO schedule = scheduleService.select_scheduleByNo(no);
         return ResponseEntity.ok(schedule);
     }
 
+    @PutMapping("/update/{no}")
+    public ResponseEntity<ScheduleDTO> update_schedule(
+            @PathVariable("no") Integer no,
+            @RequestBody ScheduleDTO schedule
+    ){
+        schedule.setNo(no);
+        System.out.println("업데이트: " + schedule);
+        scheduleService.update_schedule(schedule);
+        return ResponseEntity.ok(schedule);
+    }
+
+    @DeleteMapping("/delete/{no}")
+    public ResponseEntity<Void> delete_schedule(
+            @PathVariable("no") Integer no
+    ){
+        scheduleService.delete_schedule(no);
+        return ResponseEntity.ok().body(null);
+    }
 
 }

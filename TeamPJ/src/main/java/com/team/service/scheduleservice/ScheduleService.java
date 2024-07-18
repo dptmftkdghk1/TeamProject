@@ -9,4 +9,7 @@ public interface ScheduleService {
     List<ScheduleDTO> select_schedules();
     void insert_calendar(ScheduleDTO scheduleDTO);
     ScheduleDTO select_scheduleByNo(Integer no);
+    void update_schedule(ScheduleDTO schedule);
+
+    void delete_schedule(Integer no);
 }

@@ -17,4 +17,19 @@
         WHERE no = #{no}
     </select>
 
+    <update id="updateSchedule">
+        UPDATE schedule
+        SET
+        `title` = #{title},
+        `start` = #{start},
+        `end` = #{end},
+        `backgroundColor` = #{backgroundColor},
+        `text` = #{text}
+        WHERE `no` = #{no};
+    </update>
+
+    <delete id="deleteSchedule">
+        DELETE FROM schedule
+        WHERE no = #{no};
+    </delete>
 </mapper>
