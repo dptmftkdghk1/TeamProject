@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/reservation/reservation_list.css" th:href="@{/css/reservation/reservation_list.css}" >
-
+    <script src="../../static/js/reservation/reservation_list.js" th:src="@{/js/reservation/reservation_list.js}" defer></script>
 </head>
 <body>
     
@@ -49,7 +49,7 @@
                     <td th:text="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd HH:mm')}"></td>
                     <td th:text="${#temporals.format(reservation.returnDate, 'yyyy-MM-dd HH:mm')}"></td>
                     <td th:text="${reservation.reservationContent}"></td>
-                    <td><button th:if="${reservation.reservationStatus == null or reservation.reservationStatus == true}">승인</button><button th:if="${reservation.reservationStatus == null}">거부</button></td>
+                    <td><button th:if="${reservation.reservationStatus == null or reservation.reservationStatus == true}" th:onclick="reservation_update(${reservation.reservationNo})">승인</button><button th:if="${reservation.reservationStatus == null}" th:onclick="reservation_delete(${reservation.reservationNo})">거부</button></td>
                 </tr>
 
 <!--                <tr>-->

@@ -31,4 +31,9 @@ public class ReserveServiceImpl implements ReserveService{
         return reserveMapper.selectReservationByNo(reservationNo);
     }
 
+    @Override
+    public void reservationApprove(Integer reservationNo) {
+        reserveMapper.ReservationUpdate(reservationNo);
+    }
+
 }

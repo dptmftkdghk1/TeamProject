@@ -10,6 +10,13 @@
         values (null, #{reservationEmployee}, #{reservationDate}, #{returnDate}, null, #{reservationContent}, #{reservationProduct.productNo});
     </insert>
 
+    <update id="ReservationUpdate" parameterType="com.team.domain.ReservationDTO">
+        update reservation
+           set reservation_status = true
+         where reservation_no = #{reservationNo}
+    </update>
+
+
     <select id="selectReservations" resultType="com.team.domain.ReservationDTO" resultMap="selectReservationsWithProduct">
         SELECT * FROM reservation R
             INNER JOIN `product` P
