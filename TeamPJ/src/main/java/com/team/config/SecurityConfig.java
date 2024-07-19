@@ -20,8 +20,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf().
-        disable();
+//        http.csrf().
+//        disable();
 
 
 
@@ -47,9 +47,6 @@ public class SecurityConfig {
 //            registry.requestMatchers("/main").authenticated()
             registry.anyRequest().permitAll(); // 그 외 모든 경로는 인증 없이 가능
 //            registry.anyRequest().authenticated();
-
-
-
 
         });
 
