@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Log4j2
 public class MemoDTO {
-    private String memeNo;
-    private List<EmployeeDTO> memoWriter;
+    private Integer memoNo;
+    private EmployeeDTO memoWriter;
     private String memoName;
     private String memoContent;
     private LocalDateTime memoDate;

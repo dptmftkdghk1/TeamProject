@@ -5,15 +5,16 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 @Component
-public class FileConverter implements Converter<MultipartFile, List<FileDTO>> {
+public class FileConverter implements Converter<MultipartFile, FileDTO> {
     @Override
-    public List<FileDTO> convert(MultipartFile file) {
+    public FileDTO convert(MultipartFile file) {
         System.out.println("FileConverter 실행...");
         String uuid = UUID.randomUUID().toString();
         String fileName = file.getOriginalFilename();
@@ -29,11 +30,11 @@ public class FileConverter implements Converter<MultipartFile, List<FileDTO>> {
         catch (IOException e){
             throw new RuntimeException(e);
         }
-        return List.of(FileDTO.builder()
+        return FileDTO.builder()
                 .UUID(uuid)
                 .originalFileName(fileName)
                 .saveFileName(saveFileName)
                 .data(data)
-                .build());
+                .build();
     }
 }

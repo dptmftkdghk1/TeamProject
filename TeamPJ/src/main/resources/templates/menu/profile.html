@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
 >
 <head>
     <meta charset="UTF-8">
@@ -12,197 +13,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/menu/profile.css" th:href="@{/css/menu/profile.css}">
+
 </head>
 <body>
-    <div class="schdule">
+<main layout:fragment="main">
+    <div class="schedule">
         <h2>프로필 관리</h2>
-        <form>
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <div class="profile-margin-design">
                 <label>
-                    <span>닉네임</span>
-                    <input type="text"/>
-                </label>
-            </div>
-            
-            <div>
-                <label class="profile-photo">
-                    <span>프로필사진</span>
-                    <div class="profile-box"></div>
-                    <div><span>등록</span></div>
+                    <span>이름</span>
+                    <input type="text" th:value="${employee.employeeName}"/>
                 </label>
             </div>
             
             <div class="profile-margin-design">
                 <label>
-                    <span>email</span>
-                    <input type="text">
+                    <span>이메일</span>
+                    <input type="text" th:value="${employee.employeeEmail}">
                 </label>
             </div>
             
             <div class="profile-margin-design">
                 <label>
-                    <span>Tel</span>
-                    <input type="text">
+                    <span>전화번호</span>
+                    <input type="text" th:value="${employee.employeePhoneNumber}">
                 </label>
             </div>
             
             <div class="profile-margin-design">
                 <label>
                     <span>주소</span>
-                    <input type="text">
+                    <input type="text" th:value="${employee.employeeAddress}">
+                </label>
+            </div>
+
+            <div class="profile-margin-design">
+                <label>
+                    <span>상세 주소</span>
+                    <input type="text" th:value="${employee.employeeDetailedAddress}">
                 </label>
             </div>
             
             <div class="profile-margin-design">
                 <label>
-                    <span>부서</span>
+                    <span>사진</span>
                     <input type="text">
                 </label>
             </div>
-            
-            <div class="profile-margin-design">
-                <label>
-                    <span>직책</span>
-                    <input type="text">
-                </label>
-            </div>
+            <button type="submit">프로필 변경</button>
         </form>
 
-        <button type="submit">프로필 변경</button>
+
       </div>
+</main>
 </body>
 </html>
-
-<style>
-.nanum-myeongjo-regular{
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.nanum-gothic-coding-regular{
-  font-family: "Nanum Gothic Coding", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.do-hyeon-regular{
-  font-family: "Do Hyeon", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-*{
-    font-family: "Do Hyeon"
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #EEEEEE;
-}
-
-.schdule{
-    padding-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  padding-top: 2.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.profile-margin-design{
-    margin-right: 120px;
-}
-
-label{
-    display:flex;
-}
-
-label > span{
-    display:flex;
-    justify-content: end;
-    width: 110px;
-    padding: 0.5rem 1rem 0.5rem 0rem; 
-    margin-bottom: 1rem;
-}
-
-input{
-    width: 210px;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    background-color: #EEEDED;
-    outline: none;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-input:hover{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.1s;
-}
-
-button{
-    margin: 30px;
-    padding: 0.5rem 1.5rem;
-    background-color: #FFFFFF;
-    font-size: 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.1s;
-}
-
-.profile-photo{
-    margin-right: 50px;
-    margin-bottom: 1rem;
-    
-}
-
-.profile-box{
-    width: 225px;
-    height: 150px;
-    border-radius: 30px;
-    background-color: #EEEDED;
-    border: 1px solid rgba(0,0,0,0.12);
-}
-label > div:nth-child(3){
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-}
-
-label > div:nth-child(3) > span{
-    background-color: #EEEDED;
-    width: 50px;
-    height: 40px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0,0,0,0.12);
-    border-radius: 10px;
-    margin-left: 20px;
-    cursor: pointer;
-}
-
-label > div:nth-child(3) > span:hover{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: 0.1s;
-}
-  </style>
-  

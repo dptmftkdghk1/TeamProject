@@ -3,9 +3,6 @@ const content = document.querySelector("textarea");
 const text = document.querySelectorAll("span");
 const registerBtn = document.getElementById("register");
 
-registerBtn.onClick = () => {
-
-}
 
 plus.onclick = () => {
     content.readOnly = false;
@@ -17,4 +14,7 @@ text.forEach(element => {
         content.blur();
         content.readOnly = true;
     };
+});
+registerBtn.addEventListener("click", () => {
+    location.reload();
 });

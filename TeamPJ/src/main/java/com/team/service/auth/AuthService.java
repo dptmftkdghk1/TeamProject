@@ -1,4 +1,4 @@
-package com.team.service;
+package com.team.service.auth;
 
 import com.team.domain.EmployeeDTO;
 import com.team.mapper.Mapper;
@@ -111,6 +111,14 @@ public class AuthService {
         // 유저를 insert한다
         mapper.insertEmployee(employee);
         return true;
+    }
+
+    public EmployeeDTO selectAllEmployees(String id) {
+        return mapper.selectEmployeeById(id);
+    }
+    public EmployeeDTO selectAll()
+    {
+        return mapper.selectAll();
     }
 
 
