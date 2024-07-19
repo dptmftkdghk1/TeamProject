@@ -12,4 +12,6 @@ public interface ReserveService {
     ReservationDTO select_reservation_by_no(Integer reservationNo);
 
     void reservationApprove(Integer reservationNo);
+
+    void deleteReservation(Integer reservationNo);
 }

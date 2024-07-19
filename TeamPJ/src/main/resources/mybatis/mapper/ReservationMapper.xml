@@ -16,6 +16,12 @@
          where reservation_no = #{reservationNo}
     </update>
 
+    <delete id="deleteReservation" parameterType="com.team.domain.ReservationDTO">
+        delete
+        from reservation
+        where reservation_no = #{reservationNo}
+    </delete>
+
 
     <select id="selectReservations" resultType="com.team.domain.ReservationDTO" resultMap="selectReservationsWithProduct">
         SELECT * FROM reservation R

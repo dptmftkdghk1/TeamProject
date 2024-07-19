@@ -36,4 +36,9 @@ public class ReserveServiceImpl implements ReserveService{
         reserveMapper.ReservationUpdate(reservationNo);
     }
 
+    @Override
+    public void deleteReservation(Integer reservationNo) {
+        reserveMapper.deleteReservation(reservationNo);
+    }
+
 }

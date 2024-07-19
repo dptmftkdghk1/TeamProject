@@ -1,6 +1,5 @@
 package com.team.controller;
 
-import com.team.domain.ProductDTO;
 import com.team.domain.ReservationDTO;
 import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
@@ -61,28 +60,21 @@ public class ReservationController {
     }
 
     @PostMapping("/list")
-    public ResponseEntity<String> post_update_list(
-            @RequestBody ReservationDTO item,
-            ReservationDTO reservationDTO
+    public ResponseEntity<String> post_reservation_update(
+            @RequestBody Integer item
+
     ){
-        try{
-            reserveService.reservationApprove(item.getReservationNo());
-            return ResponseEntity.ok("Reservation approved successfully");
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ERROR occurred while approving reservation");
-        }
-//        reservationDTO.setProductNo(productNo);
-//        productService.update_product(product);
-//        return "redirect:/product/manage_product";
+        reserveService.reservationApprove(item);
+        return ResponseEntity.ok("승인되었습니다");
     }
 
-//    @DeleteMapping("/list")
-//    public void post_delete_list(
-//            ReservationDTO reservationDTO
-//    ){
-//        for(ProductDTO product : products){
-//            productService.delete_product(product.getProductNo());
-//        }
-//    }
+    @DeleteMapping("/list")
+    public ResponseEntity<String> post_reservation_delete(
+            @RequestBody Integer item
+
+    ){
+        reserveService.deleteReservation(item);
+        return ResponseEntity.ok("거부되었습니다");
+    }
 
 }

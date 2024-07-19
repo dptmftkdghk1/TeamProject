@@ -14,4 +14,5 @@ public interface ReserveMapper {
     List<ReservationDTO> selectReservations(@Param("query") String query);
     ReservationDTO selectReservationByNo(Integer reservationNo);
     void ReservationUpdate(Integer reservationNo);
+    void deleteReservation(Integer reservationNo);
 }

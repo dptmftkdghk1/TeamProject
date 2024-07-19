@@ -1,6 +1,8 @@
+
+
 // 승인 클릭 시 승인 Status 업데이트
 function reservation_update(item){
-    fetch(`/reservation/list`,{
+    fetch("/reservation/list",{
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +19,7 @@ function reservation_update(item){
 
 // 거부 클릭 시 칼럼 삭제
 function reservation_delete(item){
-    fetch(`/reservation/list`,{
+    fetch("/reservation/list",{
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
