@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/product/register_product.css" th:href="@{/css/product/register_product.css}">
-    <script src="../../static/js/product/register_product.js" th:src="@{/js/product/register_product.js}" defer></script>
+    <script src="../../static/js/product/read_product.js" th:src="@{/js/product/read_product.js}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossOrigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -27,57 +27,48 @@
 <body>
     <div class="object">
         <h1>New Company</h1>
-        <h2>비품 등록</h2>
-        <form th:action="@{/product/register_product}" method="POST"  enctype="multipart/form-data">
+        <h2>비품 확인</h2>
+        <form th:action="@{|/product/update/${product.productNo}|}" method="POST"  enctype="multipart/form-data" name="update-form">
+            <input type="hidden" id="productNo" th:value="${product.productNo}">
             <div class="object-margin-design">
                 <label>
                     <span>비품명</span>
-                    <input type="text" name="productName"/>
+                    <input th:value="${product.productName}" type="text" name="productName" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>카테고리</span>
-                    <input type="text" name="productCategory">
+                    <input th:value="${product.productCategory}" type="text" name="productCategory" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>갯수</span>
-                    <input type="number" name="productAmount">
+                    <input th:value="${product.productAmount}" type="number" name="productAmount" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매일</span>
-                    <input class="datepicker" name="productPurchaseDate" readonly>
+                    <input th:value="${product.productPurchaseDate}" class="datepicker" name="productPurchaseDate" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매처</span>
-                    <input type="text" name="productSupplier">
+                    <input th:value="${product.productSupplier}" type="text" name="productSupplier" readonly>
                 </label>
             </div>
             
             <div class="object-margin-design">
                 <label>
                     <span>구매가격</span>
-                    <input type="number" name="productPrice">
-                </label>
-            </div>
-            <div class="object-margin-design">
-                <label>
-                    <span>대여여부</span>
-                    <select name="productStatus" id="">
-                        <option value="1">대여가능</option>
-                        <option value="0">대여불가능</option>
-                    </select>
-<!--                    <input type="number" name="productPrice">-->
+                    <input th:value="${product.productPrice}" type="number" name="productPrice" readonly>
                 </label>
             </div>
             
@@ -89,8 +80,8 @@
                 </label>
             </div>
             <div style="margin-left:10px">
-                <button id="submitBtn" type="submit">확인</button>
-                <button id="cancelBtn" type="button">취소</button>
+                <button type="button" id="update">수정</button>
+                <button type="button" id="cancel">취소</button>
             </div>
         </form>
 
