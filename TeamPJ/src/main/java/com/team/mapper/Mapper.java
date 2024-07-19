@@ -3,7 +3,6 @@ package com.team.mapper;
 import com.team.domain.EmployeeDTO;
 import com.team.domain.MemoDTO;
 import com.team.domain.ProductDTO;
-import com.team.domain.ReservationDTO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

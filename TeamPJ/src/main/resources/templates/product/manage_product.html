@@ -54,7 +54,6 @@
 
                 <tr class="product" th:each="product: ${products}">
                     <td><input type="checkbox"></td>
-
                     <td class="product-no" th:text="${product.productNo}">2020001</td>
                     <td><a class="name" th:href="|/product/${product.productNo}|" th:text="${product.productName}">쿠크다스</a></td>
                     <td class="category" th:text="${product.productCategory}">과자</td>
@@ -63,7 +62,6 @@
                     <td class="supplier" th:text="${product.productSupplier}">쿠팡</td>
                     <td class="price" th:text="${product.productPrice}">4000</td>
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
-
                     <td th:if="${product.productStatus == true}">
                         <a th:href="@{/reservation/reservation(productNo=${product.productNo})}">대여가능</a>
                     </td>
