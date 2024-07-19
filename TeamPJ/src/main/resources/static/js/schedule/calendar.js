@@ -1,3 +1,4 @@
+
 // 날짜 포맷 함수
 function formatDate(dateString) {
     const date = new Date(dateString);
@@ -10,13 +11,27 @@ function formatDate(dateString) {
     return `${year}년 ${month}월 ${day}일 ${hours}시 ${minutes}분`;
 }
 
+// Fetch 데이터를 가져오는 함수
+function fetchData(url, options = {}) {
+    return fetch(url, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP 에러: ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error("Fetch 오류: ", error);
+            throw error; // 오류를 호출자에게 전달
+        });
+}
+
 // 수정 버튼 클릭시
 $("#editBtn").on("click", function () {
     const id = $("#checkId").val();
     console.log("아이디 " + id);
 
-    fetch(`/schedule/get_schedule/${id}`)
-        .then(response => response.json())
+    fetchData(`/schedule/get_schedule/${id}`)
         .then(data => {
             console.log("데이타: " + JSON.stringify(data));
             $("#updateId").val(id);
@@ -34,13 +49,13 @@ $("#editBtn").on("click", function () {
 });
 
 // 수정 모달에서 확인 버튼 클릭시
-$("#updateBtn").on("click", function (){
+$("#updateBtn").on("click", function () {
     const startDate = new Date($("#updateStart").val());
     const endDate = new Date($("#updateEnd").val());
 
     const options = { timeZone: "Asia/Seoul", hour12: false };
     const start = startDate.toLocaleString("sv-SE", options).replace(" ", "T");
-    const end = endDate == "Thu Jan 01 1970 09:00:00 GMT+0900 (GMT+09:00)" ? null : endDate.toLocaleString("sv-SE", options).replace(" ", "T");
+    const end = endDate.toString() === "Thu Jan 01 1970 09:00:00 GMT+0900 (GMT+09:00)" ? null : endDate.toLocaleString("sv-SE", options).replace(" ", "T");
 
     const id = $("#updateId").val();
     const o = {
@@ -56,43 +71,48 @@ $("#updateBtn").on("click", function (){
         method: "PUT",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(o)
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('에러에러');
-        }
-        alert('수정되었습니다');
-        location.reload();
-        return response.json();
-    }).catch(error => {
-        console.error("업데이트 오류: " + error);
-    });
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('에러에러');
+            }
+            alert('수정되었습니다');
+            location.reload();
+            return response.json();
+        })
+        .catch(error => {
+            console.error("업데이트 오류: " + error);
+        });
+
     $("#checkModal").modal("show");
 });
 
 // 삭제 버튼 클릭시
-document.getElementById('deleteBtn').onclick = () => {
+document.getElementById('deleteBtn').onclick = function () {
     const no = $("#checkId").val();
+
     fetch(`/schedule/delete/${no}`, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' }
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error("삭제 오류");
-        }
-        alert('삭제되었습니다');
-        location.reload();
-    }).catch(error => {
-        console.error("삭제 오류: " + error);
-    });
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("삭제 오류");
+            }
+            alert('삭제되었습니다');
+            location.reload();
+        })
+        .catch(error => {
+            console.error("삭제 오류: " + error);
+        });
 };
 
 // 일정 불러오기 및 FullCalendar 설정
-fetch(`/schedule`)
-    .then(response => response.json())
+fetchData(`/schedule`)
     .then(schedules => {
         $(function () {
-            var calendarEl = $('#calendar')[0];
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            const calendarEl = $('#calendar')[0];
+            const calendar = new FullCalendar.Calendar(calendarEl, {
                 height: '700px',
                 expandRows: true,
                 customButtons: {
@@ -117,8 +137,7 @@ fetch(`/schedule`)
                     const eventData = obj.event;
                     const no = eventData.extendedProps.no;
 
-                    fetch(`/schedule/get_schedule/${no}`)
-                        .then(response => response.json())
+                    fetchData(`/schedule/get_schedule/${no}`)
                         .then(data => {
                             $("#checkId").val(data.no);
                             $("#checkTitle").text(data.title);
@@ -144,13 +163,17 @@ fetch(`/schedule`)
                         method: "POST",
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(o)
-                    }).then(response => {
-                        if (!response.ok) {
-                            throw new Error('에러에러');
-                        }
-                        location.reload();
-                        return response.json();
-                    });
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('에러에러');
+                            }
+                            location.reload();
+                            return response.json();
+                        })
+                        .catch(error => {
+                            console.error('에러:', error);
+                        });
                 },
                 eventChange: function (obj) {
                     console.log(obj);
@@ -163,7 +186,7 @@ fetch(`/schedule`)
 
             // 일정 추가 버튼 클릭시
             $("#insertBtn").on("click", function () {
-                var eventData = {
+                const eventData = {
                     title: $("#insertTitle").val(),
                     start: $("#insertStart").val(),
                     end: $("#insertEnd").val(),
@@ -184,6 +207,11 @@ fetch(`/schedule`)
                     $("#insertColor").val("");
                 }
             });
+
             calendar.render();
         });
+    })
+    .catch(error => {
+        console.error("일정 불러오기 오류:", error);
     });
+
