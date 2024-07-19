@@ -48,9 +48,6 @@ public class SecurityConfig {
             registry.anyRequest().permitAll(); // 그 외 모든 경로는 인증 없이 가능
 //            registry.anyRequest().authenticated();
 
-
-
-
         });
 
         return http.build();
