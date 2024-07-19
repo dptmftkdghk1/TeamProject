@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>등록</title>
+    <link rel="stylesheet" href="../static/css/registration.css" th:href="@{/css/registration.css}">
+    <script src="../static/js/registration.js" th:src="@{/js/registration}" defer></script>
+</head>
+<body>
+
+<form action="/Notice_Service/registration" method="post" class="object-manage">
+    <h2>글쓰기</h2>
+    <section class="object-manage-section">
+        <input type="text" name="title"  class="object-manage-section-content">
+        <!-- <input type="text"> -->
+        <div class="object-manage-section-button-search">황예슬</div>
+        <!-- <button class="object-manage-section-button-search">검색</button> -->
+
+        <div class="object-manage-button-style">
+            <button class="object-manage-button-register" type="submit">등록</button>
+            <button class="object-manage-button-modify" type="button">수정</button>
+            <button class="object-manage-button-cancel" type="button">취소</button>
+        </div>
+    </section>
+
+    <section class="object-manage-content">
+        <textarea name="content"></textarea>
+    </section>
+
+</form>
+
+
+</body>
+</html>
