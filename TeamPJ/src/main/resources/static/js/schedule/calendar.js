@@ -10,6 +10,9 @@ function formatDate(dateString) {
 
     return `${year}년 ${month}월 ${day}일 ${hours}시 ${minutes}분`;
 }
+function getCsrfToken() {
+    return document.querySelector('input[name="_csrf"]').value;
+}
 
 // Fetch 데이터를 가져오는 함수
 function fetchData(url, options = {}) {
@@ -69,7 +72,8 @@ $("#updateBtn").on("click", function () {
 
     fetch(`/schedule/update/${id}`, {
         method: "PUT",
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json' },
         body: JSON.stringify(o)
     })
         .then(response => {

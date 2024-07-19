@@ -1,7 +1,8 @@
-// 빈 칸에 대한 이벤트 처리
-/*
+// 빈/*칸에// 빈 칸에 대한 이벤트 처리*/
+
 function validateForm() {
-    const fieldIds = ['employeeId', 'employeePassword', 'employeePassword2', 'employeeName','employeeBirthDate'];
+    const fieldIds = ['employeeId', 'employeePassword', 'employeePassword2', 'employeeName','employeeBirthDate','employeePhoneNumber','employeeEmail','employeeAddress','employeeGender','employeeDept','employeeProfileImage'];
+
     let isValid = true;
 
     for (let i = 0; i < fieldIds.length; i++) {
@@ -37,10 +38,52 @@ function validateForm() {
                     alert('생년월일을 입력해주세요.');
                     isValid = false;
                 }
+                break;
+            case 'employeePhoneNumber':
+                if (fieldValue === '') {
+                    alert('휴대폰 번호를 입력해주세요.');
+                    isValid = false;
+                }
+                break;
+            case 'employeeEmail':
+                if (fieldValue === '') {
+                    alert('메일을 입력해주세요.');
+                    isValid = false;
+                }
+                break;
+            case 'employeeAddress':
+                if (fieldValue === '') {
+                    alert('주소를 입력해주세요.');
+                    isValid = false;
+                }
+                break;
+            case 'employeeGender':
+                if (fieldValue === '') {
+                    alert('성별을 입력해주세요.');
+                    isValid = false;
+                }
+                break;
+            case 'employeeDept':
+                if (fieldValue === '') {
+                    alert('부서를 입력해주세요.');
+                    isValid = false;
+                }
+                break;
+            case 'employeeProfileImage':
+                if (fieldValue === '') {
+                    alert('프로필 이미지를 입력해주세요.');
+                    isValid = false;
+                }
+                break;
         }
         if (!isValid) {
             break;
         }
+    }
+    const id = document.getElementById('employeeId').value;
+    if(id.length < 4 && id.length > 12) {
+        alert("아이디를 4자리 이상 12자리 미만으로 작성해주세요");
+        isValid = false;
     }
     const password = document.getElementById('employeePassword').value;
         const confirmPassword = document.getElementById('employeePassword2').value;
@@ -51,7 +94,7 @@ function validateForm() {
 
     return isValid;
 }
-*/
+
 
 
 // birthdate 형식 처리
@@ -146,13 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 idAvailabilitySpan.textContent = '아이디 중복 확인 중 오류가 발생했습니다.';
             });
     });
-
-
-
-
-
-
-
 });
 
 
@@ -199,3 +235,49 @@ findAddressBtn.onclick = () => {
         }
     }).open();
 }
+
+// 성별 찾기
+const genderInput = document.getElementsByName('employeeGender')[0];
+const femaleBtn = document.getElementById('female');
+const maleBtn = document.getElementById('male');
+femaleBtn.addEventListener('click', () => {
+    genderInput.value = '여성';
+    femaleBtn.classList.add('selected');
+    maleBtn.classList.remove('selected');
+});
+
+maleBtn.addEventListener('click', () => {
+    genderInput.value = '남성';
+    maleBtn.classList.add('selected');
+    femaleBtn.classList.remove('selected');
+});
+
+
+// 부서 선택
+const deptSelector = document.getElementsByName('employeeDept')[0];
+deptSelector.addEventListener('change', () => {
+
+})
+
+
+// 이미지 미리보기
+document.getElementById('file').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('image-preview');
+    preview.innerHTML = '';  // 기존 미리보기 초기화
+
+    if (file && file.type.match('image.*')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            preview.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+    } else {
+        preview.textContent = '유효한 이미지 파일을 선택하세요.';
+    }
+});
+
+
+

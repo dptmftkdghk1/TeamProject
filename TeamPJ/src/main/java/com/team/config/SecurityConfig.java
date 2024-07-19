@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,19 +20,22 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf().
-        disable();
+//        http.csrf().
+//        disable();
+
 
 
         http.formLogin(config -> {
-            config.loginPage("/auth/login")
-                    .usernameParameter("id")
-                    .defaultSuccessUrl("/index");
+            config.loginPage("/auth/login").loginProcessingUrl("/auth/login")
+                    .usernameParameter("employeeId")
+                    .passwordParameter("employeePassword")
+                    .defaultSuccessUrl("/main/index")
+                    .permitAll();
         });
 
         http.logout(config -> {
             config.logoutUrl("/auth/logout")
-                    .logoutSuccessUrl("/index")
+                    .logoutSuccessUrl("/auth/login")
                     .deleteCookies("JSESSIONID") // Cookie 제거
                     .invalidateHttpSession(true) // Session 초기화
                     .clearAuthentication(true)
@@ -44,12 +48,7 @@ public class SecurityConfig {
             registry.anyRequest().permitAll(); // 그 외 모든 경로는 인증 없이 가능
 //            registry.anyRequest().authenticated();
 
-
-
-
         });
-
-
 
         return http.build();
     }
