@@ -147,3 +147,6 @@ li {
     display:flex;
     justify-content: center;
 }
+.object-manage-section-button-search{
+    width: 10px;
+}
