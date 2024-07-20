@@ -2,26 +2,21 @@ package com.team.mapper;
 
 
 import com.team.domain.NoticeDTO;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface NoticeMapper {
-    @Select("SELECT * FROM `board`")
-    List<NoticeDTO> selectAllNotice();
-
-    @Insert("INSERT INTO `board` (board_no, board_title, board_content) VALUES (NULL, #{boardTitle}, #{boardContent})")
+    @Insert("INSERT INTO `board` (no, title, content) VALUES (NULL, #{title}, #{content})")
     void insertNotice(NoticeDTO notice);
 
-    @Update("UPDATE `board` SET " +
-            "board_title = #{boardTitle}, board_content = #{boardContent} " +
-            "WHERE board_no = #{no}")
+    @Update("UPDATE board` SET no = #{no}, " +
+            "title = #{title}, content = #{content} " +
+            "WHERE no = #{no}")
     void updateNotice(NoticeDTO notice);
 
-    @Delete("DELETE FROM `board` WHERE board_no = #{no}")
-    void deleteNotice(Long notice);
-
-
+    @Delete("DELETE FROM board` WHERE no = #{no}")
+    void deleteNotice(NoticeDTO notice);
 }
