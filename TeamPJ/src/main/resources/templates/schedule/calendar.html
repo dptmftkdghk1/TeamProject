@@ -49,11 +49,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                일정이름 : <input type="text" id="insertTitle"/><br/>
-                시작시간 : <input type="datetime-local" id="insertStart" class="start-date" autocomplete="off"><br/>
-                종료시간 : <input type="datetime-local" id="insertEnd" class="end-date" autocomplete="off"><br/>
+                일정이름 : <input type="text" class="form-control" id="insertTitle"/><br/>
+                시작시간 : <input type="datetime-local" id="insertStart" class="start-date form-control" autocomplete="off"><br/>
+                종료시간 : <input type="datetime-local"  id="insertEnd" class="end-date form-control" autocomplete="off"><br/>
                 배경색상 :
-                <select id="insertColor">
+                <select id="insertColor" class="form-control">
                     <option value="blue">파랑색</option>
                     <option value="orange">주황색</option>
                     <option value="yellow">노랑색</option>
@@ -61,7 +61,7 @@
                     <option value="indigo">남색</option>
                     <option value="purple">보라색</option>
                 </select> <br>
-                내용 : <textarea id="insertText"></textarea>
+                내용 : <textarea id="insertText" class="form-control"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="insertBtn">추가</button>
