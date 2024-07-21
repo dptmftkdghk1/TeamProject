@@ -59,22 +59,39 @@ public class ReservationController {
         return "/reservation/reservation_check";
     }
 
-    @PutMapping("/list/{reservationNo}")
-    public ResponseEntity<Void> post_reservation_update(
-            @PathVariable("reservationNo") Integer reservationNo
+//    @PutMapping("/list/{reservationNo}")
+//    public ResponseEntity<Void> post_reservation_update(
+//            @PathVariable("reservationNo") Integer reservationNo
+//
+//    ){
+//        reserveService.reservationApprove(reservationNo);
+//        return ResponseEntity.ok().body(null);
+//    }
+//
+//    @DeleteMapping("/list/{reservationNo}")
+//    public ResponseEntity<Void> post_reservation_delete(
+//            @PathVariable("reservationNo") Integer reservationNo
+//
+//    ){
+//        reserveService.deleteReservation(reservationNo);
+//        return ResponseEntity.ok().body(null);
+//    }
+    @PutMapping("/list")
+    public ResponseEntity<String> post_reservation_update(
+            @RequestBody Integer item
 
     ){
-        reserveService.reservationApprove(reservationNo);
-        return ResponseEntity.ok().body(null);
+        reserveService.reservationApprove(item);
+        return ResponseEntity.ok("승인되었습니다");
     }
 
-    @DeleteMapping("/list/{reservationNo}")
-    public ResponseEntity<Void> post_reservation_delete(
-            @PathVariable("reservationNo") Integer reservationNo
+    @DeleteMapping("/list")
+    public ResponseEntity<String> post_reservation_delete(
+            @RequestBody Integer item
 
     ){
-        reserveService.deleteReservation(reservationNo);
-        return ResponseEntity.ok().body(null);
+        reserveService.deleteReservation(item);
+        return ResponseEntity.ok("거부되었습니다");
     }
 
 }

@@ -3,6 +3,7 @@ package com.team.service.productservice;
 import com.team.domain.ProductDTO;
 import com.team.mapper.Mapper;
 import com.team.mapper.ProductMapper;
+import com.team.mapper.ReserveMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,8 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProductMapper productMapper;
+    @Autowired
+    private ReserveMapper reserveMapper;
     @Override
     public void insert_product(ProductDTO product) {
         productMapper.insertProduct(product);
@@ -37,5 +40,12 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void delete_product(Integer productNo) {
         productMapper.deleteProduct(productNo);
+    }
+
+    @Override
+    public Integer count_reservation(Integer productNo) {
+        Integer count = reserveMapper.countReservation(productNo);
+        System.out.println("제품번호: " + productNo + ", 승인수: " + count);
+        return reserveMapper.countReservation(productNo);
     }
 }
