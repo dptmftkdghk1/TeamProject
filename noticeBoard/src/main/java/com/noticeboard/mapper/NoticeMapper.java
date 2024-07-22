@@ -1,15 +1,15 @@
-package com.team.mapper;
+package com.noticeboard.mapper;
 
 
-import com.team.domain.NoticeDTO;
-import org.apache.ibatis.annotations.*;
+import com.noticeboard.domain.NoticeDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Mapper
-public interface NoticeMapper {
+public interface NoticeMapper<NoticeDTO> {
 
     // 공지사항 목록 조회
     @Transactional(readOnly = true)

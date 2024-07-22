@@ -1,7 +1,7 @@
-package com.team.controller;
+package com.noticeboard.controller;
 
-import com.team.domain.NoticeDTO;
-import com.team.mapper.NoticeMapper;
+import com.noticeboard.domain.NoticeDTO;
+import com.noticeboard.mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

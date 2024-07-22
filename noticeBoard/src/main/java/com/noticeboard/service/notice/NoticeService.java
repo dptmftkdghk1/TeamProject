@@ -1,7 +1,7 @@
-package com.team.service.notice;
+package com.noticeboard.service.notice;
 
 
-import com.team.domain.NoticeDTO;
+import com.noticeboard.domain.NoticeDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
