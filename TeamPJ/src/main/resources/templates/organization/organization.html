@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +19,7 @@
         <section class="table-list-design">
             <div class="organize-box">
                 <div class="organize-round-first"></div>
-                <textarea class="organize-line">dfdf</textarea>
+                <textarea class="organize-line" th:text="${represent.representContent}">dfdf</textarea>
 <!--                <div class="organize-line">-->
 <!--                    <span>dfdfdfdf</span>-->
 <!--                </div>-->
@@ -28,86 +32,101 @@
             </div>
 
             <div class="organize-rounds">
-                <input type="text" class="organize-round" value="경영 부서">
+                <input type="text" class="organize-round" th:value="${depart[0].departName}">
                 <div class="organize-round-line-box">
                     <div class="organize-round-line"></div>
                 </div>
-                <input type="text" class="organize-round" value="개발 부서">
+                <input type="text" class="organize-round" th:value="${depart[1].departName}">
 <!--                <div class="organize-round"><span>개발 부서</span></div>-->
                 <div class="organize-round-line-box">
                     <div class="organize-round-line"></div>
                 </div>
 
-                <input type="text" class="organize-round" value="마케팅 부서">
+                <input type="text" class="organize-round" th:value="${depart[2].departName}">
 <!--                <div class="organize-round"><span>마케팅 부서</span></div>-->
             </div>
 
-            <div class="organize-button-line">
+            <div class="organize-button-line" id="organize-btns-box">
                 <div class="organize-square-button">
-                    <button>+</button>
-                    <button>-</button>
+                    <button type="button" id="organize-first-plus-btn">+</button>
+                    <button type="button" id="organize-first-minus-btn">-</button>
                 </div>
                 <div class="organize-square-line-box">
                 </div>
                 <div class="organize-square-button">
-                    <button>+</button>
-                    <button>-</button>
+                    <button type="button" id="organize-second-plus-btn">+</button>
+                    <button type="button" id="organize-second-minus-btn">-</button>
                 </div>
                 <div class="organize-square-line-box">
                 </div>
                 <div class="organize-square-button">
-                    <button>+</button>
-                    <button>-</button>
+                    <button type="button" id="organize-third-plus-btn">+</button>
+                    <button type="button" id="organize-third-minus-btn">-</button>
                 </div>
             </div>
 
             <div class="organize-rounds">
-                <div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
+<!--                <div th:text="${departDetail}"></div>-->
+                <form id="organize-depart-first">
+                    <input type="hidden" th:value="${depart[0].departNo}">
+                    <div th:each="detail : ${departDetail}">
+                        <div th:if="${detail.departNo == 1}">
+                            <input class="organize-square" th:value="${detail.detailName}">
+                        </div>
                     </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                </div>
+<!--                    <input class="organize-square" th:value="fvbvb">-->
+<!--                    <input class="organize-square" th:value="xdcxvxcv">-->
+<!--                    <input class="organize-square" th:value="xdcxvxcv">-->
+                </form>
+
                 
                 <div class="organize-round-line-box">
                 </div>
-                <div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
+
+                <form id="organize-depart-second">
+                    <input type="hidden" th:value="${depart[1].departNo}">
+                    <div th:each="detail : ${departDetail}">
+                        <div th:if="${detail.departNo == 2}">
+                            <input class="organize-square" th:value="${detail.detailName}">
+                            </input>
+                        </div>
                     </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                </div>
+                </form>
+
                 <div class="organize-round-line-box">
                 </div>
-                <div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
+
+                <form id="organize-depart-third">
+                    <input type="hidden" th:value="${depart[1].departNo}">
+                    <div th:each="detail : ${departDetail}">
+                        <div th:if="${detail.departNo == 3}">
+                            <input class="organize-square" th:value="${detail.detailName}">
+                            </input>
+                        </div>
                     </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                    <div class="organize-square">
-                        <span>경영관리 부서</span>
-                    </div>
-                </div>
+                </form>
+
+<!--                <form>-->
+<!--                    <input type="hidden" th:value="${depart[2].departNo}">-->
+<!--                    <div>-->
+<!--                        <input class="organize-square" value="마케팅관리 부서">-->
+<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
+<!--                        </input>-->
+<!--                        &lt;!&ndash;                    <div class="organize-square">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    <div class="organize-square">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </form>-->
+
             </div>
 
             <div class="organize-check">
-                <button>확인</button>
-                <button>취소</button>
+                <button type="button" id="organize-update-mode">편집모드</button>
+                <button type="button" id="organize-submit">확인</button>
+                <button type="button" id="organize-cancel">취소</button>
             </div>
         </section>
     </div>
@@ -115,8 +134,128 @@
       
 </body>
 </html>
+<script>
+    // input form부분
+    const form1 = document.getElementById('organize-depart-first');
+    const form2 = document.getElementById('organize-depart-second');
+    const form3 = document.getElementById('organize-depart-third');
+
+    // +,-버튼 감싸는 박스
+    const btns = document.getElementById('organize-btns-box');
+    
+    // +,- 버튼
+    const firstPlusBtn = document.getElementById('organize-first-plus-btn');
+    const firstMinusBtn = document.getElementById('organize-first-minus-btn');
+
+    const secondPlusBtn = document.getElementById('organize-second-plus-btn');
+    const secondMinusBtn = document.getElementById('organize-second-minus-btn');
+
+    const thirdPlusBtn = document.getElementById('organize-third-plus-btn');
+    const thirdMinusBtn = document.getElementById('organize-third-minus-btn');
+
+    // 편집모드, 확인, 취소 버튼
+    const updateMode = document.getElementById('organize-update-mode');
+    const submitBtn = document.getElementById('organize-submit');
+    const cancelBtn = document.getElementById('organize-cancel');
+
+    submitBtn.style.display = "none";
+    cancelBtn.style.display = "none";
+    btns.style.display = "none";
+
+    updateMode.onclick = () =>{
+        updateMode.style.display = "none";
+        submitBtn.style.display = "block";
+        cancelBtn.style.display = "block";
+        btns.style.display = "flex";
+    }
+
+    cancelBtn.onclick = () => {
+        updateMode.style.display = "block";
+        submitBtn.style.display = "none";
+        cancelBtn.style.display = "none";
+        btns.style.display = "none";
+    }
+
+    firstPlusBtn.onclick = () => {
+        // input타입 생성
+        const inputElement = document.createElement('input');
+        inputElement.type = 'text'; // input 요소의 타입 설정
+        inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
+        // inputElement.value = 'dfdf';
+        inputElement.classList.add('organize-square');
+        // class="organize-square"
+
+        // 생성된 input 요소를 form1에 추가
+        form1.appendChild(inputElement);
+    }
+
+    firstMinusBtn.onclick = () => {
+        const inputs = form1.querySelectorAll('input.organize-square');
+        if(inputs.length > 0){
+            const lastInput = inputs[inputs.length - 1];
+            lastInput.remove();
+        }
+
+    }
+
+    secondPlusBtn.onclick = () => {
+        // input타입 생성
+        const inputElement = document.createElement('input');
+        inputElement.type = 'text'; // input 요소의 타입 설정
+        inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
+        // inputElement.value = 'dfdf';
+        inputElement.classList.add('organize-square');
+        // class="organize-square"
+
+        // 생성된 input 요소를 form1에 추가
+        form2.appendChild(inputElement);
+    }
+
+    secondMinusBtn.onclick = () => {
+        const inputs = form2.querySelectorAll('input.organize-square');
+        if(inputs.length > 0){
+            const lastInput = inputs[inputs.length - 1];
+            lastInput.remove();
+        }
+
+    }
+
+    thirdPlusBtn.onclick = () => {
+        // input타입 생성
+        const inputElement = document.createElement('input');
+        inputElement.type = 'text'; // input 요소의 타입 설정
+        inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
+        // inputElement.value = 'dfdf';
+        inputElement.classList.add('organize-square');
+        // class="organize-square"
+
+        // 생성된 input 요소를 form1에 추가
+        form3.appendChild(inputElement);
+    }
+
+    thirdMinusBtn.onclick = () => {
+        const inputs = form3.querySelectorAll('input.organize-square');
+        if(inputs.length > 0){
+            const lastInput = inputs[inputs.length - 1];
+            lastInput.remove();
+        }
+
+    }
+
+</script>
 
 <style>
+input{
+    border:none;
+}
+
+textarea{
+    resize: none;
+    border:none;
+}
+form{
+    width: 150px;
+}
 .organize-check{
     display:flex;
     justify-content: center;
@@ -202,6 +341,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    text-align:center;
     /* margin-right: 30px; */
 }
 
@@ -228,6 +368,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    text-align:center;
     /* margin-right: 30px; */
 }
 
