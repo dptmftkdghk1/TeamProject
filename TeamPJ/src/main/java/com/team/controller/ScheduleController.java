@@ -1,6 +1,7 @@
 package com.team.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.team.domain.EmployeeDTO;
 import com.team.domain.ScheduleDTO;
 import com.team.service.scheduleservice.ScheduleService;
 import lombok.extern.log4j.Log4j2;
@@ -9,6 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +27,23 @@ public class ScheduleController {
     ScheduleService scheduleService;
 
     @GetMapping("/calendar")
-    public void get_calender(){}
+    public void get_calender(
+//            @PathVariable("employee") String employeeId,
+            @AuthenticationPrincipal EmployeeDTO employee,
+            Model model
+    ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        model.addAttribute("name",name);
+//        model.addAttribute("employee",employee);
+    }
 
     @ResponseBody
-    @GetMapping
-    public List<ScheduleDTO> get_schedules(){
-        List<ScheduleDTO> schedules = scheduleService.select_schedules();
+    @GetMapping("/{employeeId}")
+    public List<ScheduleDTO> get_schedules(
+            @PathVariable("employeeId") String employeeId
+    ){
+        List<ScheduleDTO> schedules = scheduleService.select_schedules(employeeId);
         return schedules;
     }
 
@@ -47,14 +62,14 @@ public class ScheduleController {
     }
 
     @PutMapping("/update/{no}")
-    public ResponseEntity<ScheduleDTO> update_schedule(
+    public ResponseEntity<Void> update_schedule(
             @PathVariable("no") Integer no,
             @RequestBody ScheduleDTO schedule
     ){
         schedule.setNo(no);
         System.out.println("업데이트: " + schedule);
         scheduleService.update_schedule(schedule);
-        return ResponseEntity.ok(schedule);
+        return ResponseEntity.ok().body(null);
     }
 
     @DeleteMapping("/delete/{no}")

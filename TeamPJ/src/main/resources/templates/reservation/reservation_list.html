@@ -41,17 +41,6 @@
                         <td style="width:200px"></td>
                     </tr>
                 </thead>
-<!--                <tr th:each="reservation, stat: ${reservationList}">-->
-<!--                    <td th:text="${stat.count}"></td>-->
-<!--                    <td th:text="${reservation.reservationProduct.productCategory}"></td>-->
-<!--                    <td><a th:href="|/reservation/check/${reservation.reservationNo}|" th:text="${reservation.reservationProduct.productName}"></a></td>-->
-<!--                    <td th:text="${reservation.reservationEmployee}"></td>-->
-<!--                    <td th:text="${#temporals.format(reservation.reservationDate, 'yyyy-MM-dd HH:mm')}"></td>-->
-<!--                    <td th:text="${#temporals.format(reservation.returnDate, 'yyyy-MM-dd HH:mm')}"></td>-->
-<!--                    <td th:text="${reservation.reservationContent}"></td>-->
-<!--                    <td th:if="${reservation.reservationStatus == true}"><button type="button">승인됨</button></td>-->
-<!--                    <td th:unless="${reservation.reservationStatus == true}"><button type="button" onclick="reservation_update(this)" th:data-reservation-no="${reservation.reservationNo}">승인</button><button type="button" onclick="reservation_delete(this)" th:data-reservation-no="${reservation.reservationNo}">거부</button></td>-->
-<!--                </tr>-->
                 <tr th:each="reservation, stat: ${reservationList}">
                     <td th:text="${stat.count}"><input type="hidden" th:text="reservation.reservationNo"></td>
                     <td th:text="${reservation.reservationProduct.productCategory}"></td>

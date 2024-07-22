@@ -20,4 +20,5 @@ public class ScheduleDTO {
     private LocalDateTime end;
     private String backgroundColor;
     private String text;
+    private String employeeId;
 }

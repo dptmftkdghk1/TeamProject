@@ -1,4 +1,5 @@
-
+const employeeId = document.getElementById('employeeId');
+console.log("아이디" + employeeId.value);
 // 날짜 포맷 함수
 function formatDate(dateString) {
     const date = new Date(dateString);
@@ -73,7 +74,9 @@ $("#updateBtn").on("click", function () {
     fetch(`/schedule/update/${id}`, {
         method: "PUT",
         headers: {
-            'Content-Type': 'application/json' },
+            'X-CSRF-TOKEN': getCsrfToken(),
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(o)
     })
         .then(response => {
@@ -82,9 +85,7 @@ $("#updateBtn").on("click", function () {
             }
             alert('수정되었습니다');
             location.reload();
-            return response.json();
-        })
-        .catch(error => {
+        }).catch(error => {
             console.error("업데이트 오류: " + error);
         });
 
@@ -97,7 +98,10 @@ document.getElementById('deleteBtn').onclick = function () {
 
     fetch(`/schedule/delete/${no}`, {
         method: "DELETE",
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+            'X-CSRF-TOKEN': getCsrfToken(),
+            'Content-Type': 'application/json'
+        }
     })
         .then(response => {
             if (!response.ok) {
@@ -112,7 +116,7 @@ document.getElementById('deleteBtn').onclick = function () {
 };
 
 // 일정 불러오기 및 FullCalendar 설정
-fetchData(`/schedule`)
+fetchData(`/schedule/${employeeId.value}`)
     .then(schedules => {
         $(function () {
             const calendarEl = $('#calendar')[0];
@@ -123,6 +127,7 @@ fetchData(`/schedule`)
                     myCustomButton: {
                         text: "일정 추가",
                         click: function () {
+                            $("#insertStart").val("");
                             $("#insertModal").modal("show");
                         }
                     }
@@ -137,6 +142,11 @@ fetchData(`/schedule`)
                 nowIndicator: true,
                 dayMaxEvents: true,
                 locale: 'ko',
+                dateClick: function (obj) {
+                    $("#insertStart").val(`${obj.dateStr}T12:00`);
+                    $("#insertModal").modal("show");
+                    console.log(obj.dateStr);
+                },
                 eventClick: function (obj) {
                     const eventData = obj.event;
                     const no = eventData.extendedProps.no;
@@ -160,12 +170,16 @@ fetchData(`/schedule`)
                         start: new Date(obj.event.start).toLocaleString("sv-SE", { timeZone: "Asia/Seoul", hour12: false }).replace(" ", "T"),
                         end: obj.event.end ? new Date(obj.event.end).toLocaleString("sv-SE", { timeZone: "Asia/Seoul", hour12: false }).replace(" ", "T") : null,
                         backgroundColor: obj.event.backgroundColor,
-                        text: obj.event.extendedProps.text
+                        text: obj.event.extendedProps.text,
+                        employeeId: employeeId.value
                     };
-
+                    console.log(o)
                     fetch(`/schedule/calendar`, {
                         method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'X-CSRF-TOKEN': getCsrfToken(),
+                            'Content-Type': 'application/json'
+                        },
                         body: JSON.stringify(o)
                     })
                         .then(response => {

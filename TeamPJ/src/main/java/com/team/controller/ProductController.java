@@ -28,9 +28,9 @@ public class ProductController {
     ) {
         List<ProductDTO> products = productService.get_products(query, rental);
         for (ProductDTO product : products) {
-            // 예약 수를 가져온다
+            // 예약 수
             Integer reservationCount = productService.count_reservation(product.getProductNo());
-            // 총 수량에서 예약 수를 차감하여 현재 남아있는 수량을 계산
+            // 총수량 - 예약 수
             int availableAmount = product.getProductAmount() - reservationCount;
             // productAmount 에 set
             product.setProductAmount(availableAmount);
