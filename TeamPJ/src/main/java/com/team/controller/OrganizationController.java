@@ -6,9 +6,12 @@ import com.team.domain.organize.DepartDetailDTO;
 import com.team.domain.organize.RepresentDTO;
 import com.team.service.organizationservice.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -32,6 +35,16 @@ public class OrganizationController {
         model.addAttribute("departDetail", departDetail);
 
         return "/organization/organization";
+    }
+
+    @PostMapping("/list")
+    public ResponseEntity<String> post_reservation(
+//            @RequestBody Integer item
+
+    ){
+//        Organizationservice.
+//        reserveService.reservationApprove(item);
+        return ResponseEntity.ok("저장되었습니다");
     }
 //    @GetMapping("/list")
 //    public String get_list(Model model, String query){

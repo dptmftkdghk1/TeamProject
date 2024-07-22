@@ -10,5 +10,6 @@ public interface OrganizationService {
     RepresentDTO select_Represent();
     List<DepartDTO> select_depart();
     List<DepartDetailDTO> select_DepartDetail();
+    void Update_represent();
 
 }

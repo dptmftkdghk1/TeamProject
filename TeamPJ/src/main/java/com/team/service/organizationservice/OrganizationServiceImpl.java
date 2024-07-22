@@ -3,6 +3,7 @@ package com.team.service.organizationservice;
 
 import com.nimbusds.openid.connect.sdk.assurance.evidences.Organization;
 import com.team.domain.ProductDTO;
+import com.team.domain.ReservationDTO;
 import com.team.domain.organize.DepartDTO;
 import com.team.domain.organize.DepartDetailDTO;
 import com.team.domain.organize.RepresentDTO;
@@ -32,6 +33,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public List<DepartDetailDTO> select_DepartDetail() {
         return organizationMapper.selectDepartDetail();
+    }
+
+    @Override
+    public void Update_represent() {
+        organizationMapper.UpdateRepresent();
     }
 
 }

@@ -12,4 +12,5 @@ public interface OrganizationMapper {
     RepresentDTO selectRepresent();
     List<DepartDTO> selectDepart();
     List<DepartDetailDTO> selectDepartDetail();
+    void UpdateRepresent();
 }
