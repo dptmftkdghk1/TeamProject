@@ -10,12 +10,12 @@ import java.time.LocalDate;
 @Setter
 @ToString
 public class NoticeDTO {
-    private Integer boardNo;
-    private String boardCategory;
-    private String boardTitle;
-    private String boardContent;
-    private String boardImage;
-    private String boardWriter;
-    private LocalDate boardDate;
-    private Integer boardViewCount;
+    private Integer no;
+    private String category;
+    private String title;
+    private String content;
+    private String image;
+    private String writer;
+    private LocalDate date;
+    private Integer viewCount;
 }
