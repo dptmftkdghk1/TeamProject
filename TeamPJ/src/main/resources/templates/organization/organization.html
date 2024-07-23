@@ -24,6 +24,7 @@
 <!--                    <span>dfdfdfdf</span>-->
 <!--                </div>-->
             </div>
+            <input type="hidden" id="hiddenData" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             
             <div class="organize-ceo-letter"><span>대표이사</span></div>
 
@@ -159,31 +160,6 @@
     const submitBtn = document.getElementById('organize-submit');
     const cancelBtn = document.getElementById('organize-cancel');
 
-    //대표 content
-    const representContent=document.getElementById("organize-represent-content");
-
-    //부서 첫번째값
-    const departFirstNo = document.getElementById("departDetailNo1");
-    const departFirst = document.getElementById("organization-depart-first");
-
-    //부서 두번째값
-    const departSecondNo = document.getElementById("departDetailNo2");
-    const departSecond = document.getElementById("organization-depart-second");
-
-    //부서 세번째값
-    const departThirdNo = document.getElementById("departDetailNo3");
-    const departThird = document.getElementById("organization-depart-third");
-
-    const DetailInputFirst = form1.querySelectorAll("input");
-    const DetailInputSecond = form2.querySelectorAll("input");
-    const DetailInputThird = form3.querySelectorAll("input");
-
-
-    //부서에 딸린 데이터의 값들을 저장
-    const datasFirstList = [];
-    const datasSecondList = [];
-    const datasThirdList = [];
-
     submitBtn.style.display = "none";
     cancelBtn.style.display = "none";
     btns.style.display = "none";
@@ -217,6 +193,35 @@
         cancelBtn.style.display = "block";
         btns.style.display = "flex";
 
+        //대표 content
+        const representContent=document.getElementById("organize-represent-content");
+
+        //부서 첫번째값
+        const departFirstNo = document.getElementById("departDetailNo1");
+        const departFirst = document.getElementById("organization-depart-first");
+
+        //부서 두번째값
+        const departSecondNo = document.getElementById("departDetailNo2");
+        const departSecond = document.getElementById("organization-depart-second");
+
+        //부서 세번째값
+        const departThirdNo = document.getElementById("departDetailNo3");
+        const departThird = document.getElementById("organization-depart-third");
+
+        const DetailInputFirst = form1.querySelectorAll("input");
+        const DetailInputSecond = form2.querySelectorAll("input");
+        const DetailInputThird = form3.querySelectorAll("input");
+
+
+        //부서에 딸린 데이터의 값들을 저장
+        const datasFirstList = [];
+        const datasSecondList = [];
+        const datasThirdList = [];
+
+        //토큰값
+        const csrfTokenInput = document.getElementById("hiddenData");
+
+
         DetailInputFirst.forEach(input => {
             datasFirstList.push(input.value);
         });
@@ -230,19 +235,19 @@
         });
 
         const dataList = {
-            "representContent" : representContent.textContent, //대표 content
+            "representContent" : representContent.value, //대표 content
             "departData" : [{
                   //부서 첫번째값
                   "departNo" : departFirstNo.value,
-                  "departContent" : departFirst.value
+                  "departName" : departFirst.value
                 },
                 {   //부서 두번째값
                     "departNo" : departSecondNo.value,
-                    "departContent" : departSecond.value
+                    "departName" : departSecond.value
                 },
                 {   //부서 세번째값
                     "departNo" : departThirdNo.value,
-                    "departContent" : departThird.value
+                    "departName" : departThird.value
                 },
             ],
             "departDatas" : [{
@@ -259,12 +264,13 @@
                 "departContent" : datasThirdList
             }]
         };
+        console.log(dataList);
 
         fetch("/organize/list",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                // "X-CSRF-TOKEN": csrfTokenInput.value
+                "X-CSRF-TOKEN": csrfTokenInput.value
             },
             body: JSON.stringify(dataList)
         }).then(response => {

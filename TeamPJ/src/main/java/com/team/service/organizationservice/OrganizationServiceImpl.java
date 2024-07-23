@@ -36,8 +36,23 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
-    public void Update_represent() {
-        organizationMapper.UpdateRepresent();
+    public void update_representContent(String representContent) {
+        organizationMapper.UpdateRepresentContent(representContent);
+    }
+
+    @Override
+    public void delete_departDetail() {
+        organizationMapper.DeleteDepartDetail();
+    }
+
+    @Override
+    public void update_departData(Integer departNo, String departName) {
+        organizationMapper.UpdateDepartData(departNo, departName);
+    }
+
+    @Override
+    public void insert_departDetail(Integer departNo, String detailName) {
+        organizationMapper.InsertDepartDetail(departNo, detailName);
     }
 
 }

@@ -12,5 +12,9 @@ public interface OrganizationMapper {
     RepresentDTO selectRepresent();
     List<DepartDTO> selectDepart();
     List<DepartDetailDTO> selectDepartDetail();
-    void UpdateRepresent();
+
+    void DeleteDepartDetail();
+    void InsertDepartDetail(Integer departNo, String detailName);
+    void UpdateRepresentContent(String representContent);
+    void UpdateDepartData(Integer departNo, String departName);
 }

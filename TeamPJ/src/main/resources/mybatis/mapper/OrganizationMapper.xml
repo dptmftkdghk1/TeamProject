@@ -16,6 +16,26 @@
             SELECT * FROM organization_depart_detail
         </select>
 
+        <delete id="DeleteDepartDetail" parameterType="com.team.domain.organize.DepartDetailDTO">
+            delete
+            from organization_depart_detail;
+        </delete>
+
+        <insert id="InsertDepartDetail" parameterType="com.team.domain.organize.DepartDetailDTO">
+            Insert Into organization_depart_detail (no,detail_name, depart_no)
+            values (null, #{detailName} , #{departNo})
+        </insert>
+
+        <update id="UpdateRepresentContent" parameterType="com.team.domain.organize.RepresentDTO">
+            Update organization_represent
+            set represent_content = #{representContent}
+        </update>
+
+        <update id="UpdateDepartData" parameterType="com.team.domain.organize.DepartDTO">
+            Update organization_depart
+            set depart_name = #{departName} where depart_no = #{departNo}
+        </update>
+
 <!--    &lt;!&ndash; @@@@@@@@@@@@@@@@대여 등록@@@@@@@@@@@@@@@@&ndash;&gt;-->
 <!--    <insert id="insertReservation" parameterType="com.team.domain.ReservationDTO">-->
 <!--        insert into reservation (reservation_no, reservation_employee, reservation_date, return_date, reservation_status, reservation_content, product_no)-->

@@ -10,6 +10,9 @@ public interface OrganizationService {
     RepresentDTO select_Represent();
     List<DepartDTO> select_depart();
     List<DepartDetailDTO> select_DepartDetail();
-    void Update_represent();
 
+    void update_representContent(String representContent);
+    void delete_departDetail();
+    void insert_departDetail(Integer departNo, String detailName);
+    void update_departData(Integer departNo, String departName);
 }
