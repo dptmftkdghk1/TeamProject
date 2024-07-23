@@ -20,9 +20,6 @@
             <div class="organize-box">
                 <div class="organize-round-first"></div>
                 <textarea class="organize-line" id="organize-represent-content" th:text="${represent.representContent}">dfdf</textarea>
-<!--                <div class="organize-line">-->
-<!--                    <span>dfdfdfdf</span>-->
-<!--                </div>-->
             </div>
             <input type="hidden" id="hiddenData" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             
@@ -38,13 +35,11 @@
                     <div class="organize-round-line"></div>
                 </div>
                 <input type="text" class="organize-round" id="organization-depart-second" th:value="${depart[1].departName}">
-<!--                <div class="organize-round"><span>개발 부서</span></div>-->
                 <div class="organize-round-line-box">
                     <div class="organize-round-line"></div>
                 </div>
 
                 <input type="text" class="organize-round" id="organization-depart-third" th:value="${depart[2].departName}">
-<!--                <div class="organize-round"><span>마케팅 부서</span></div>-->
             </div>
 
             <div class="organize-button-line" id="organize-btns-box">
@@ -67,7 +62,6 @@
             </div>
 
             <div class="organize-rounds">
-<!--                <div th:text="${departDetail}"></div>-->
                 <input type="hidden" th:value="${depart[0].departNo}" id="departDetailNo1">
                 <input type="hidden" th:value="${depart[1].departNo}" id="departDetailNo2">
                 <input type="hidden" th:value="${depart[2].departNo}"  id="departDetailNo3">
@@ -78,9 +72,6 @@
                             <input class="organize-square" th:value="${detail.detailName}">
                         </div>
                     </div>
-<!--                    <input class="organize-square" th:value="fvbvb">-->
-<!--                    <input class="organize-square" th:value="xdcxvxcv">-->
-<!--                    <input class="organize-square" th:value="xdcxvxcv">-->
                 </form>
 
                 
@@ -91,7 +82,6 @@
                     <div th:each="detail : ${departDetail}">
                         <div th:if="${detail.departNo == 2}">
                             <input class="organize-square" th:value="${detail.detailName}">
-                            </input>
                         </div>
                     </div>
                 </form>
@@ -103,25 +93,10 @@
                     <div th:each="detail : ${departDetail}">
                         <div th:if="${detail.departNo == 3}">
                             <input class="organize-square" th:value="${detail.detailName}">
-                            </input>
                         </div>
                     </div>
                 </form>
 
-<!--                <form>-->
-<!--                    <input type="hidden" th:value="${depart[2].departNo}">-->
-<!--                    <div>-->
-<!--                        <input class="organize-square" value="마케팅관리 부서">-->
-<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
-<!--                        </input>-->
-<!--                        &lt;!&ndash;                    <div class="organize-square">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    <div class="organize-square">&ndash;&gt;-->
-<!--                        &lt;!&ndash;                        <span>경영관리 부서</span>&ndash;&gt;-->
-<!--                        &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </form>-->
 
             </div>
 
@@ -160,6 +135,38 @@
     const submitBtn = document.getElementById('organize-submit');
     const cancelBtn = document.getElementById('organize-cancel');
 
+    var DetailInputFirst = form1.querySelectorAll("input");
+    var DetailInputSecond = form2.querySelectorAll("input");
+    var DetailInputThird = form3.querySelectorAll("input");
+
+    DetailInputFirst.forEach(input => {
+        input.setAttribute('readonly', 'true');
+    });
+
+    DetailInputSecond.forEach(input => {
+        input.setAttribute('readonly', 'true');
+    });
+
+    DetailInputThird.forEach(input => {
+        input.setAttribute('readonly', 'true');
+    });
+
+    //대표 content
+    var representContent=document.getElementById("organize-represent-content");
+    representContent.setAttribute('readonly', 'true');
+
+    //부서 첫번째값
+    var departFirst = document.getElementById("organization-depart-first");
+    departFirst.setAttribute('readonly', 'true');
+
+    //부서 두번째값
+    var departSecond = document.getElementById("organization-depart-second");
+    departSecond.setAttribute('readonly', 'true');
+
+    //부서 세번째값
+    var departThird = document.getElementById("organization-depart-third");
+    departThird.setAttribute('readonly', 'true');
+
     submitBtn.style.display = "none";
     cancelBtn.style.display = "none";
     btns.style.display = "none";
@@ -169,6 +176,31 @@
         submitBtn.style.display = "block";
         cancelBtn.style.display = "block";
         btns.style.display = "flex";
+
+
+        DetailInputFirst.forEach(input => {
+            input.removeAttribute('readonly');
+        });
+
+        DetailInputSecond.forEach(input => {
+            input.removeAttribute('readonly');
+        });
+
+        DetailInputThird.forEach(input => {
+            input.removeAttribute('readonly');
+        });
+
+        //대표 content
+        representContent.removeAttribute('readonly');
+
+        //부서 첫번째값
+        departFirst.removeAttribute('readonly');
+
+        //부서 두번째값
+        departSecond.removeAttribute('readonly');
+
+        //부서 세번째값
+        departThird.removeAttribute('readonly');
     }
 
     cancelBtn.onclick = () => {
@@ -194,23 +226,23 @@
         btns.style.display = "flex";
 
         //대표 content
-        const representContent=document.getElementById("organize-represent-content");
+        representContent=document.getElementById("organize-represent-content");
 
         //부서 첫번째값
         const departFirstNo = document.getElementById("departDetailNo1");
-        const departFirst = document.getElementById("organization-depart-first");
+        departFirst = document.getElementById("organization-depart-first");
 
         //부서 두번째값
         const departSecondNo = document.getElementById("departDetailNo2");
-        const departSecond = document.getElementById("organization-depart-second");
+        departSecond = document.getElementById("organization-depart-second");
 
         //부서 세번째값
         const departThirdNo = document.getElementById("departDetailNo3");
-        const departThird = document.getElementById("organization-depart-third");
+        departThird = document.getElementById("organization-depart-third");
 
-        const DetailInputFirst = form1.querySelectorAll("input");
-        const DetailInputSecond = form2.querySelectorAll("input");
-        const DetailInputThird = form3.querySelectorAll("input");
+        DetailInputFirst = form1.querySelectorAll("input");
+        DetailInputSecond = form2.querySelectorAll("input");
+        DetailInputThird = form3.querySelectorAll("input");
 
 
         //부서에 딸린 데이터의 값들을 저장
@@ -224,14 +256,17 @@
 
         DetailInputFirst.forEach(input => {
             datasFirstList.push(input.value);
+            input.setAttribute('readonly', 'true');
         });
 
         DetailInputSecond.forEach(input => {
             datasSecondList.push(input.value);
+            input.setAttribute('readonly', 'true');
         });
 
         DetailInputThird.forEach(input => {
             datasThirdList.push(input.value);
+            input.setAttribute('readonly', 'true');
         });
 
         const dataList = {
@@ -287,9 +322,7 @@
         const inputElement = document.createElement('input');
         inputElement.type = 'text'; // input 요소의 타입 설정
         inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
-        // inputElement.value = 'dfdf';
         inputElement.classList.add('organize-square');
-        // class="organize-square"
 
         // 생성된 input 요소를 form1에 추가
         form1.appendChild(inputElement);
@@ -309,9 +342,7 @@
         const inputElement = document.createElement('input');
         inputElement.type = 'text'; // input 요소의 타입 설정
         inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
-        // inputElement.value = 'dfdf';
         inputElement.classList.add('organize-square');
-        // class="organize-square"
 
         // 생성된 input 요소를 form1에 추가
         form2.appendChild(inputElement);
@@ -331,9 +362,7 @@
         const inputElement = document.createElement('input');
         inputElement.type = 'text'; // input 요소의 타입 설정
         inputElement.name = 'newInput'; // input 요소의 이름 설정 (필요시)
-        // inputElement.value = 'dfdf';
         inputElement.classList.add('organize-square');
-        // class="organize-square"
 
         // 생성된 input 요소를 form1에 추가
         form3.appendChild(inputElement);
@@ -353,11 +382,13 @@
 <style>
 input{
     border:none;
+    outline: none;
 }
 
 textarea{
     resize: none;
     border:none;
+    outline:none;
 }
 form{
     width: 150px;
@@ -374,7 +405,6 @@ form{
     width: 150px;
     height: 150px;
     flex-direction: column;
-    /* background-color: #EEEDED; */
     margin: 30px 10px;
     display:flex;
     justify-content: center;
@@ -382,9 +412,7 @@ form{
 }
 .organize-square-line-box{
     width: 150px;
-    /* height: 150px; */
     flex-direction: column;
-    /* background-color: #EEEDED; */
     margin: 30px 10px;
     display:flex;
     justify-content: center;
