@@ -10,4 +10,5 @@ import lombok.ToString;
 public class RepresentDTO {
     private Integer representNo;
     private String representContent;
+    private byte[] representImage;
 }

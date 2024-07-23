@@ -2,7 +2,6 @@ package com.team.controller;
 
 import com.team.domain.organize.DepartDTO;
 import com.team.domain.organize.DepartDetailDTO;
-import com.team.domain.organize.OrganizeDataJson;
 import com.team.domain.organize.RepresentDTO;
 import com.team.service.organizationservice.OrganizationService;
 import jakarta.transaction.Transactional;
@@ -28,7 +27,10 @@ public class OrganizationController {
     public String get_organize_list(Model model){
         //DTO 만들고 뿌려주기
         RepresentDTO represent = organizationService.select_Represent();
+//        String encodedImage = java.util.Base64.getEncoder().encodeToString(represent.getRepresentImage());
+
         model.addAttribute("represent", represent);
+//        model.addAttribute("encodedImage", encodedImage);
 
         List<DepartDTO> depart = organizationService.select_depart();
         model.addAttribute("depart", depart);

@@ -16,9 +16,12 @@
     
     <div class="table-list">
         <h2>회사조직도</h2>
+<!--        <img th:src="'data:image/jpeg;base64,' + ${encodedImage}" alt="Represent Image" />-->
         <section class="table-list-design">
             <div class="organize-box">
-                <div class="organize-round-first"></div>
+                <div class="organize-round-first">
+<!--                    <img src="../../static/organizationImage/wrtFileImageView.jpg" height="100px" width="100px"/>-->
+                </div>
                 <textarea class="organize-line" id="organize-represent-content" th:text="${represent.representContent}">dfdf</textarea>
             </div>
             <input type="hidden" id="hiddenData" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
@@ -490,6 +493,7 @@ form{
     align-items: center;
     margin-left: 280px;
     margin-right: 30px;
+    background-image: url('../../static/organizationImage/wrtFileImageView.jpg');
     /* margin-right: 30px; */
 }
 
