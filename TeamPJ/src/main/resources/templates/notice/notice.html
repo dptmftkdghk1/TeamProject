@@ -20,13 +20,14 @@
     <section class="rental-table-list-search">
         <div class="rental-search-input">
             <label>
-                <input type="text">
+                <input class="search-tag-result" type="text">
             </label>
             <button class="rental-searchBtn" name="boardTitle">검색</button>
         </div>
         <div class="list-search-btn">
             <button class="registration" name="btn" onclick="location.href='/Notice_Service/registration'">등록</button>
-            <button class="delete" name="btn">삭제</button>
+            <button class="delete" id="deleteSelectedBtn" name="btn">선택 삭제</button>
+            <button class="delete" id="deleteAllBtn" name="btn">전체 삭제</button>
         </div>
     </section>
 
@@ -34,6 +35,7 @@
         <table border="1">
             <thead class="rental-table-list-head">
             <tr>
+                <td><input id="checkboxAll" type="checkbox" name="checkbox"></td>
                 <td>번호</td>
                 <td>구분</td>
                 <td>제목</td>
@@ -47,15 +49,16 @@
 
             </thead>
 
-            <tr  th:each="notice:${notices}">
-                <td th:text="${notice.boardNo}">번호</td>
-                <td th:text="${notice.boardCategory}">구분</td>
-                <td th:text="${notice.boardTitle}">제목</td>
-                <td th:text="${notice.boardContent}">내용</td>
-                <td th:text="${notice.boardImage}">이미지</td>
-                <td th:text="${notice.boardWriter}">작성자</td>
-                <td th:text="${notice.boardDate}">등록일</td>
-                <td th:text="${notice.boardViewCount}">조회수</td>
+            <tr class="rental-table-boards" th:each="notice:${notices}">
+                <td><input id="checkboxSelect" type="checkbox" name="checkbox"></td>
+                <td th:text="${notice.boardNo}"></td>
+                <td th:text="${notice.boardCategory}"></td>
+                <td th:text="${notice.boardTitle}"></td>
+                <td th:text="${notice.boardContent}"></td>
+                <td th:text="${notice.boardImage}"></td>
+                <td th:text="${notice.boardWriter}"></td>
+                <td th:text="${notice.boardDate}"></td>
+                <td th:text="${notice.boardViewCount}"></td>
             </tr>
 
 <!--            <tr th:each="notice:${notices}">-->
@@ -84,7 +87,7 @@
         </table>
     </section>
 
-    <section class="rental-table-list-footer">
+    <section class="rental-table-list-footer" id="pagination">
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -92,7 +95,5 @@
         <li>5</li>
     </section>
 </div>
-
-
 </body>
 </html>

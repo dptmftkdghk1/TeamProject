@@ -51,8 +51,15 @@ public class NoticeServiceImpl implements NoticeService {
         log.info("updateNotice");
         noticeMapper.updateNotice(notice);
     }
+    // 공지사항 전체삭제
+    @Transactional
+    @Override
+    public void deleteAllNotice(NoticeDTO noticeDTO) {
+        log.info("deleteAllNotice");
+        noticeMapper.deleteAllNotice(noticeDTO);
+    }
 
-    // 공지사항 삭제
+    // 공지사항 선택삭제
     @Transactional
     @Override
     public void deleteNotice(Integer boardNo) {

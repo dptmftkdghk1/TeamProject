@@ -34,7 +34,7 @@ public class NoticeBoardController {
     public String getNoticesByTitle(@RequestParam("boardNo") Integer boardNo, @RequestParam("boardTitle") String boardTitle, Model model) {
         List<NoticeDTO> notices = noticeMapper.getNoticesByTitleNo(boardNo, boardTitle);
         model.addAttribute("notices", notices);
-        return "notice/search";  // 리다이렉트 대신 뷰 이름 반환
+        return "notice/notice";  // 리다이렉트 대신 뷰 이름 반환
     }
 
     // 공지사항 등록 페이지
@@ -65,7 +65,14 @@ public class NoticeBoardController {
         return ResponseEntity.ok(noticeDTO);
     }
 
-    // 공지사항 삭제
+    // 공지사항 전체삭제
+    @Transactional
+    @DeleteMapping("/notice/{board}")
+    public void delete_all_notice(NoticeDTO noticeDTO, @PathVariable String board) {
+        noticeMapper.deleteAllNotice(noticeDTO);
+    }
+
+    // 공지사항 선택삭제
     @Transactional
     @DeleteMapping("/notice/{boardNo}")
     public ResponseEntity<Void> delete_notice(
@@ -80,6 +87,7 @@ public class NoticeBoardController {
     @GetMapping("/notice/{boardNo}/count")
     @ResponseBody
     public Integer count_notice(@PathVariable("boardNo") Integer boardNo) {
+
         return noticeMapper.countNotice(boardNo);
     }
 }

@@ -22,7 +22,10 @@ public interface NoticeService {
     // 공지사항 업데이트
     @Transactional
     void updateNotice(NoticeDTO notice);
-    // 공지사항 삭제
+    // 공지사항 전체삭제
+    @Transactional
+    void deleteAllNotice(NoticeDTO notice);
+    // 공지사항 선택삭제
     @Transactional
     void deleteNotice(Integer boardNo);
     // 공지사항 개수 조회
