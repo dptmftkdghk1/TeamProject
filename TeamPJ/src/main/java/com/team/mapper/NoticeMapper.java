@@ -11,6 +11,14 @@ import java.util.List;
 @Mapper
 public interface NoticeMapper {
 
+    @Transactional(readOnly = true)
+    @Select("SELECT * FROM `board` WHERE `board_title` LIKE CONCAT('%', #{boardTitle}, '%')")
+    List<NoticeDTO> getNoticesByTitle(@Param("boardTitle") String boardTitle);
+
+    @Transactional(readOnly = true)
+    @Select("SELECT * FROM `board` WHERE `board_no` = #{boardNo}")
+    NoticeDTO getNoticeById(@Param("boardNo") Integer boardNo);
+
     // 공지사항 목록 조회
     @Transactional(readOnly = true)
     @Select("SELECT * FROM `board`")

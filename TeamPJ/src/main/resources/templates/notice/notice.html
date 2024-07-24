@@ -55,7 +55,9 @@
                 <td><input id="checkboxSelect" type="checkbox" name="checkbox"></td>
                 <td class="board-no" th:text="${notice.boardNo}"></td>
                 <td th:text="공지사항"></td>
-                <td th:text="${notice.boardTitle}" ></td>
+                <td>
+                    <a th:href="@{/notices/edit/{boardNo}(boardNo=${notice.boardNo})}" th:text="${notice.boardTitle}"></a>
+                </td>
                 <td th:text="${notice.boardContent}"></td>
                 <td th:text="${notice.boardImage}"></td>
                 <td th:text="${notice.boardWriter}"></td>

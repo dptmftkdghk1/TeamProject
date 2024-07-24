@@ -19,7 +19,19 @@ public class NoticeBoardController {
     @Autowired
     private NoticeMapper noticeMapper;
 
+    @GetMapping("/notices")
+    public String getNotices(@RequestParam(required = false) String boardTitle, Model model) {
+        List<NoticeDTO> notices = noticeMapper.getNoticesByTitle(boardTitle);
+        model.addAttribute("notices", notices);
+        return "/notice/notice";
+    }
 
+    @GetMapping("/notices/edit/{boardNo}")
+    public String editNotice(@PathVariable Integer boardNo, Model model) {
+        NoticeDTO notice = noticeMapper.getNoticeById(boardNo);
+        model.addAttribute("notice", notice);
+        return "/notice/notice";
+    }
 
     // 공지사항 목록 조회
     @Transactional(readOnly = true)
@@ -33,7 +45,7 @@ public class NoticeBoardController {
 
     // 제목과 번호로 공지사항 검색
     @Transactional(readOnly = true)
-    @GetMapping("/notices")
+    @GetMapping("/noticeQuery")
     public String getNoticesByTitle(@RequestParam("boardNo") Integer boardNo, @RequestParam("boardTitle") String boardTitle, Model model) {
         List<NoticeDTO> notices = noticeMapper.getNoticesByTitleNo(boardNo, boardTitle);
         model.addAttribute("notices", notices);
