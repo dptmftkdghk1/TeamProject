@@ -1,7 +1,9 @@
 package com.team.controller;
 
 import com.team.domain.ProductDTO;
+import com.team.domain.ReservationDTO;
 import com.team.service.productservice.ProductService;
+import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-
     @GetMapping("/manage_product")
     public String get_manage_product(
             @RequestParam(required = false) String query,
@@ -26,6 +27,14 @@ public class ProductController {
             Model model
     ) {
         List<ProductDTO> products = productService.get_products(query, rental);
+        for (ProductDTO product : products) {
+            // 예약 수
+            Integer reservationCount = productService.count_reservation(product.getProductNo());
+            // 총수량 - 예약 수
+            int availableAmount = product.getProductAmount() - reservationCount;
+            // productAmount 에 set
+            product.setProductAmount(availableAmount);
+        }
         model.addAttribute("products", products);
         return "/product/manage_product";
     }

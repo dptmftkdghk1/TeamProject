@@ -62,10 +62,10 @@
                     <td class="supplier" th:text="${product.productSupplier}">쿠팡</td>
                     <td class="price" th:text="${product.productPrice}">4000</td>
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
-                    <td th:if="${product.productStatus == true}">
+                    <td th:if="${product.productStatus == true && product.productAmount != 0}">
                         <a th:href="@{/reservation/reservation(productNo=${product.productNo})}">대여가능</a>
                     </td>
-                    <td th:unless="${product.productStatus == true}">대여불가</td>
+                    <td th:if="${product.productStatus == false || product.productAmount == 0}">대여불가</td>
                 </tr>
 
 <!--                <tr>-->

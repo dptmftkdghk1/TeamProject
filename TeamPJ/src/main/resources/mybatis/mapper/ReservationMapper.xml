@@ -46,5 +46,10 @@
             ON `R`.`product_no` = `P`.`product_no`
             where reservation_no = #{reservationNo};
     </select>
+    <select id="countReservation" parameterType="Integer" resultType="Integer">
+        SELECT COUNT(*)
+        FROM reservation
+        WHERE product_no = #{productNo} AND reservation_status =1
+    </select>
 
 </mapper>

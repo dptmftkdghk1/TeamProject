@@ -5,12 +5,12 @@
 <mapper namespace="com.team.mapper.ScheduleMapper">
 
     <select id="selectSchedules" resultType="com.team.domain.ScheduleDTO">
-        SELECT * FROM schedule
+        SELECT * FROM schedule WHERE employee_id = #{employeeId}
     </select>
     <insert id="insertCalendar">
         INSERT INTO schedule
         VALUES
-            (NULL, #{title}, #{start}, #{end}, #{backgroundColor}, #{text})
+            (NULL, #{title}, #{start}, #{end}, #{backgroundColor}, #{text}, #{employeeId})
     </insert>
     <select id="selectScheduleByNo" resultType="com.team.domain.ScheduleDTO">
         SELECT * FROM schedule

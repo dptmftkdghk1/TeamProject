@@ -41,7 +41,7 @@ public class ReservationController {
     public String get_list(Model model, String query){
         List<ReservationDTO> reservationList = reserveService.selectReservations(query);
 
-        System.out.println(reservationList);
+//        System.out.println(reservationList);
 
         model.addAttribute("reservationList", reservationList);
         return "/reservation/reservation_list";
@@ -59,7 +59,24 @@ public class ReservationController {
         return "/reservation/reservation_check";
     }
 
-    @PostMapping("/list")
+//    @PutMapping("/list/{reservationNo}")
+//    public ResponseEntity<Void> post_reservation_update(
+//            @PathVariable("reservationNo") Integer reservationNo
+//
+//    ){
+//        reserveService.reservationApprove(reservationNo);
+//        return ResponseEntity.ok().body(null);
+//    }
+//
+//    @DeleteMapping("/list/{reservationNo}")
+//    public ResponseEntity<Void> post_reservation_delete(
+//            @PathVariable("reservationNo") Integer reservationNo
+//
+//    ){
+//        reserveService.deleteReservation(reservationNo);
+//        return ResponseEntity.ok().body(null);
+//    }
+    @PutMapping("/list")
     public ResponseEntity<String> post_reservation_update(
             @RequestBody Integer item
 

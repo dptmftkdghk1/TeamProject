@@ -11,4 +11,6 @@ public interface ProductService {
     ProductDTO select_product_by_no(Integer productNo);
     void update_product(ProductDTO product);
     void delete_product(Integer productNo);
+
+    Integer count_reservation(Integer productNo);
 }

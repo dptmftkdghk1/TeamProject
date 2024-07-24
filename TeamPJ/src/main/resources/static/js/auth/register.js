@@ -261,23 +261,23 @@ deptSelector.addEventListener('change', () => {
 
 
 // 이미지 미리보기
-document.getElementById('file').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const preview = document.getElementById('image-preview');
-    preview.innerHTML = '';  // 기존 미리보기 초기화
-
-    if (file && file.type.match('image.*')) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            preview.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-    } else {
-        preview.textContent = '유효한 이미지 파일을 선택하세요.';
-    }
-});
+// document.getElementById('file').addEventListener('change', function(event) {
+//     const file = event.target.files[0];
+//     const preview = document.getElementById('image-preview');
+//     preview.innerHTML = '';  // 기존 미리보기 초기화
+//
+//     if (file && file.type.match('image.*')) {
+//         const reader = new FileReader();
+//         reader.onload = function(e) {
+//             const img = document.createElement('img');
+//             img.src = e.target.result;
+//             preview.appendChild(img);
+//         }
+//         reader.readAsDataURL(file);
+//     } else {
+//         preview.textContent = '유효한 이미지 파일을 선택하세요.';
+//     }
+// });
 
 
 
