@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -44,13 +43,19 @@ public class OrganizationController {
     @Transactional
     @PostMapping("/list")
     public ResponseEntity<String> post_reservation(
+            @RequestParam("file") MultipartFile data,
             @RequestBody Map<String, Object> jsonData
 
-    ){
+    ) throws IOException {
         String representContent = (String) jsonData.get("representContent");
         System.out.println("Represent Content: " + representContent);
 
         System.out.println(jsonData);
+
+        if(!data.isEmpty()){
+            //파일이 있을 경우 처리
+//            organizationService.saveFile(data.getOriginalFilename(), data.getBytes());
+        }
 
 
         organizationService.update_representContent(representContent); //컨텐츠 업데이트 완료

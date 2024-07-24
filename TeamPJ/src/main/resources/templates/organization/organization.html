@@ -20,8 +20,13 @@
         <section class="table-list-design">
             <div class="organize-box">
                 <div class="organize-round-first">
-<!--                    <img src="../../static/organizationImage/wrtFileImageView.jpg" height="100px" width="100px"/>-->
+                    <input type="file" id="file-data">
+
+                    <!--                    <img src="../../static/organizationImage/wrtFileImageView.jpg" height="100px" width="100px"/>-->
                 </div>
+
+
+                
                 <textarea class="organize-line" id="organize-represent-content" th:text="${represent.representContent}">dfdf</textarea>
             </div>
             <input type="hidden" id="hiddenData" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
@@ -256,6 +261,27 @@
         //토큰값
         const csrfTokenInput = document.getElementById("hiddenData");
 
+        //파일값
+        const FileData = document.getElementById('file-data');
+        const formData = new FormData(); //FormData 객체 생성
+
+        //파일이 선택되었는지 확인하고 추가
+        if(FileData.files.length > 0){
+            formData.append('file', fileInput.files[0]);
+        }else {
+            alert('파일을 선택해주세요.');
+            return;
+        }
+
+        fetch("/organize/list", {
+            method: "POST",
+            body: formData,
+        }).then(response => {
+            if (response.ok) {
+                alert('저장되었습니다.');
+                location.reload(); // 화면 새로고침
+            }
+        });
 
         DetailInputFirst.forEach(input => {
             datasFirstList.push(input.value);
