@@ -14,8 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="calendar-modal">
-        <div><span>일정일정</span><span>시간</span></div>
+    <div class="calendar-modal" th:each="schedule: ${schedules}">
+        <div>
+            <span th:text="${schedule.scheduleTitle}">일정일정</span>
+            <span th:text="${schedule.scheduleStartDate}">시간</span>
+            <span th:text="${schedule.scheduleEndDate}">시간</span>
+        </div>
         <div><span>모달창</span></div>
         <div><span>모달창</span></div>
     </div>
