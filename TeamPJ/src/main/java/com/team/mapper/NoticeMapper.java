@@ -32,14 +32,9 @@ public interface NoticeMapper {
     @Update("UPDATE `board` SET `board_title` = #{boardTitle}, `board_content` = #{boardContent} WHERE `board_no` = #{boardNo}")
     void updateNotice(NoticeDTO noticeDTO);
 
-    //공지사항 전체삭제
-    @Transactional
-    @Delete("DELETE FROM `board`")
-    void deleteAllNotice(NoticeDTO noticeDTO);
 
 
-
-    // 공지사항 선택삭제
+    // 공지사항 삭제
     @Transactional
     @Delete("DELETE FROM `board` WHERE board_no = #{boardNo}")
     void deleteNotice(Integer boardNo);
@@ -49,4 +44,3 @@ public interface NoticeMapper {
     @Select("SELECT COUNT(*) FROM `board` WHERE board_no = #{boardNo} AND board_status = 1")
     Integer countNotice(Integer boardNo);
 }
-

@@ -2,16 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.team.mapper.NoticeMapper">
+   <mapper namespace="com.team.mapper.NoticeMapper">
     <resultMap id="noticeBoard" type="com.team.domain.NoticeDTO" autoMapping="true">
-        <id property="boardNo" column="Notice_no" />
+        <id property="boardNo" column="board_no" />
     </resultMap>
 
-<!--    <insert id="insertOneOnOnePo">-->
-<!--        INSERT INTO `board`-->
-<!--            (`no`, `category`, `title`, `content`, `image`, `writer`, `date`, `viwe_count`)-->
-<!--        VALUES-->
-<!--            (NULL, #{category}, #{title}, #{content}, #{image}, #{writer}, #{date}, #{viwe_count})-->
-<!--    </insert>-->
-</mapper>
+ </mapper>

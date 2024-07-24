@@ -1,14 +1,17 @@
 package com.team.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.extern.log4j.Log4j2;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Log4j2
 public class NoticeDTO {
     private Integer boardNo;
     private String boardCategory;
@@ -18,4 +21,5 @@ public class NoticeDTO {
     private String boardWriter;
     private LocalDate boardDate;
     private Integer boardViewCount;
+
 }

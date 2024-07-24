@@ -1,6 +1,7 @@
 package com.team.controller;
 
 import com.team.domain.NoticeDTO;
+import com.team.domain.ProductDTO;
 import com.team.mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +50,7 @@ public class NoticeBoardController {
     @PostMapping("/registration")
     public String post_registration_view(@ModelAttribute NoticeDTO notice){
         noticeMapper.insertNotice(notice);
-        return "redirect:/Notice_Service/notice";  // 등록 후 목록 페이지로 리다이렉트
+        return "redirect: Notice_Service/notice";  // 등록 후 목록 페이지로 리다이렉트
     }
 
     // 공지사항 업데이트
@@ -65,22 +66,27 @@ public class NoticeBoardController {
         return ResponseEntity.ok(noticeDTO);
     }
 
-    // 공지사항 전체삭제
-    @Transactional
-    @DeleteMapping("/notice/{board}")
-    public void delete_all_notice(NoticeDTO noticeDTO, @PathVariable String board) {
-        noticeMapper.deleteAllNotice(noticeDTO);
+
+
+    @ResponseBody
+    @DeleteMapping("delete/{boardNo}")
+    public void delete_notice(
+            @RequestBody List<NoticeDTO> notices
+    ){
+        for(NoticeDTO notice : notices){
+            noticeMapper.deleteNotice(notice.getBoardNo());
+        }
     }
 
-    // 공지사항 선택삭제
-    @Transactional
-    @DeleteMapping("/notice/{boardNo}")
-    public ResponseEntity<Void> delete_notice(
-            @PathVariable("boardNo") Integer boardNo
-    ){
-        noticeMapper.deleteNotice(boardNo);
-        return ResponseEntity.ok().build();
-    }
+//    // 공지사항 삭제
+//    @Transactional
+//    @DeleteMapping("/Notice_Service/notice")
+//    public ResponseEntity<Void> delete_notice(
+//            @PathVariable Integer boardNo
+//    ){
+//        noticeMapper.deleteNotice(boardNo);
+//        return ResponseEntity.ok().build();
+//    }
 
     // 공지사항 개수 조회
     @Transactional(readOnly = true)

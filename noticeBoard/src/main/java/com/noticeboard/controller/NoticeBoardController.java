@@ -1,85 +1,52 @@
 package com.noticeboard.controller;
 
 import com.noticeboard.domain.NoticeDTO;
-import com.noticeboard.mapper.NoticeMapper;
+import com.noticeboard.service.notice.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-@Controller
-@RequestMapping("/Notice_Service")
+@RestController
+@RequestMapping("/notice")
 public class NoticeBoardController {
 
     @Autowired
-    private NoticeMapper noticeMapper;
+    private NoticeService noticeService;
 
-    // 공지사항 목록 조회
-    @Transactional(readOnly = true)
-    @GetMapping("/notice")
-    public String create_view(Model model){
-        List<NoticeDTO> notices = noticeMapper.selectAllNotice();
-        model.addAttribute("notices", notices);
-        System.out.println(notices);
-        return "notice/notice";
+    @GetMapping
+    public List<NoticeDTO> getAllNotices() {
+        return noticeService.getAllNotices();
     }
 
-    // 제목과 번호로 공지사항 검색
-    @Transactional(readOnly = true)
-    @GetMapping("/search")
-    public String getNoticesByTitle(@RequestParam("boardNo") Integer boardNo, @RequestParam("boardTitle") String boardTitle, Model model) {
-        List<NoticeDTO> notices = noticeMapper.getNoticesByTitleNo(boardNo, boardTitle);
-        model.addAttribute("notices", notices);
-        return "notice/search";  // 리다이렉트 대신 뷰 이름 반환
+    @GetMapping("/{id}")
+    public NoticeDTO getNotice(@PathVariable int id) {
+        return noticeService.getNoticeById(id);
     }
 
-    // 공지사항 등록 페이지
-    @Transactional
-    @GetMapping("/registration")
-    public String get_registration_view(){
-        return "notice/registration";
+    @PostMapping
+    public ResponseEntity<Void> addNotice(@RequestBody NoticeDTO notice) {
+        noticeService.addNotice(notice);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    // 공지사항 등록 처리
-    @Transactional
-    @PostMapping("/registration")
-    public String post_registration_view(@ModelAttribute NoticeDTO notice){
-        noticeMapper.insertNotice(notice);
-        return "redirect:/Notice_Service/notice";  // 등록 후 목록 페이지로 리다이렉트
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateNotice(@PathVariable Integer boardNo, @RequestBody NoticeDTO notice) {
+        noticeService.updateNotice(boardNo, notice);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // 공지사항 업데이트
-    @Transactional
-    @PutMapping("/notice/{boardNo}")
-    public ResponseEntity<NoticeDTO> update_notice(
-            @PathVariable("boardNo") Integer boardNo,
-            @RequestBody NoticeDTO noticeDTO
-    ){
-        noticeDTO.setBoardNo(boardNo);
-        System.out.println("업데이트: " + noticeDTO);
-        noticeMapper.updateNotice(noticeDTO);
-        return ResponseEntity.ok(noticeDTO);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteNotice(@PathVariable Integer boardNo) {
+        noticeService.deleteNotice(boardNo);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    // 공지사항 삭제
-    @Transactional
-    @DeleteMapping("/notice/{boardNo}")
-    public ResponseEntity<Void> delete_notice(
-            @PathVariable("boardNo") Integer boardNo
-    ){
-        noticeMapper.deleteNotice(boardNo);
-        return ResponseEntity.ok().build();
-    }
-
-    // 공지사항 개수 조회
-    @Transactional(readOnly = true)
-    @GetMapping("/notice/{boardNo}/count")
-    @ResponseBody
-    public Integer count_notice(@PathVariable("boardNo") Integer boardNo) {
-        return noticeMapper.countNotice(boardNo);
+    @DeleteMapping
+    public ResponseEntity<Void> deleteNotices(@RequestBody List<Integer> boardNo) {
+        noticeService.deleteNotices(boardNo);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
+
