@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class FileService {
+public class FileService1 {
     @Autowired
     private FileMapper fileMapper;
 

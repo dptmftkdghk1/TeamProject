@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileController {
     @Autowired
-    private FileService fileService;
+    private FileService1 fileService;
 
     @GetMapping("/upload")
     public String upload(Model model) {
