@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f3c28a3-ad15-4760-ac2b-0cd91611bd71" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/controller/NoticeBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/controller/NoticeBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/mapper/NoticeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/mapper/NoticeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/notice/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/notice/NoticeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/notice/NoticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/java/com/team/service/notice/NoticeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/css/notice/notice.css" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/css/notice/notice.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/notice/notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/notice/notice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/notice/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/static/js/notice/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/notice/notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/TeamPJ/src/main/resources/templates/notice/notice.html" afterDir="false" />
-    </list>
+    <list default="true" id="6f3c28a3-ad15-4760-ac2b-0cd91611bd71" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +120,7 @@
       <workItem from="1720225541782" duration="18000" />
       <workItem from="1720774087703" duration="13000" />
       <workItem from="1720960593484" duration="27000" />
-      <workItem from="1721712576001" duration="15488000" />
+      <workItem from="1721712576001" duration="15768000" />
     </task>
     <servers />
   </component>

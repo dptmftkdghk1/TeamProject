@@ -19,6 +19,7 @@ public class NoticeBoardController {
     @Autowired
     private NoticeMapper noticeMapper;
 
+
     // 공지사항 목록 조회
     @Transactional(readOnly = true)
     @GetMapping("/notice")
@@ -42,7 +43,7 @@ public class NoticeBoardController {
     @Transactional
     @GetMapping("/registration")
     public String get_registration_view(){
-        return "notice/registration";
+        return "/notice/registration";
     }
 
     // 공지사항 등록 처리
@@ -50,12 +51,12 @@ public class NoticeBoardController {
     @PostMapping("/registration")
     public String post_registration_view(@ModelAttribute NoticeDTO notice){
         noticeMapper.insertNotice(notice);
-        return "redirect: Notice_Service/notice";  // 등록 후 목록 페이지로 리다이렉트
+        return "redirect:/Notice_Service/notice";  // 등록 후 목록 페이지로 리다이렉트
     }
 
     // 공지사항 업데이트
     @Transactional
-    @PutMapping("/notice/{boardNo}")
+    @PutMapping("/update/{boardNo}")
     public ResponseEntity<NoticeDTO> update_notice(
             @PathVariable("boardNo") Integer boardNo,
             @RequestBody NoticeDTO noticeDTO
@@ -69,12 +70,12 @@ public class NoticeBoardController {
 
 
     @ResponseBody
-    @DeleteMapping("delete/{boardNo}")
+    @DeleteMapping("/notice")
     public void delete_notice(
-            @RequestBody List<NoticeDTO> notices
+            @RequestBody List<Integer> notices
     ){
-        for(NoticeDTO notice : notices){
-            noticeMapper.deleteNotice(notice.getBoardNo());
+       for(Integer notice : notices){
+            noticeMapper.deleteNotice(notice);
         }
     }
 

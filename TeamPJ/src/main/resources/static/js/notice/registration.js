@@ -32,8 +32,8 @@ const registerObject = {
             }
         });
     },
-    "PUT": function (id, notice) {
-        fetch(`/notice/${id}`, {
+    "PUT": function (boardNo, notice) {
+        fetch(`/notice/${bordNo}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(notice)

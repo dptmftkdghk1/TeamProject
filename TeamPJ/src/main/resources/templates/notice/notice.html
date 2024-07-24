@@ -51,8 +51,8 @@
 
             <tr class="rental-table-boards" th:each="notice:${notices}">
                 <td><input id="checkboxSelect" type="checkbox" name="checkbox"></td>
-                <td th:text="${notice.boardNo}"></td>
-                <td th:text="공지상항"></td>
+                <td class="board-no" th:text="${notice.boardNo}"></td>
+                <td th:text="공지사항"></td>
                 <td th:text="${notice.boardTitle}"></td>
                 <td th:text="${notice.boardContent}"></td>
                 <td th:text="${notice.boardImage}"></td>

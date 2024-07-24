@@ -21,6 +21,7 @@ allSelectBtn.addEventListener('click', () => {
 
 delBtn.addEventListener('click', () => {
     const notices = collectNoticeSelectedBoards();
+    console.log(notices);
     if (notices.length > 0) {
         deleteNoticeBoards(notices);
     } else {
@@ -29,7 +30,8 @@ delBtn.addEventListener('click', () => {
 });
 
 deleteAllBtn.addEventListener('click', () => {
-    const allNotices = [...noticeList].map(notice => parseInt(notice.querySelector('.board-no')));
+    const allNotices = [...noticeList].map(notice => parseInt(notice.querySelector('.board-no').textContent));
+    console.log(allNotices)
     if (allNotices.length > 0) {
         deleteNoticeBoards(allNotices);
     } else {
@@ -40,11 +42,11 @@ deleteAllBtn.addEventListener('click', () => {
 function collectNoticeSelectedBoards() {
     return [...noticeList]
         .filter(notice => notice.querySelector('input[type="checkbox"]').checked)
-        .map(notice => parseInt(notice.querySelector('.board-no')));
+        .map(notice => parseInt(notice.querySelector('.board-no').textContent));
 }
 
 function deleteNoticeBoards(notices) {
-    fetch('/delete/{boardNo}', {
+    fetch('/Notice_Service/notice', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
