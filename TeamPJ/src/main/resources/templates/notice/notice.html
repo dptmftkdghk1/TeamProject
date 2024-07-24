@@ -18,12 +18,14 @@
 <div class="rental-table-list">
     <h2>게시판</h2>
     <section class="rental-table-list-search">
+        <form id="searchForm">
         <div class="rental-search-input">
             <label>
                 <input class="search-tag-result" type="text">
             </label>
             <button class="rental-searchBtn" name="boardTitle">검색</button>
         </div>
+        </form>
         <div class="list-search-btn">
             <button class="registration" name="btn" onclick="location.href='/Notice_Service/registration'">등록</button>
             <button class="delete" id="deleteSelectedBtn" name="btn">선택 삭제</button>
@@ -53,7 +55,7 @@
                 <td><input id="checkboxSelect" type="checkbox" name="checkbox"></td>
                 <td class="board-no" th:text="${notice.boardNo}"></td>
                 <td th:text="공지사항"></td>
-                <td th:text="${notice.boardTitle}"></td>
+                <td th:text="${notice.boardTitle}" ></td>
                 <td th:text="${notice.boardContent}"></td>
                 <td th:text="${notice.boardImage}"></td>
                 <td th:text="${notice.boardWriter}"></td>

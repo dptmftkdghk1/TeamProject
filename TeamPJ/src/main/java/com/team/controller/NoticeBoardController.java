@@ -20,6 +20,7 @@ public class NoticeBoardController {
     private NoticeMapper noticeMapper;
 
 
+
     // 공지사항 목록 조회
     @Transactional(readOnly = true)
     @GetMapping("/notice")
@@ -32,7 +33,7 @@ public class NoticeBoardController {
 
     // 제목과 번호로 공지사항 검색
     @Transactional(readOnly = true)
-    @GetMapping("/search")
+    @GetMapping("/notices")
     public String getNoticesByTitle(@RequestParam("boardNo") Integer boardNo, @RequestParam("boardTitle") String boardTitle, Model model) {
         List<NoticeDTO> notices = noticeMapper.getNoticesByTitleNo(boardNo, boardTitle);
         model.addAttribute("notices", notices);
@@ -68,7 +69,7 @@ public class NoticeBoardController {
     }
 
 
-
+    // 공지사항 삭제
     @ResponseBody
     @DeleteMapping("/notice")
     public void delete_notice(
@@ -79,15 +80,6 @@ public class NoticeBoardController {
         }
     }
 
-//    // 공지사항 삭제
-//    @Transactional
-//    @DeleteMapping("/Notice_Service/notice")
-//    public ResponseEntity<Void> delete_notice(
-//            @PathVariable Integer boardNo
-//    ){
-//        noticeMapper.deleteNotice(boardNo);
-//        return ResponseEntity.ok().build();
-//    }
 
     // 공지사항 개수 조회
     @Transactional(readOnly = true)

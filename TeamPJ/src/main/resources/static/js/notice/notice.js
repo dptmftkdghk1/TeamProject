@@ -61,6 +61,43 @@ function deleteNoticeBoards(notices) {
         }
     });
 }
+
+$(document).ready(function() {
+    $('#searchForm').on('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form data
+        var boardNo = $('#boardNo').val();
+        var boardTitle = $('#boardTitle').val();
+
+        // Make AJAX request to the backend
+        $.ajax({
+            url: '/notices',
+            type: 'GET',
+            data: {
+                boardNo: boardNo,
+                boardTitle: boardTitle
+            },
+            success: function(data) {
+                // Clear previous results
+                $('#results').empty();
+
+                // Append new results
+                if (data.length > 0) {
+                    data.forEach(function(notice) {
+                        $('#results').append('<p>' + JSON.stringify(notice) + '</p>');
+                    });
+                } else {
+                    $('#results').append('<p>No results found</p>');
+                }
+            },
+            error: function(error) {
+                $('#results').empty();
+                $('#results').append('<p>An error occurred</p>');
+            }
+        });
+    });
+});
 // console.log(noticeList.length);
 // allSelectBtn.addEventListener('click', () => {
 //     console.log('클릭');
