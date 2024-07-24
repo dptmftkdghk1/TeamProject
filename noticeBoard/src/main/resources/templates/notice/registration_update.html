@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>수정</title>
+    <link rel="stylesheet" href="../../static/css/notice/registration.css" th:href="@{/css/notice/registration.css}">
+    <script src="../../static/js/notice/registration.js" th:src="@{/js/notice/registration}" defer></script>
+</head>
+<body>
+<form class="object-manage">
+    <h2>글 수정</h2>
+    <section class="object-manage-section">
+        <input type="hidden" name="boardNo" value="${notice.boardNo}">
+        <input type="text" name="boardTitle" class="object-manage-section-content" value="${notice.boardTitle}">
+        <div type="text" class="object-manage-section-button-search">황예슬</div>
+        <div class="object-manage-button-style">
+            <button class="object-manage-button-modify" type="button">수정</button>
+            <button class="object-manage-button-cancel" type="button">취소</button>
+        </div>
+    </section>
+    <section class="object-manage-content">
+        <textarea name="boardContent">${notice.boardContent}</textarea>
+    </section>
+</form>
+<script>
+    document.querySelector('.object-manage-button-cancel').addEventListener('click', () => {
+        window.location.href = '/notice';
+    });
+</script>
+</body>
+</html>

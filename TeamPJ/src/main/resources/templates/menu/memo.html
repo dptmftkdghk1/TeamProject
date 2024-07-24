@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
+
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/menu/memo.css" th:href="@{/css/menu/memo.css}">
+</head>
+<body>
+<header th:replace="~{fragment/header :: header}"></header>
+
+<main layout:fragment="main">
+    <h2>메모</h2>
+    <div class="rental-memo-box">
+        <!--    왼쪽 섹션-->
+        <section class="rental-table-list">
+            <form name="test" action="/menu/memo" method="get">
+                <!--        검색-->
+                <div class="rental-table-list-search">
+                    <label>
+                        <input type="text" id="memo-search-input" name="query">
+                    </label>
+                    <label>
+                        <select name="keyword">
+                            <option value="memoName">제목</option>
+                            <option value="memoContent">내용</option>
+                        </select>
+                    </label>
+                    <button type="submit" name="search">검색</button>
+                </div>
+                <!--            상세-->
+                <div class="memo-history">
+                    <div class="memo-detail" th:each ="memos : ${memos}">
+                        <input type="checkbox"><span th:text="'제목 : ' + ${memos.memoName}">1</span>
+                        <span th:text="'날짜 : ' + ${#temporals.format(memos.memoDate,'yy-MM-dd hh:mm')}">2022.01.01</span>
+                        <span th:text="'내용 : ' + ${memos.memoContent}">내용</span>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!--    오른쪽 섹션-->
+        <section class="rental-table-list-design">
+            <form action="/menu/memo" method="post" enctype="multipart/form-data">
+
+                <!--        인풋박스랑 등록 삭제 버튼-->
+                <div class="table-list-button-style">
+                    <input type="text" id="memo_name" name="memoName">
+                    <button id="register" type="submit">등록</button>
+                    <button class="table-list-button-delete">삭제</button>
+                </div>
+                <!--        글 적는 구역-->
+                <div>
+                    <textarea name="memoContent" id="memo_content" class="memo-text"></textarea>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</main>
+<footer th:replace="~{fragment/footer :: footer}"></footer>
+
+</body>
+</html>
+<script>
+    document.getElementById("register").addEventListener("click", () => {
+        location.reload();
+    });
+</script>
