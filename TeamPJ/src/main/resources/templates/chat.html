@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
+
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
-    <link rel="stylesheet" href="chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/chat/chat.css" th:href="@{/css/chat/chat.css}">
 
 </head>
 <body>
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 <!-- <header>
     <nav class="navbar">
         <div class="logo"><a href="#" class="main-icon">New Company</a></div>
@@ -29,7 +36,7 @@
     </nav>
 </header> -->
 
-<main>
+<main layout:fragment="main">
     <section class="left-section">
         <div class="search-container">
             <input class="search-input" type="text" placeholder="검색">
