@@ -18,6 +18,8 @@
 </head>
 <body>
 <main layout:fragment="main">
+    <input type="hidden" id="hiddenData" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
     <div class="rental-table-list">
         <h2>대여신청 목록</h2>
         <form th:action="@{/reservation/list}" name="test" method="get">

@@ -1,5 +1,6 @@
 package com.team.controller;
 
+import com.team.domain.EmployeeDTO;
 import com.team.domain.organize.DepartDTO;
 import com.team.domain.organize.DepartDetailDTO;
 import com.team.domain.organize.RepresentDTO;
@@ -7,6 +8,9 @@ import com.team.service.organizationservice.OrganizationService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +27,13 @@ public class OrganizationController {
     private OrganizationService organizationService;
 
     @GetMapping("/list")
-    public String get_organize_list(Model model){
+    public String get_organize_list(
+            @AuthenticationPrincipal EmployeeDTO employee,
+            Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        model.addAttribute("name",name);
+        model.addAttribute("employee",employee);
         //DTO 만들고 뿌려주기
         RepresentDTO represent = organizationService.select_Represent();
 //        String encodedImage = java.util.Base64.getEncoder().encodeToString(represent.getRepresentImage());
@@ -43,7 +53,7 @@ public class OrganizationController {
     @Transactional
     @PostMapping("/list")
     public ResponseEntity<String> post_reservation(
-            @RequestParam("file") MultipartFile data,
+//            @RequestParam("file") MultipartFile data,
             @RequestBody Map<String, Object> jsonData
 
     ) throws IOException {
@@ -52,10 +62,10 @@ public class OrganizationController {
 
         System.out.println(jsonData);
 
-        if(!data.isEmpty()){
-            //파일이 있을 경우 처리
-//            organizationService.saveFile(data.getOriginalFilename(), data.getBytes());
-        }
+//        if(!data.isEmpty()){
+//            //파일이 있을 경우 처리
+////            organizationService.saveFile(data.getOriginalFilename(), data.getBytes());
+//        }
 
 
         organizationService.update_representContent(representContent); //컨텐츠 업데이트 완료

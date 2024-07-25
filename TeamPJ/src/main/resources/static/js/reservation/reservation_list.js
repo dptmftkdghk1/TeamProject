@@ -1,12 +1,18 @@
 // 승인 클릭 시 승인 Status 업데이트
+
+function getCsrfToken() {
+    return document.querySelector('input[name="_csrf"]').value;
+}
+
 function reservation_update(item, status){
 
     if (status == null) {
         const confirmed = confirm('승인하시겠습니까?');
         if (confirmed) {
             fetch("/reservation/list", {
-                method: "PUT",
+                method: "POST",
                 headers: {
+                    'X-CSRF-TOKEN': getCsrfToken(),
                     "Content-Type": "application/json",
                     // "X-CSRF-TOKEN": csrfTokenInput.value
                 },
@@ -28,6 +34,7 @@ function reservation_delete(item){
         fetch("/reservation/list",{
             method: "DELETE",
             headers: {
+                'X-CSRF-TOKEN': getCsrfToken(),
                 "Content-Type": "application/json",
                 // "X-CSRF-TOKEN": csrfTokenInput.value
             },

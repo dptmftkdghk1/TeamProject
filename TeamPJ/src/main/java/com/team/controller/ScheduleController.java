@@ -35,7 +35,7 @@ public class ScheduleController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String name = authentication.getName();
         model.addAttribute("name",name);
-//        model.addAttribute("employee",employee);
+        model.addAttribute("employee",employee);
     }
 
     @ResponseBody

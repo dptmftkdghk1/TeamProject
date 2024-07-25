@@ -1,10 +1,14 @@
 package com.team.controller;
 
+import com.team.domain.EmployeeDTO;
 import com.team.domain.NoticeDTO;
 import com.team.domain.ProductDTO;
 import com.team.mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -23,7 +27,13 @@ public class NoticeBoardController {
     // 공지사항 목록 조회
     @Transactional(readOnly = true)
     @GetMapping("/notice")
-    public String create_view(Model model){
+    public String create_view(
+            @AuthenticationPrincipal EmployeeDTO employee,
+            Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        model.addAttribute("name",name);
+        model.addAttribute("employee",employee);
         List<NoticeDTO> notices = noticeMapper.selectAllNotice();
         model.addAttribute("notices", notices);
         System.out.println(notices);
@@ -42,7 +52,14 @@ public class NoticeBoardController {
     // 공지사항 등록 페이지
     @Transactional
     @GetMapping("/registration")
-    public String get_registration_view(){
+    public String get_registration_view(
+            @AuthenticationPrincipal EmployeeDTO employee,
+            Model model
+            ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        model.addAttribute("name",name);
+        model.addAttribute("employee",employee);
         return "/notice/registration";
     }
 

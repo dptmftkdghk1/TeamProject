@@ -3,6 +3,7 @@
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
 >
 <head>
     <meta charset="UTF-8">
@@ -10,14 +11,14 @@
     <link rel="stylesheet" href="../../static/css/notice/registration.css" th:href="@{/css/notice/registration.css}">
     <script src="../../static/js/notice/registration.js" th:src="@{/js/notice/registration}" defer></script>
 </head>
+<main layout:fragment="main">
 <body>
-
 <form action="/Notice_Service/registration" method="post" class="object-manage">
     <h2>글쓰기</h2>
     <section class="object-manage-section">
         <input type="text" name="boardTitle"  class="object-manage-section-content">
         <!-- <input type="text"> -->
-        <div type="text" class="object-manage-section-button-search">황예슬</div>
+        <div type="text" class="object-manage-section-button-search" th:text="${name}">황예슬</div>
         <!-- <button class="object-manage-section-button-search">검색</button> -->
 
         <div class="object-manage-button-style">
@@ -35,4 +36,5 @@
 
 
 </body>
+</main>
 </html>
