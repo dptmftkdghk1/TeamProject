@@ -27,7 +27,7 @@ public class ChatController {
 
     @GetMapping("/chat")
     public String chat(
-//            HttpSession session,
+            HttpSession session,
             String userid, // 내 아이디
             Integer roomNo,
             @AuthenticationPrincipal EmployeeDTO employee,
@@ -43,7 +43,7 @@ public class ChatController {
         }
         else {
             EmployeeDTO employeeDTO = chatService.selectUserById(userid);
-//            session.setAttribute("user", employeeDTO);
+            session.setAttribute("user", employeeDTO);
             System.out.println("나 자신 조회함: " + employeeDTO);
         }
         List<EmployeeDTO> employees = chatService.selectAllWithoutMe(userid);
@@ -76,7 +76,6 @@ public class ChatController {
             HttpSession session,
             @RequestBody EmployeeDTO otherUser
     ){
-        System.out.println(session);
         EmployeeDTO user = (EmployeeDTO) session.getAttribute("user");
         chatService.createRoom(user.getEmployeeId(), otherUser.getEmployeeId());
 
