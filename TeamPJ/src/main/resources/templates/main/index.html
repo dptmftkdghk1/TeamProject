@@ -19,7 +19,7 @@
     <section class="main-section">
         <div class="main-div">
             <a class="main-item" th:href="|/menu/profile/${employee.employeeId}|">마이페이지</a>
-            <a class="main-item" href="#">채팅</a>
+            <a class="main-item" th:href="|/chat?userid=${name}|">채팅</a>
             <a class="main-item" href="/menu/drive">공유드라이브</a>
             <a class="main-item" th:href="|/menu/memo/${employee.employeeId}|">메모</a>
             <a class="main-item" href="/product/manage_product">비품관리</a>

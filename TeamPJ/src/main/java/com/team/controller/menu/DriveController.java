@@ -1,9 +1,9 @@
 package com.team.controller.menu;
 
+import com.team.FileService;
 import com.team.domain.EmployeeDTO;
-import com.team.domain.FileDTO;
-import com.team.service.menuservice.FileService;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +17,7 @@ import java.util.Objects;
 @Controller
 @Log4j2
 public class DriveController {
+    @Autowired
     private final FileService fileService;
 
     public DriveController(FileService fileService) {
@@ -35,14 +36,14 @@ public class DriveController {
         return null;
     }
 
-    @PostMapping("/menu/drive")
-    public void post_drive(EmployeeDTO employeeDTO){
-        try {
-            employeeDTO.setEmployeeId("test");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("hi" + employeeDTO);
-        fileService.insertFilesService(employeeDTO);
-    }
+//    @PostMapping("/menu/drive")
+//    public void post_drive(EmployeeDTO employeeDTO){
+//        try {
+//            employeeDTO.setEmployeeId("test");
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//        System.out.println("hi" + employeeDTO);
+//        fileService.insertFilesService(employeeDTO);
+//    }
 }

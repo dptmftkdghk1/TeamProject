@@ -10,7 +10,7 @@
     </parent>
     <groupId>com</groupId>
     <artifactId>team</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>TeamPJ</name>
     <description>TeamPJ</description>
     <url/>
@@ -109,6 +109,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
     </dependencies>
 
