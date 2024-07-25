@@ -1,9 +1,6 @@
 package com.team.mapper;
 
-import com.team.domain.EmployeeDTO;
-import com.team.domain.MemoDTO;
-import com.team.domain.ProductDTO;
-import com.team.domain.ReservationDTO;
+import com.team.domain.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -11,7 +8,8 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface Mapper {
 //    로그인 관련
-    void insertEmployee(EmployeeDTO employeeDTO);
+    EmployeeDTO insertEmployee(EmployeeDTO employeeDTO);
+    void insertEmployeeFile(EmployeeDTO employeeDTO);
     Boolean selectEmployeeIdIsAvailable(@Param("employeeId") String employeeId);
     EmployeeDTO selectEmployeeById(String employeeId);
     void updateEmployee(EmployeeDTO employeeDTO);
@@ -32,7 +30,10 @@ public interface Mapper {
     // 메모 수정 및 보기
     MemoDTO selectMemoByNo(@Param("memoNo") Integer memoNo);
     //메모 삭제
-    boolean deleteMemoByNo(@Param("memoNo") Integer memoNo);
+    void deleteMemoByNo(@Param("memoNo") Integer memoNo);
 
+
+    // 드라이브
+    void insertFiles(EmployeeDTO employeeDTO);
 
 }

@@ -1,99 +1,99 @@
 // 빈/*칸에// 빈 칸에 대한 이벤트 처리*/
 
-function validateForm() {
-    const fieldIds = ['employeeId', 'employeePassword', 'employeePassword2', 'employeeName','employeeBirthDate','employeePhoneNumber','employeeEmail','employeeAddress','employeeGender','employeeDept','employeeProfileImage'];
-
-    let isValid = true;
-
-    for (let i = 0; i < fieldIds.length; i++) {
-        const fieldValue = document.getElementById(fieldIds[i]).value.trim();
-
-        switch (fieldIds[i]) {
-            case 'employeeId':
-                if (fieldValue === '') {
-                    alert('아이디를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeePassword':
-                if (fieldValue === '') {
-                    alert('비밀번호를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeePassword2':
-                if (fieldValue === '') {
-                    alert('비밀번호를 재입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeName':
-                if (fieldValue === '') {
-                    alert('이름을 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeBirthDate':
-                if (fieldValue === '') {
-                    alert('생년월일을 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeePhoneNumber':
-                if (fieldValue === '') {
-                    alert('휴대폰 번호를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeEmail':
-                if (fieldValue === '') {
-                    alert('메일을 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeAddress':
-                if (fieldValue === '') {
-                    alert('주소를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeGender':
-                if (fieldValue === '') {
-                    alert('성별을 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeDept':
-                if (fieldValue === '') {
-                    alert('부서를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-            case 'employeeProfileImage':
-                if (fieldValue === '') {
-                    alert('프로필 이미지를 입력해주세요.');
-                    isValid = false;
-                }
-                break;
-        }
-        if (!isValid) {
-            break;
-        }
-    }
-    const id = document.getElementById('employeeId').value;
-    if(id.length < 4 && id.length > 12) {
-        alert("아이디를 4자리 이상 12자리 미만으로 작성해주세요");
-        isValid = false;
-    }
-    const password = document.getElementById('employeePassword').value;
-        const confirmPassword = document.getElementById('employeePassword2').value;
-        if (password !== confirmPassword) {
-            alert('비밀번호가 일치하지 않습니다.');
-            isValid = false;
-        }
-
-    return isValid;
-}
+// function validateForm() {
+//     const fieldIds = ['employeeId', 'employeePassword', 'employeePassword2', 'employeeName','employeeBirthDate','employeePhoneNumber','employeeEmail','employeeAddress','employeeGender','employeeDept','employeeProfileImage'];
+//
+//     let isValid = true;
+//
+//     for (let i = 0; i < fieldIds.length; i++) {
+//         const fieldValue = document.getElementById(fieldIds[i]).value.trim();
+//
+//         switch (fieldIds[i]) {
+//             case 'employeeId':
+//                 if (fieldValue === '') {
+//                     alert('아이디를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeePassword':
+//                 if (fieldValue === '') {
+//                     alert('비밀번호를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeePassword2':
+//                 if (fieldValue === '') {
+//                     alert('비밀번호를 재입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeName':
+//                 if (fieldValue === '') {
+//                     alert('이름을 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeBirthDate':
+//                 if (fieldValue === '') {
+//                     alert('생년월일을 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeePhoneNumber':
+//                 if (fieldValue === '') {
+//                     alert('휴대폰 번호를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeEmail':
+//                 if (fieldValue === '') {
+//                     alert('메일을 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeAddress':
+//                 if (fieldValue === '') {
+//                     alert('주소를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeGender':
+//                 if (fieldValue === '') {
+//                     alert('성별을 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeDept':
+//                 if (fieldValue === '') {
+//                     alert('부서를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//             case 'employeeProfileImage':
+//                 if (fieldValue === '') {
+//                     alert('프로필 이미지를 입력해주세요.');
+//                     isValid = false;
+//                 }
+//                 break;
+//         }
+//         if (!isValid) {
+//             break;
+//         }
+//     }
+//     const id = document.getElementById('employeeId').value;
+//     if(id.length < 4 && id.length > 12) {
+//         alert("아이디를 4자리 이상 12자리 미만으로 작성해주세요");
+//         isValid = false;
+//     }
+//     const password = document.getElementById('employeePassword').value;
+//         const confirmPassword = document.getElementById('employeePassword2').value;
+//         if (password !== confirmPassword) {
+//             alert('비밀번호가 일치하지 않습니다.');
+//             isValid = false;
+//         }
+//
+//     return isValid;
+// }
 
 
 

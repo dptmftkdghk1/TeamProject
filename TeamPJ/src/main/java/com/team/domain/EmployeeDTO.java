@@ -33,8 +33,8 @@ public class EmployeeDTO implements UserDetails {
     private String employeeDetailedAddress;
     private String employeeGender;
     private String employeeDept;
-    private FileDTO file;
-    private Map<String, Object> attributes;
+    private List<FileDTO> file;
+
 
 
 

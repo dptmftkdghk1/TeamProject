@@ -1,5 +1,6 @@
 package com.team.controller;
 
+import com.team.domain.EmployeeDTO;
 import com.team.domain.ReservationDTO;
 import com.team.service.reserveservice.ReserveService;
 import lombok.extern.log4j.Log4j2;
@@ -7,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +27,8 @@ public class ReservationController {
     @GetMapping("/reservation")
     public String get_reservation(
             @RequestParam("productNo") Integer productNo
-    ) {
+            ) {
+
         return "reservation/reservation";
     }
 
@@ -38,11 +43,16 @@ public class ReservationController {
     }
 
     @GetMapping("/list")
-    public String get_list(Model model, String query){
+    public String get_list(Model model, String query,
+                           @AuthenticationPrincipal EmployeeDTO employee
+                           ){
         List<ReservationDTO> reservationList = reserveService.selectReservations(query);
 
-//        System.out.println(reservationList);
-
+        System.out.println(reservationList);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        model.addAttribute("name", name);
+        model.addAttribute("employee",employee);
         model.addAttribute("reservationList", reservationList);
         return "/reservation/reservation_list";
     }
@@ -59,24 +69,7 @@ public class ReservationController {
         return "/reservation/reservation_check";
     }
 
-//    @PutMapping("/list/{reservationNo}")
-//    public ResponseEntity<Void> post_reservation_update(
-//            @PathVariable("reservationNo") Integer reservationNo
-//
-//    ){
-//        reserveService.reservationApprove(reservationNo);
-//        return ResponseEntity.ok().body(null);
-//    }
-//
-//    @DeleteMapping("/list/{reservationNo}")
-//    public ResponseEntity<Void> post_reservation_delete(
-//            @PathVariable("reservationNo") Integer reservationNo
-//
-//    ){
-//        reserveService.deleteReservation(reservationNo);
-//        return ResponseEntity.ok().body(null);
-//    }
-    @PutMapping("/list")
+    @PostMapping("/list")
     public ResponseEntity<String> post_reservation_update(
             @RequestBody Integer item
 

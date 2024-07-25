@@ -26,12 +26,12 @@
     &quot;assignee&quot;: &quot;shlee0423&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/dptmftkdghk1/TeamProject.git&quot;,
-    &quot;accountId&quot;: &quot;91553659-cfd7-4344-9d85-39ddd801cebd&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/dptmftkdghk1/TeamProject.git",
+    "accountId": "992d8b09-7254-4d78-8cda-1b9d5bc5a7cb"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -42,19 +42,75 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+<<<<<<< HEAD
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "lsh",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+=======
+    "JavaScript 디버그.manage_product.html.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.TeamPjApplication.executor": "Run",
+    "git-widget-placeholder": "kdhan",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Spring Board Project",
+>>>>>>> bdf9fb51cd30e22f8f1f12929149f3e10ce750fb
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+<<<<<<< HEAD
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+=======
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle 작업" flag="true" />
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP 요청" flag="true" />
+      <visibility group="Maven Goal" flag="true" />
+      <visibility group="Node.js" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="yarn" flag="true" />
+      <visibility group="실행 구성" flag="true" />
+      <visibility group="최근 프로젝트" flag="true" />
+    </myKeys>
+  </component>
+  <component name="RunManager">
+    <configuration name="TeamPjApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="team" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.team.TeamPjApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+>>>>>>> bdf9fb51cd30e22f8f1f12929149f3e10ce750fb
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -78,7 +134,11 @@
       <workItem from="1720225541782" duration="18000" />
       <workItem from="1720774087703" duration="13000" />
       <workItem from="1720960593484" duration="27000" />
+<<<<<<< HEAD
       <workItem from="1721748731320" duration="619000" />
+=======
+      <workItem from="1721712576001" duration="15768000" />
+>>>>>>> bdf9fb51cd30e22f8f1f12929149f3e10ce750fb
     </task>
     <servers />
   </component>

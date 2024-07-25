@@ -1,7 +1,7 @@
 
 /*@@헤더@@*/
 .navbar {
-    min-width: 1500px;
+    min-width: 800px;
     display: flex;
     justify-content: space-between;
     align-items: center;

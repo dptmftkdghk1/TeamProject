@@ -20,8 +20,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf().
-        disable();
+//        http.csrf().
+//        disable();
 
 
 
@@ -49,6 +49,15 @@ public class SecurityConfig {
 //            registry.anyRequest().authenticated();
 
         });
+
+//        어드민 접근 권한
+
+//        http.authorizeHttpRequests(registry -> {
+//            registry.requestMatchers("/product/manage_product", "/reservation/list").hasRole("ADMIN")
+//                    // /main 경로는 인증된 사용자만 접근 가능
+//                    .requestMatchers("/main/**").authenticated()
+//                    .anyRequest().permitAll();
+//        });
 
         return http.build();
     }

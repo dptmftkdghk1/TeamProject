@@ -5,5 +5,5 @@ import lombok.extern.log4j.Log4j2;
 
 
 public interface ProfileService {
-    void updateProfile(EmployeeDTO employeeDTO);
+    EmployeeDTO selectEmployeeById(String id);
 }

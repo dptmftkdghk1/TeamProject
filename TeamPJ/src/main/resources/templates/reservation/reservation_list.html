@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
 >
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,7 @@
     <script src="../../static/js/reservation/reservation_list.js" th:src="@{/js/reservation/reservation_list.js}" defer></script>
 </head>
 <body>
-    
+<main layout:fragment="main">
     <div class="rental-table-list">
         <h2>대여신청 목록</h2>
         <form th:action="@{/reservation/list}" name="test" method="get">
@@ -74,8 +75,7 @@
             <li>5</li>
         </section>
     </div>
-      
-      
+</main>
 </body>
 </html>
 

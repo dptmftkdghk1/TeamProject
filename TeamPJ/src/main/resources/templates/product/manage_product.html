@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
 >
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,7 @@
     <script src="../../static/js/product/manage_product.js" th:src="@{/js/product/manage_product.js}" defer></script>
 </head>
 <body>
-    
+    <main layout:fragment="main">
     <form class="table-list">
         <h2>비품 관리</h2>
         <section class=" table-list-search">
@@ -103,7 +104,7 @@
             <li>5</li>
         </section>
     </form>
-      
-      
+
+    </main>
 </body>
 </html>

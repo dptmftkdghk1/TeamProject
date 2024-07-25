@@ -5,6 +5,7 @@ import com.team.domain.MemoDTO;
 import com.team.service.menuservice.MemoServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -108,15 +109,15 @@ public class MemoController {
         return "/menu/memo_detail"; // memoDetail.html 또는 원하는 view 이름으로 설정
     }
 
-    @DeleteMapping("/memo/{employeeId}/{memoNo}")
     @ResponseBody
-    public ResponseEntity<Void> deleteMemo(@PathVariable("employeeId") String employeeId, @PathVariable("memoNo") Integer memoNo) {
-        boolean isDeleted = memoServiceImpl.deleteMemoByNo(memoNo);
-        if (isDeleted) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @DeleteMapping("/memo/{employeeId}/{memo}")
+    public ResponseEntity<Void> deleteMemo(
+            @PathVariable("employeeId") String employeeId,
+            @PathVariable("memo") Integer memoNo,
+            @RequestHeader("X-CSRF-TOKEN") String csrfToken
+    ) {
+        memoServiceImpl.deleteMemoByNo(memoNo);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 
