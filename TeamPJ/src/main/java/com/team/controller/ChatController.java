@@ -88,8 +88,8 @@ public class ChatController {
             @PathVariable("roomNo") Integer roomNo,
             @RequestBody ChatDTO chat
     ){
-//        System.out.println("남바" + roomNo);
-        System.out.println("채채챗:" + chat);
+        System.out.println("남바" + roomNo);
+//        System.out.println("채채챗:" + chat);
 //        System.out.println("챗챗" + chat.getChatMessage());
         chatService.createChat(roomNo, chat);
         return ResponseEntity.status(HttpStatus.CREATED).build();

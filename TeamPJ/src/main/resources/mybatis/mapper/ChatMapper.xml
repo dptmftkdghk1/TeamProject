@@ -25,15 +25,21 @@
 
     <select id="selectRooms" resultType="com.team.domain.RoomDTO" resultMap="selectRoomWithEmployee">
         SELECT
+            CHAT_EM.employee_id AS 'chat_employee',
+            CHAT_EM.employee_name AS 'chat_employee_name',
+            CHAT_EM.employee_profile_img AS 'chat_employee_profile_img',
             R.*,
-            E.*,
+            ROOM_EM.*,
             C.*
         FROM `room_people` R
-                 INNER JOIN `employee` E
-                            ON R.user_id = E.employee_id
+                 INNER JOIN `employee` ROOM_EM
+                            ON R.employee_id = ROOM_EM.employee_id
                  LEFT OUTER JOIN `chat` C
-                                 ON E.employee_id = C.employee_id
-        WHERE R.room_no IN (SELECT room_no FROM `room_people` WHERE user_id = #{employeeId})
+                                 ON R.employee_id = C.employee_id AND R.room_no = C.room_no
+                 LEFT OUTER JOIN `employee` CHAT_EM
+                                 ON C.employee_id = CHAT_EM.employee_id
+        WHERE R.room_no IN (SELECT room_no FROM `room_people` WHERE employee_id = #{employeeId})
+        ORDER BY chat_time
     </select>
 
     <resultMap id="selectRoomWithEmployee" type="com.team.domain.RoomDTO" autoMapping="true">

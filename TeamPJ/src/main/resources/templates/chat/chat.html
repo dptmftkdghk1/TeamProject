@@ -16,10 +16,11 @@
 <!--    <script type="module" src="../static/js/middle-section.js" defer></script>-->
 <!--    <script src="../static/js/left-section.js" defer></script>-->
     <script type="module" src="../../static/js/chat/middle-section.js" th:src="@{/js/chat/middle-section.js}" defer></script>
-    <script src="../../static/js/chat/left-section.js" th:src="@{/js/chat/left-section.js}"></script>
+    <script src="../../static/js/chat/left-section.js" th:src="@{/js/chat/left-section.js}" defer></script>
 </head>
 <body>
 <main layout:fragment="main">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <section class="left-section">
         <div class="search-container">
             <input class="search-input" type="text" placeholder="검색">
