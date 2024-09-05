@@ -20,7 +20,7 @@
 <main layout:fragment="main">
     <div class="schedule">
         <h2>프로필 관리</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="get" th:action="|/menu/profile/${employeeId}|"   enctype="multipart/form-data">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <div class="profile-margin-design">
                 <label>
@@ -60,7 +60,7 @@
             <div class="profile-margin-design">
                 <label>
                     <span>사진</span>
-                    <input type="text">
+                    <img th:if="${profileImageBase64 != null}" th:src="|data:image/jpeg;base64,${profileImageBase64}|" alt="프로필 이미지"/>
                 </label>
             </div>
             <button type="submit">프로필 변경</button>

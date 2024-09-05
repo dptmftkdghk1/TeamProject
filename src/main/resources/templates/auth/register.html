@@ -23,7 +23,7 @@
 <div class="join">
     <h1>New Company</h1>
     <h2>회원가입</h2>
-    <form id="joinForm" th:action="@{/auth/register}" method="POST" enctype="multipart/form-data"
+    <form id="joinForm" action="/auth/register" method="POST" enctype="multipart/form-data"
           onsubmit="return validateForm()">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <div class="join-form-box">
@@ -152,7 +152,7 @@
             <label class="join-profile-line">
                 <span>프로필 사진</span>
 <!--                이미지 처리해야함-->
-                <span class="join-profile"><input type="file" name="file" accept="image/jpeg, image/png"></span>
+                <span class="join-profile"><input type="file" name="files" accept="image/jpeg, image/png"></span>
             </label>
             <div id="image-preview" class="image-preview"></div>
         </div>

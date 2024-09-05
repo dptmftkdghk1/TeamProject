@@ -15,4 +15,5 @@ public interface ReserveMapper {
     ReservationDTO selectReservationByNo(Integer reservationNo);
     void ReservationUpdate(Integer reservationNo);
     void deleteReservation(Integer reservationNo);
+    Integer countReservation(Integer productNo);
 }

@@ -11,7 +11,7 @@ public interface MemoService {
 
     List<MemoDTO> getAllMemos(String query, String keyword);
 
-    boolean deleteMemoByNo(Integer memoNo);
+    void deleteMemoByNo(Integer memoNo);
     List<MemoDTO> selectMemoById(String employeeId,String query,String keyword);
     MemoDTO selectMemoByNo(Integer memoNo);
 }

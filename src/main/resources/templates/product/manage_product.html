@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/main-layout}"
 >
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,7 @@
     <script src="../../static/js/product/manage_product.js" th:src="@{/js/product/manage_product.js}" defer></script>
 </head>
 <body>
-    
+    <main layout:fragment="main">
     <form class="table-list">
         <h2>비품 관리</h2>
         <section class=" table-list-search">
@@ -54,7 +55,6 @@
 
                 <tr class="product" th:each="product: ${products}">
                     <td><input type="checkbox"></td>
-
                     <td class="product-no" th:text="${product.productNo}">2020001</td>
                     <td><a class="name" th:href="|/product/${product.productNo}|" th:text="${product.productName}">쿠크다스</a></td>
                     <td class="category" th:text="${product.productCategory}">과자</td>
@@ -63,11 +63,10 @@
                     <td class="supplier" th:text="${product.productSupplier}">쿠팡</td>
                     <td class="price" th:text="${product.productPrice}">4000</td>
                     <td class="description" th:text="${product.productDescription}">부서ID</td>
-
-                    <td th:if="${product.productStatus == true}">
+                    <td th:if="${product.productStatus == true && product.productAmount != 0}">
                         <a th:href="@{/reservation/reservation(productNo=${product.productNo})}">대여가능</a>
                     </td>
-                    <td th:unless="${product.productStatus == true}">대여불가</td>
+                    <td th:if="${product.productStatus == false || product.productAmount == 0}">대여불가</td>
                 </tr>
 
 <!--                <tr>-->
@@ -105,7 +104,7 @@
             <li>5</li>
         </section>
     </form>
-      
-      
+
+    </main>
 </body>
 </html>

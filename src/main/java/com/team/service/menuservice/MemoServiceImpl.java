@@ -25,8 +25,8 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
-    public boolean deleteMemoByNo(Integer memoNo) {
-        return mapper.deleteMemoByNo(memoNo);
+    public void deleteMemoByNo(Integer memoNo) {
+        mapper.deleteMemoByNo(memoNo);
     }
     @Override
     public List<MemoDTO> selectMemoById(String employeeId,String query, String keyword) {

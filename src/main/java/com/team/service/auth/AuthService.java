@@ -108,19 +108,12 @@ public class AuthService {
         log.info("user get ci" + employee.getEmployeeCi());
         // 유저를 회원가입 시킬 때, 패스워드를 인코딩해서 넣는다
         employee.setEmployeePassword(passwordEncoder.encode(employee.getEmployeePassword()));
+        log.info(employee.getEmployeePassword());
+
         // 유저를 insert한다
-        mapper.insertEmployee(employee);
+        EmployeeDTO result = mapper.insertEmployee(employee);
+        System.out.println(result);
+        mapper.insertEmployeeFile(result);
         return true;
     }
-
-    public EmployeeDTO selectAllEmployees(String id) {
-        return mapper.selectEmployeeById(id);
-    }
-    public EmployeeDTO selectAll()
-    {
-        return mapper.selectAll();
-    }
-
-
-
 }

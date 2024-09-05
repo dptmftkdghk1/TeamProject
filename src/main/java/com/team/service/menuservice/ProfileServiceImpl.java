@@ -13,7 +13,7 @@ public class ProfileServiceImpl implements ProfileService{
     private Mapper mapper;
 
     @Override
-    public void updateProfile(EmployeeDTO employeeDTO) {
-         mapper.updateEmployee(employeeDTO);
+    public EmployeeDTO selectEmployeeById(String id) {
+         return mapper.selectEmployeeById(id);
     }
 }

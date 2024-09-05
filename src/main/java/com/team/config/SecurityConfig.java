@@ -24,7 +24,6 @@ public class SecurityConfig {
 //        disable();
 
 
-
         http.formLogin(config -> {
             config.loginPage("/auth/login").loginProcessingUrl("/auth/login")
                     .usernameParameter("employeeId")
@@ -49,6 +48,15 @@ public class SecurityConfig {
 //            registry.anyRequest().authenticated();
 
         });
+
+//        어드민 접근 권한
+
+//        http.authorizeHttpRequests(registry -> {
+//            registry.requestMatchers("/product/manage_product", "/reservation/list").hasRole("ADMIN")
+//                    // /main 경로는 인증된 사용자만 접근 가능
+//                    .requestMatchers("/main/**").authenticated()
+//                    .anyRequest().permitAll();
+//        });
 
         return http.build();
     }

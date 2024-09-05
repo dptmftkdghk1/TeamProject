@@ -28,6 +28,7 @@ public class ReserveServiceImpl implements ReserveService{
 
     @Override
     public ReservationDTO select_reservation_by_no(Integer reservationNo) {
+        log.info("reservationNo:"+reservationNo);
         return reserveMapper.selectReservationByNo(reservationNo);
     }
 
@@ -40,5 +41,6 @@ public class ReserveServiceImpl implements ReserveService{
     public void deleteReservation(Integer reservationNo) {
         reserveMapper.deleteReservation(reservationNo);
     }
+
 
 }
