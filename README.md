@@ -60,7 +60,7 @@ DB 설계
 |selectMemoByEmployeeId|/menu/memo/{employeeId}|GET|/auth/login|직원 별 메모 페이지 + 검색
 |insertMemoByEmployeeId|/menu/memo/{employeeId}|POST|/menu/memo/{employeeId}|직원 별 메모 입력
 |updateMemoByEmployeeIdMemoNo|/menu/memo/{employeeId}l/{memoNo}|POST|X|직원 별 메모 수정
-|deteleMemoByEmployeeIdMemoNo|/menu/memo/{employeeId}|/{memoNo}|DELETE|X|직원 별 메모 석제
+|deteleMemoByEmployeeIdMemoNo|/menu/memo/{employeeId}/{memoNo}|DELETE|X|직원 별 메모 석제
 |index|/main/index|GET|/auth/login|메인 페이지
 |profile|/main/profile/{employeeId}|GET|/auth/login|프로필 페이지
 
