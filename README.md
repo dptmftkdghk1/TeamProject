@@ -52,7 +52,7 @@ DB 설계
 
 ## API 명세
 |name|Path|Method|Redirect|Info|
-|:----:|:----:|:----:|:----:|:----:|
+|:----:|:----:|:----:|:----:|:--------:|
 |login|/auth/login|GET|X|로그인 페이지
 |register|/auth/register|GET|X|회원가입 페이지
 |register|/auth/register|POST|X|회원가입 페이지 입력정보 받아오기
