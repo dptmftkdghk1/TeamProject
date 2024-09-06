@@ -19,10 +19,10 @@ Spring Boot, Mybatis, MySQL, NCloud Platform, Docker
 
 
 ## 팀원
-+ 황예슬 (팀장, B/F)
-+ 김동희 (팀원, B/F)
-+ 이승훈 (팀원, B/F)
-+ 김동환 (팀원, B/F)
++ 황예슬 (팀장, BE/FE)
++ 김동희 (팀원, BE/FE)
++ 이승훈 (팀원, BE/FE)
++ 김동환 (팀원, BE/FE)
 
 
 
@@ -49,3 +49,12 @@ DB 설계
 + 공유 드라이브
 + 네비게이터
 + 채팅
+
+## API 명세
+|name|Path|Method|Redirect|Info|
+|:----:|:----:|:----:|:----:|:----:|
+|login|/auth/login|GET|X|로그인 페이지
+|register|/auth/register|GET|X|회원가입 페이지
+|register|/auth/register|POST|X|회원가입 페이지 입력정보 받아오기
+|checkAvailableId|/auth/register/{employeeId}|GET|X|아이디 중복 체크
+|memoByEmployeeId|/menu/memo/{employeeId}|GET|/auth/login|직원 별 메모 페이지
