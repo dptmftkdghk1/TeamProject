@@ -1,4 +1,4 @@
-# 회사 관리 프로그램 (24.09.05)
+# 회사 관리 프로그램 (24.09.06 16:09)
 
 ## 프로젝트 소개
 회사에서 사용하는 업무들을 하나의 웹 페이지에서 다 처리할 수 있도록 하고자 만든 웹 프로그램입니다. Spring Boot를 활용하여 웹 페이지를 제작하였습니다.
@@ -57,4 +57,18 @@ DB 설계
 |register|/auth/register|GET|X|회원가입 페이지
 |register|/auth/register|POST|X|회원가입 페이지 입력정보 받아오기
 |checkAvailableId|/auth/register/{employeeId}|GET|X|아이디 중복 체크
-|memoByEmployeeId|/menu/memo/{employeeId}|GET|/auth/login|직원 별 메모 페이지
+|selectMemoByEmployeeId|/menu/memo/{employeeId}|GET|/auth/login|직원 별 메모 페이지 + 검색
+|insertMemoByEmployeeId|/menu/memo/{employeeId}|POST|/menu/memo/{employeeId}|직원 별 메모 입력
+|updateMemoByEmployeeIdMemoNo|/menu/memo/{employeeId}l/{memoNo}|POST|X|직원 별 메모 수정
+|deteleMemoByEmployeeIdMemoNo|/menu/memo/{employeeId}|/{memoNo}|DELETE|X|직원 별 메모 석제
+|index|/main/index|GET|/auth/login|메인 페이지
+|profile|/main/profile/{employeeId}|GET|/auth/login|프로필 페이지
+
+### 추가해야할 API 
+공지 + 챗 + 조직도 + 비품 + 예약 + 스케쥴
+
+## 수정해야할 것
++ 공지 Service Mapper 분리
++ File 처리
++ 
+
