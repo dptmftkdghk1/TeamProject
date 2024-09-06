@@ -70,5 +70,5 @@ DB 설계
 ## 수정해야할 것
 + 공지 Service Mapper 분리
 + File 처리
-+ 
++ CSS 깨짐 수정, 미디어 쿼리 추가
 
