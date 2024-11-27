@@ -26,9 +26,9 @@
     <select id="selectRooms" resultType="com.team.domain.RoomDTO" resultMap="selectRoomWithEmployee">
         SELECT
             CHAT_EM.employee_id AS 'chat_employee',
-            CHAT_EM.employee_name AS 'chat_employee_name',
-            CHAT_EM.employee_profile_img AS 'chat_employee_profile_img',
-            R.*,
+                CHAT_EM.employee_name AS 'chat_employee_name',
+                CHAT_EM.employee_image AS 'chat_employee_profile_img',
+                R.*,
             ROOM_EM.*,
             C.*
         FROM `room_people` R
